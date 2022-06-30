@@ -57,12 +57,17 @@ export const NavSidebar = () => {
             },
             {
               title: "Graphics",
-              itemId: "graphics",
+              itemId: "/graphics",
               // Optional
             },
             {
               title: "About",
-              itemId: "about",
+              itemId: "/about",
+              // Optional
+            },
+            {
+              title: "Competition",
+              itemId: "/competition",
               // Optional
             },
           ]}

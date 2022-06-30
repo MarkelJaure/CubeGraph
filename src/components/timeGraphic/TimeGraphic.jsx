@@ -9,6 +9,7 @@ import {
   YAxis,
 } from "recharts";
 import React from "react";
+
 export default function TimeGraphic(props) {
   return <div>{chartOfData(props.actualData, props.color)}</div>;
 }
