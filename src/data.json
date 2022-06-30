@@ -1,0 +1,87 @@
+{
+  "times": {
+    "oficials": {
+      "333": {
+        "normal": [
+          {
+            "date": 1640654112584,
+            "time": 67933,
+            "dnf": false,
+            "plus": false,
+            "scramble": {
+              "state": "DUDUULUUFRFLBRFRRULRDDFUFFBDDUBDBURLRLBDLLFLLBFBRBBFDR",
+              "string": "B' U2 R2 U2 B  D2 F' U2 F  U2 B2 R  D  U' L2 F2 D  R' B' U"
+            },
+            "comment": ""
+          },
+          {
+            "date": 1640654262247,
+            "time": 70266,
+            "dnf": false,
+            "plus": false,
+            "scramble": {
+              "state": "BDBLURBDFUUUFRDLBRLRRFFULRUFBBFDLFUFDUDFLRULDRLRBBDDBL",
+              "string": "B2 D  B2 U' R2 D  B2 U' F2 U' L  B  F2 L  D' R2 D2 B2 R  D'"
+            },
+            "comment": ""
+          },
+          {
+            "date": 1640654369132,
+            "time": 64503,
+            "dnf": false,
+            "plus": false,
+            "scramble": {
+              "state": "RBUDUDRFBRFBURFUULDUUUFBBBLLRFRDLBDDFBFRLRRFDLLULBDFLD",
+              "string": "U  L2 F2 U  L2 B2 D' B2 F2 D  R2 F  U2 L' R' U' L' D  B' F' D'"
+            },
+            "comment": ""
+          },
+          {
+            "date": 1640654571239,
+            "time": 79766,
+            "dnf": false,
+            "plus": false,
+            "scramble": {
+              "state": "LBLDUFBULDRFFRRDRRRRBUFUDFFFDLDDDRFDBLUBLLUBRUUUBBLBLF",
+              "string": "R2 D2 B2 D' L2 B2 D  B2 D  L2 F2 R  F2 R2 B' D  B' D' U' R' B"
+            },
+            "comment": ""
+          },
+          {
+            "date": 1640654720514,
+            "time": 92723,
+            "dnf": false,
+            "plus": false,
+            "scramble": {
+              "state": "FDUBUDLRDLLRURFRRLBBFLFBBUDLFBLDDFRFRLUDLURFDBFDRBBUUU",
+              "string": "L' D2 L  F2 R  B2 R  B2 L' U2 R2 F  U2 B  L2 D  L' U2 B  D"
+            },
+            "comment": ""
+          },
+          {
+            "date": 1640654858360,
+            "time": 85695,
+            "dnf": false,
+            "plus": false,
+            "scramble": {
+              "state": "DLBDUUBULURDLRDFFBRFFBFFRRDFDRBDRDULLBUULLBRULDFFBBULR",
+              "string": "D' B2 U  L  U2 L  U' D2 F' U2 D' R2 U  L2 D  R2 F2 B2 U  L2"
+            },
+            "comment": ""
+          }
+        ]
+      }
+    }
+  },
+  "actual": { "list": "oficials", "cube": "333", "tag": "normal" },
+  "config": {
+    "general": { "press": false },
+    "inspect": {
+      "enable": false,
+      "value": 15,
+      "press": false,
+      "start": false,
+      "sound": 0
+    }
+  }
+}
