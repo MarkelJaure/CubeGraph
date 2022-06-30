@@ -15,7 +15,7 @@ export default function TimeGraphic(props) {
 
 const chartOfData = (data, color) => {
   return (
-    <ResponsiveContainer width={1800} height={700}>
+    <ResponsiveContainer width={"95%"} height={700}>
       <LineChart
         data={data}
         margin={{

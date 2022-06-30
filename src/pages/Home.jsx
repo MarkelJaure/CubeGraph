@@ -1,4 +1,4 @@
-import { DashboardLayout } from "../navBar/Layout";
+import { DashboardLayout } from "../components/navBar/Layout";
 
 const Home = () => {
   console.log("Home");

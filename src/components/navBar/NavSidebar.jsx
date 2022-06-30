@@ -21,12 +21,6 @@ export const NavSidebar = () => {
         }`}
       />
 
-      <div className="absolute right-0">
-        <a href="https://github.com/abhijithvijayan/react-minimal-side-navigation">
-          View on GitHub
-        </a>
-      </div>
-
       <div>
         <button
           className="btn-menu"

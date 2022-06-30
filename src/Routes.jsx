@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
-import GraphicPage from "./graphicPage/GraphicPage";
-import Home from "./home/Home";
-import AboutPage from "./home/About";
+
+import GraphicPage from "./pages/GraphicPage";
+import Home from "./pages/Home";
+import AboutPage from "./pages/About";
 
 const Routes = () => {
   return (
