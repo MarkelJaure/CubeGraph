@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stopwatch from "./Timer";
+import DisplayTime from "../Number/DisplayTime";
 
 export default function TimeController(props) {
   const [timerPlayer, setTimerPlayer] = useState(false);
@@ -97,28 +98,19 @@ export default function TimeController(props) {
             <table>
               <thead>
                 <tr></tr>
+                <tr></tr>
               </thead>
               <tbody>
-                {listOfTimes.map((time) => {
+                {listOfTimes.map((time, index) => {
                   return (
                     <tr key={time.timestamp}>
+                      <td style={{ float: "left" }}>
+                        <Typography>{index + 1}:</Typography>
+                      </td>
+
                       <td>
                         <Typography>
-                          <span>
-                            {("0" + Math.floor((time.time / 60000) % 60)).slice(
-                              -2
-                            )}
-                            :
-                          </span>
-                          <span>
-                            {("0" + Math.floor((time.time / 1000) % 60)).slice(
-                              -2
-                            )}
-                            :
-                          </span>
-                          <span>
-                            {("0" + ((time.time / 10) % 100)).slice(-2)}
-                          </span>
+                          <DisplayTime time={time.time} />
                         </Typography>
                       </td>
                     </tr>
