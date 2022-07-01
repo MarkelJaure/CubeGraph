@@ -66,6 +66,11 @@ export const NavSidebar = () => {
               // Optional
             },
             {
+              title: "Practice",
+              itemId: "/practice",
+              // Optional
+            },
+            {
               title: "Competition",
               itemId: "/competition",
               // Optional

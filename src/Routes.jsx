@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 
 import GraphicPage from "./pages/GraphicPage";
-import Home from "./pages/Home";
+import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
-import Competition from "./pages/Competition";
+import CompetitionPage from "./pages/Competition";
+import PracticePage from "./pages/Practice";
 
 const Routes = () => {
   return (
@@ -16,11 +17,14 @@ const Routes = () => {
         <Route path="/about">
           <AboutPage />
         </Route>
+        <Route path="/practice">
+          <PracticePage />
+        </Route>
         <Route path="/competition">
-          <Competition />
+          <CompetitionPage />
         </Route>
         <Route path="/">
-          <Home />
+          <HomePage />
         </Route>
       </Switch>
     </BrowserRouter>

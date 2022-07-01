@@ -1,6 +1,6 @@
 import { DashboardLayout } from "../components/navBar/Layout";
 
-const Home = () => {
+const HomePage = () => {
   console.log("Home");
   return (
     <DashboardLayout>
@@ -9,4 +9,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

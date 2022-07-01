@@ -19,6 +19,10 @@ const Stopwatch = (props) => {
   useEffect(() => {
     if (props.isRunning) {
       setTime(0);
+    } else {
+      if (time !== 0) {
+        props.parentCallback(time);
+      }
     }
     setRunning(props.isRunning);
   }, [props.isRunning]);
