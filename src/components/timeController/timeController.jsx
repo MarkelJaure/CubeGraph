@@ -2,13 +2,23 @@ import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import Stopwatch from "./Timer";
 import DisplayTime from "../Number/DisplayTime";
+import {
+  Table,
+  TableContainer,
+  TableCell,
+  TableHead,
+  TableRow,
+  TableBody,
+} from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Icon from "awesome-react-icons";
 
 export default function TimeController(props) {
   const [timerPlayer, setTimerPlayer] = useState(false);
   const [keyLockPlayer, setKeyLockPlayer] = useState(false);
-
   const [listOfTimes, setListOfTimes] = useState([]);
 
   const addToList = (childData) => {
@@ -16,6 +26,12 @@ export default function TimeController(props) {
     tmpList.push({ time: childData, timestamp: Date.now() });
     setListOfTimes(tmpList);
     console.log(listOfTimes);
+  };
+
+  const handleDeleteTime = (time) => {
+    if (listOfTimes.includes(time)) {
+      setListOfTimes(listOfTimes.filter((aTime) => aTime !== time));
+    }
   };
 
   useEffect(() => {
@@ -95,29 +111,39 @@ export default function TimeController(props) {
             Times
           </Typography>
           <Typography variant="h5" component="div">
-            <table>
-              <thead>
-                <tr></tr>
-                <tr></tr>
-              </thead>
-              <tbody>
-                {listOfTimes.map((time, index) => {
-                  return (
-                    <tr key={time.timestamp}>
-                      <td style={{ float: "left" }}>
-                        <Typography>{index + 1}:</Typography>
-                      </td>
-
-                      <td>
-                        <Typography>
-                          <DisplayTime time={time.time} />
-                        </Typography>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 275, tableLayout: "fixed" }}>
+                <TableBody>
+                  {listOfTimes
+                    .map((time, index) => {
+                      return (
+                        <TableRow
+                          key={time.timestamp}
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <TableCell component="th" scope="row">
+                            {index + 1}
+                          </TableCell>
+                          <TableCell>
+                            <DisplayTime time={time.time} />
+                          </TableCell>
+                          <TableCell align="right">
+                            <Button
+                              variant="text"
+                              onClick={() => handleDeleteTime(time)}
+                            >
+                              <Icon name="minus" className="w-6 h-6" />
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })
+                    .reverse()}
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Typography>
         </CardContent>
       </Card>
