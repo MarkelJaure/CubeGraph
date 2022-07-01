@@ -4,8 +4,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Resumen from "../components/resumen/Resumen";
 
-import "./styles.css";
-
 const KEY_PLAYER_1 = 32;
 const KEY_PLAYER_2 = 96;
 

@@ -30,9 +30,32 @@ const Resumen = (props) => {
             color="text.secondary"
             gutterBottom
           >
-            Resumen
+            Comparacion
           </Typography>
-          <Typography variant="h5" component="div"></Typography>
+          <Typography variant="h5" component="div">
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 70, maxWidth: 300, tableLayout: "fixed" }}>
+                <TableBody>
+                  <TableRow>
+                    <TableCell component="th" scope="row" align="left">
+                      Pb 1
+                    </TableCell>
+                    <TableCell component="th" scope="row" align="right">
+                      Pb 2
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell component="th" scope="row" align="left">
+                      Media 1
+                    </TableCell>
+                    <TableCell component="th" scope="row" align="right">
+                      Media 2
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Typography>
         </CardContent>
       </Card>
 
