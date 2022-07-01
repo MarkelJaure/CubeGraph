@@ -9,7 +9,6 @@ import {
   Table,
   TableContainer,
   TableCell,
-  TableHead,
   TableRow,
   TableBody,
 } from "@mui/material";
@@ -74,7 +73,7 @@ export default function TimeController(props) {
   return (
     <>
       <Card
-        sx={{ minWidth: 275, maxWidth: 275 }}
+        sx={{ minWidth: 50, maxWidth: 300 }}
         style={{
           display: "flex",
           justifyContent: "center",
@@ -95,7 +94,7 @@ export default function TimeController(props) {
       </Card>
 
       <Card
-        sx={{ minWidth: 275, maxWidth: 275 }}
+        sx={{ minWidth: 50, maxWidth: 300 }}
         style={{
           display: "flex",
           justifyContent: "center",
@@ -112,7 +111,7 @@ export default function TimeController(props) {
           </Typography>
           <Typography variant="h5" component="div">
             <TableContainer component={Paper}>
-              <Table sx={{ minWidth: 275, tableLayout: "fixed" }}>
+              <Table sx={{ minWidth: 70, maxWidth: 300, tableLayout: "fixed" }}>
                 <TableBody>
                   {listOfTimes
                     .map((time, index) => {
