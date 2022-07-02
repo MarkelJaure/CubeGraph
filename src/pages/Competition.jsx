@@ -10,14 +10,21 @@ const KEY_PLAYER_2 = 96;
 const CompetitionPage = () => {
   const [timesPlayer1, setTimesPlayer1] = useState([]);
   const [timesPlayer2, setTimesPlayer2] = useState([]);
+  const [changePlayer1, setChangePlayer1] = useState(false);
+  const [changePlayer2, setChangePlayer2] = useState(false);
 
   const changeOnTimesPlayer1 = (listOfTimes) => {
-    setTimesPlayer1(listOfTimes);
-    console.log("Cambio de array");
+    if (listOfTimes) {
+      setChangePlayer1(!changePlayer1);
+      setTimesPlayer1(listOfTimes);
+    }
   };
 
   const changeOnTimesPlayer2 = (listOfTimes) => {
-    setTimesPlayer2(listOfTimes);
+    if (listOfTimes) {
+      setChangePlayer2(!changePlayer2);
+      setTimesPlayer2(listOfTimes);
+    }
   };
 
   return (
@@ -39,6 +46,8 @@ const CompetitionPage = () => {
               playerName2={2}
               timesPlayer1={timesPlayer1}
               timesPlayer2={timesPlayer2}
+              changePlayer1={changePlayer1}
+              changePlayer2={changePlayer2}
             />
           </div>
         </div>

@@ -24,8 +24,8 @@ export default function TimeController(props) {
     var tmpList = listOfTimes;
     tmpList.push({ time: childData, timestamp: Date.now() });
     setListOfTimes(tmpList);
-    console.log(listOfTimes);
     if (props.notifyChangeOnTimes) {
+      console.log("Voy a informar que cambio el array");
       props.notifyChangeOnTimes(listOfTimes);
     }
   };
