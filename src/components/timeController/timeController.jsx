@@ -25,11 +25,17 @@ export default function TimeController(props) {
     tmpList.push({ time: childData, timestamp: Date.now() });
     setListOfTimes(tmpList);
     console.log(listOfTimes);
+    if (props.notifyChangeOnTimes) {
+      props.notifyChangeOnTimes(listOfTimes);
+    }
   };
 
   const handleDeleteTime = (time) => {
     if (listOfTimes.includes(time)) {
       setListOfTimes(listOfTimes.filter((aTime) => aTime !== time));
+      if (props.notifyChangeOnTimes) {
+        props.notifyChangeOnTimes(listOfTimes);
+      }
     }
   };
 
@@ -73,7 +79,7 @@ export default function TimeController(props) {
   return (
     <>
       <Card
-        sx={{ minWidth: 50, maxWidth: 300 }}
+        sx={{ minWidth: 50, maxWidth: 400 }}
         style={{
           display: "flex",
           justifyContent: "center",
@@ -94,7 +100,7 @@ export default function TimeController(props) {
       </Card>
 
       <Card
-        sx={{ minWidth: 50, maxWidth: 300 }}
+        sx={{ minWidth: 50, maxWidth: 400 }}
         style={{
           display: "flex",
           justifyContent: "center",
