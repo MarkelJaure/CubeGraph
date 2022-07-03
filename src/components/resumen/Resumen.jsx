@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import DisplayTime from "../Number/DisplayTime";
-import {
-  Table,
-  TableContainer,
-  TableCell,
-  TableRow,
-  TableBody,
-} from "@mui/material";
-import Paper from "@mui/material/Paper";
-import Icon from "awesome-react-icons";
 import StatsComparationCard from "./StatsComparationCard";
 import TimesComparationCard from "./TimesComparationCard";
 import Backdrop from '@mui/material/Backdrop';

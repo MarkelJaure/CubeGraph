@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Stopwatch from "./Stopwatch";
 import DisplayTime from "../Number/DisplayTime";
 import {
   Table,
@@ -16,7 +15,7 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const ListCard = (props) => {
-  
+
   const isTheBestTime = (time) => {
     var bestTime = Math.min(...props.listOfTimes.map((item) => item.time))
     var bestPB = props.listOfTimes.find((aTime) => aTime.time === bestTime) 
