@@ -1,7 +1,6 @@
 import { DashboardLayout } from "../components/navBar/Layout";
-import TimeController from "../components/timeController/timeController";
 import React, { useState, useEffect } from "react";
-
+import CubeTimerController from "../components/timeController/CubeTimerController";
 const KEY_PLAYER = 32;
 
 const PracticePage = () => {
@@ -10,7 +9,7 @@ const PracticePage = () => {
       <div style={styles.container}>
         <div style={styles.div}>
           <div style={styles.div2}>
-            <TimeController keyValue={KEY_PLAYER} playerName={1} />
+            <CubeTimerController keyValue={KEY_PLAYER} playerName={1} />
           </div>
         </div>
       </div>
