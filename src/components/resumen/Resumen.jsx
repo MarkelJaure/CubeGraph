@@ -32,6 +32,14 @@ const Resumen = (props) => {
         playerName1={props.playerName1}
         playerName2={props.playerName2}
       />
+      <div style={{  display: "flex", justifyContent: "center" }}>
+      <Button
+       variant="contained"
+        style={{  display: "flex", justifyContent: "center", margin: 10 }}
+      >
+        Finalizar partida
+      </Button>
+      </div>
     </>
   );
 };

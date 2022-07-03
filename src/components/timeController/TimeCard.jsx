@@ -15,16 +15,20 @@ const TimeCard = (props) => {
   };
 
   function handleKeyDown(e) {
+        console.log("Key Down")
     if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
       setTimerPlayer(false);
       setKeyLockPlayer(true);
+      console.log("Desactivando timer")
     }
   }
 
   function handleKeyUp(e) {
+    console.log("Key Up")
     if (e.keyCode === props.keyValue) {
       if (!keyLockPlayer) {
           setTimerPlayer(true);
+          console.log("Activando timer")
       } else {
         setKeyLockPlayer(false);
       }
@@ -33,22 +37,16 @@ const TimeCard = (props) => {
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
-
-    // Don't forget to clean up
-    return function cleandown() {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [keyLockPlayer, timerPlayer]);
-
-  useEffect(() => {
-
     document.addEventListener("keyup", handleKeyUp);
 
     // Don't forget to clean up
-    return function cleanup() {
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("keyup", handleKeyUp);
     };
   }, [keyLockPlayer, timerPlayer]);
+
+
 
   return (
     <Card
@@ -66,8 +64,16 @@ const TimeCard = (props) => {
         >
           Player {props.playerName}
         </Typography>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div" sx={{  display: "flex", justifyContent: "center" }}>
           <Stopwatch isRunning={timerPlayer} parentCallback={returnTime} />
+        </Typography>
+        <Typography
+          sx={{ fontSize: 14, display: "flex", justifyContent: "center"  }}
+          //style={{marginTop:2}}
+          color="text.secondary"
+          gutterBottom
+        >
+          {`Hold [${props.keyName}] to start`}
         </Typography>
       </CardContent>
     </Card>

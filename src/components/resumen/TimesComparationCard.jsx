@@ -40,7 +40,7 @@ const TimesComparationCard = (props) => {
           <TableContainer component={Paper}
                     sx={{
             minHeight: 20 ,
-            maxHeight: 330,    
+            maxHeight: 270,    
           }}>
             <Table sx={{ minWidth: 70, maxWidth: 350, tableLayout: "fixed", height: "max-content" }}>
               <TableBody>

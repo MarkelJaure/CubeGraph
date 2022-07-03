@@ -29,6 +29,7 @@ export default function CubeTimerController(props) {
       <TimeCard
         playerName={props.playerName}
         keyValue={props.keyValue}
+        keyName={props.keyName}
         notifyNewTime={handleNewTime}
       />
       <ListCard listOfTimes={listOfTimes} deleteTime={handleDeleteTime} />

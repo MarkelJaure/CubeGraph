@@ -16,6 +16,7 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const ListCard = (props) => {
+  
   const isTheBestTime = (time) => {
     var bestTime = Math.min(...props.listOfTimes.map((item) => item.time))
     var bestPB = props.listOfTimes.find((aTime) => aTime.time === bestTime) 

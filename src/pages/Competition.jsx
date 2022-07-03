@@ -6,9 +6,12 @@ import CubeTimerController from "../components/timeController/CubeTimerControlle
 
 const KEY_PLAYER_1 = 32;
 const NAME_PLAYER_1 = 1;
+const KEY_NAME_1 = "Space";
+
 
 const KEY_PLAYER_2 = 96;
 const NAME_PLAYER_2 = 2;
+const KEY_NAME_2 = "Num 0";
 
 const CompetitionPage = () => {
   const [timesPlayer1, setTimesPlayer1] = useState([]);
@@ -43,9 +46,11 @@ const CompetitionPage = () => {
           <div style={styles.div2}>
             <CubeTimerController
               keyValue={KEY_PLAYER_1}
+              keyName={KEY_NAME_1}
               playerName={NAME_PLAYER_1}
               addTime={handleAddTimePlayer1}
               deleteTime={handleDeleteTimePlayer1}
+              
             />
           </div>
         </div>
@@ -63,6 +68,7 @@ const CompetitionPage = () => {
           <div style={styles.div2}>
             <CubeTimerController
               keyValue={KEY_PLAYER_2}
+              keyName={KEY_NAME_2}
               playerName={NAME_PLAYER_2}
               addTime={handleAddTimePlayer2}
               deleteTime={handleDeleteTimePlayer2}
