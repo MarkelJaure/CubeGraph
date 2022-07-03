@@ -15,7 +15,7 @@ const TimeCard = (props) => {
   };
 
   function handleKeyDown(e) {
-        console.log("Key Down")
+    console.log("Key Down")
     if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
       setTimerPlayer(false);
       setKeyLockPlayer(true);
@@ -35,7 +35,7 @@ const TimeCard = (props) => {
     }
   }
 
-  useEffect(() => {
+  useEffect(() => { //TODO: si se tapea muy rapido cuando el reloj esta corriendo, se frena y vuelve a arrancar sin esperar la actualizacion de keyLock
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("keyup", handleKeyUp);
 
