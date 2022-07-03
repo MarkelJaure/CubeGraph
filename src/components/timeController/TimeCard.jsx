@@ -14,42 +14,41 @@ const TimeCard = (props) => {
     }
   };
 
-  useEffect(() => {
-    function handleKeyDown(e) {
-      if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
-        setTimerPlayer(false);
-        setKeyLockPlayer(true);
+  function handleKeyDown(e) {
+    if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
+      setTimerPlayer(false);
+      setKeyLockPlayer(true);
+    }
+  }
+
+  function handleKeyUp(e) {
+    if (e.keyCode === props.keyValue) {
+      if (!keyLockPlayer) {
+          setTimerPlayer(true);
+      } else {
+        setKeyLockPlayer(false);
       }
     }
+  }
 
+  useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
 
     // Don't forget to clean up
     return function cleandown() {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [keyLockPlayer, props.keyValue, timerPlayer]);
+  }, [keyLockPlayer, timerPlayer]);
 
   useEffect(() => {
-    function handleKeyUp(e) {
-      if (e.keyCode === props.keyValue) {
-        if (!keyLockPlayer) {
-          if (!timerPlayer) {
-            setTimerPlayer(true);
-          }
-        } else {
-          setKeyLockPlayer(false);
-        }
-      }
-    }
 
     document.addEventListener("keyup", handleKeyUp);
 
     // Don't forget to clean up
-    return function cleandown() {
+    return function cleanup() {
       document.removeEventListener("keyup", handleKeyUp);
     };
-  });
+  }, [keyLockPlayer, timerPlayer]);
 
   return (
     <Card

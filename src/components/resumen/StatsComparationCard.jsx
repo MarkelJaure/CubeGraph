@@ -12,7 +12,6 @@ import {
   TableBody,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import Icon from "awesome-react-icons";
 
 const StatsComparationCard = (props) => {
   const [pb1, setPb1] = useState(null);
@@ -48,7 +47,7 @@ const StatsComparationCard = (props) => {
 
   return (
     <Card
-      sx={{ minWidth: 50, maxWidth: 300 }}
+      sx={{ minWidth: 50, maxWidth: 350 }}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -64,7 +63,7 @@ const StatsComparationCard = (props) => {
         </Typography>
         <Typography variant="h5" component="div">
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 70, maxWidth: 300, tableLayout: "fixed" }}>
+            <Table sx={{ minWidth: 70, maxWidth: 350, tableLayout: "fixed" }}>
               <TableBody>
                 <TableRow>
                   <TableCell component="th" scope="row" align="left">

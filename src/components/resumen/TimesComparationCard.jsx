@@ -21,7 +21,7 @@ const TimesComparationCard = (props) => {
 
   return (
     <Card
-      sx={{ minWidth: 50, maxWidth: 300 }}
+      sx={{ minWidth: 50, maxWidth: 350 }}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -37,8 +37,12 @@ const TimesComparationCard = (props) => {
           Times
         </Typography>
         <Typography variant="h5" component="div">
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 70, maxWidth: 300, tableLayout: "fixed" }}>
+          <TableContainer component={Paper}
+                    sx={{
+            minHeight: 20 ,
+            maxHeight: 330,    
+          }}>
+            <Table sx={{ minWidth: 70, maxWidth: 350, tableLayout: "fixed", height: "max-content" }}>
               <TableBody>
                 {props.timesPlayer1 >= props.timesPlayer2 &&
                   props.timesPlayer1

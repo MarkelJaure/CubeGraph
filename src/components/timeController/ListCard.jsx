@@ -17,12 +17,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 const ListCard = (props) => {
   const isTheBestTime = (time) => {
-    return Math.min(...props.listOfTimes.map((item) => item.time)) === time;
+    var bestTime = Math.min(...props.listOfTimes.map((item) => item.time))
+    var bestPB = props.listOfTimes.find((aTime) => aTime.time === bestTime) 
+    return bestPB === time;
   };
 
   return (
     <Card
-      sx={{ minWidth: 50, maxWidth: 400 }}
+      sx={{ 
+        minWidth: 50, 
+        maxWidth: 400 }}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -38,8 +42,13 @@ const ListCard = (props) => {
           Times
         </Typography>
         <Typography variant="h5" component="div">
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 70, maxWidth: 300, tableLayout: "fixed" }}>
+          <TableContainer 
+          component={Paper}   
+          sx={{
+            minHeight: 20 ,
+            maxHeight: 400    
+          }}>
+            <Table sx={{ minWidth: 70, maxWidth: 300, tableLayout: "fixed",height: "max-content"}}>
               <TableBody>
                 {props.listOfTimes
                   .map((time, index) => {
@@ -50,12 +59,14 @@ const ListCard = (props) => {
                           "&:last-child td, &:last-child th": { border: 0 },
                         }}
                       >
-                        <TableCell component="th" scope="row">
+                        <TableCell  align="left" component="th" scope="row">
                           {index + 1}
                         </TableCell>
-                        <TableCell>
+                        <TableCell align="right">
                           <DisplayTime time={time.time} />
-                          {isTheBestTime(time.time) && (
+                        </TableCell>
+                        <TableCell align="left" width={"9%"}>
+                          {isTheBestTime(time) && (
                             <sup style={style.record}>
                               <b>BT</b>
                             </sup>
@@ -88,7 +99,7 @@ const style = {
     borderRadius: 4,
     backgroundColor: "#00e676",
     padding: 2,
-    marginLeft: 2,
+    marginRigth:20,
   },
 };
 
