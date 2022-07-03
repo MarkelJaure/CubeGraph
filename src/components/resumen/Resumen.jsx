@@ -22,11 +22,15 @@ const Resumen = (props) => {
       <StatsComparationCard
         timesPlayer1={props.timesPlayer1}
         timesPlayer2={props.timesPlayer2}
+        playerName1={props.playerName1}
+        playerName2={props.playerName2}
       />
 
       <TimesComparationCard
         timesPlayer1={props.timesPlayer1}
         timesPlayer2={props.timesPlayer2}
+        playerName1={props.playerName1}
+        playerName2={props.playerName2}
       />
     </>
   );

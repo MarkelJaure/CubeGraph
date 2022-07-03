@@ -5,7 +5,10 @@ import Resumen from "../components/resumen/Resumen";
 import CubeTimerController from "../components/timeController/CubeTimerController";
 
 const KEY_PLAYER_1 = 32;
+const NAME_PLAYER_1 = 1;
+
 const KEY_PLAYER_2 = 96;
+const NAME_PLAYER_2 = 2;
 
 const CompetitionPage = () => {
   const [timesPlayer1, setTimesPlayer1] = useState([]);
@@ -40,7 +43,7 @@ const CompetitionPage = () => {
           <div style={styles.div2}>
             <CubeTimerController
               keyValue={KEY_PLAYER_1}
-              playerName={1}
+              playerName={NAME_PLAYER_1}
               addTime={handleAddTimePlayer1}
               deleteTime={handleDeleteTimePlayer1}
             />
@@ -49,8 +52,8 @@ const CompetitionPage = () => {
         <div style={styles.div}>
           <div style={styles.div2}>
             <Resumen
-              playerName1={1}
-              playerName2={2}
+              playerName1={NAME_PLAYER_1}
+              playerName2={NAME_PLAYER_2}
               timesPlayer1={timesPlayer1}
               timesPlayer2={timesPlayer2}
             />
@@ -60,7 +63,7 @@ const CompetitionPage = () => {
           <div style={styles.div2}>
             <CubeTimerController
               keyValue={KEY_PLAYER_2}
-              playerName={2}
+              playerName={NAME_PLAYER_2}
               addTime={handleAddTimePlayer2}
               deleteTime={handleDeleteTimePlayer2}
             />

@@ -21,8 +21,6 @@ const StatsComparationCard = (props) => {
   const [avg2, setAvg2] = useState(null);
 
   useEffect(() => {
-    console.log("Llegue a la funcion final 1");
-    console.log(props.timesPlayer1);
     if (props.timesPlayer1.length > 0) {
       setPb1(Math.min(...props.timesPlayer1.map((item) => item.time)));
       setAvg1(
@@ -36,8 +34,6 @@ const StatsComparationCard = (props) => {
   }, [props.timesPlayer1]);
 
   useEffect(() => {
-    console.log("Llegue a la funcion final 1");
-    console.log(props.timesPlayer2);
     if (props.timesPlayer2.length > 0) {
       setPb2(Math.min(...props.timesPlayer2.map((item) => item.time)));
       setAvg2(
@@ -64,7 +60,7 @@ const StatsComparationCard = (props) => {
           color="text.secondary"
           gutterBottom
         >
-          Comparacion
+          Comparation
         </Typography>
         <Typography variant="h5" component="div">
           <TableContainer component={Paper}>
@@ -72,21 +68,23 @@ const StatsComparationCard = (props) => {
               <TableBody>
                 <TableRow>
                   <TableCell component="th" scope="row" align="left">
-                    Pb {props.playerName1}:
                     {pb1 ? <DisplayTime time={pb1} /> : ""}
                   </TableCell>
+                  <TableCell component="th" scope="row" align="center">
+                    PB
+                  </TableCell>
                   <TableCell component="th" scope="row" align="right">
-                    Pb {props.playerName2}:
                     {pb2 ? <DisplayTime time={pb2} /> : ""}
                   </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell component="th" scope="row" align="left">
-                    Media {props.playerName1}:
                     {avg1 ? <DisplayTime time={avg1} /> : ""}
                   </TableCell>
+                  <TableCell component="th" scope="row" align="center">
+                    Media
+                  </TableCell>
                   <TableCell component="th" scope="row" align="right">
-                    Media {props.playerName2}:
                     {avg2 ? <DisplayTime time={avg2} /> : ""}
                   </TableCell>
                 </TableRow>

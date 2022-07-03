@@ -13,7 +13,7 @@ import {
   TableBody,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import Icon from "awesome-react-icons";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const ListCard = (props) => {
   return (
@@ -57,7 +57,7 @@ const ListCard = (props) => {
                             variant="text"
                             onClick={() => props.deleteTime(time)}
                           >
-                            <Icon name="minus" className="w-6 h-6" />
+                            <DeleteIcon />
                           </Button>
                         </TableCell>
                       </TableRow>
