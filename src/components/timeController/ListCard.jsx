@@ -16,6 +16,10 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const ListCard = (props) => {
+  const isTheBestTime = (time) => {
+    return Math.min(...props.listOfTimes.map((item) => item.time)) === time;
+  };
+
   return (
     <Card
       sx={{ minWidth: 50, maxWidth: 400 }}
@@ -51,6 +55,11 @@ const ListCard = (props) => {
                         </TableCell>
                         <TableCell>
                           <DisplayTime time={time.time} />
+                          {isTheBestTime(time.time) && (
+                            <sup style={style.record}>
+                              <b>BT</b>
+                            </sup>
+                          )}
                         </TableCell>
                         <TableCell align="right">
                           <Button
@@ -71,6 +80,16 @@ const ListCard = (props) => {
       </CardContent>
     </Card>
   );
+};
+
+const style = {
+  record: {
+    lineHeight: 1,
+    borderRadius: 4,
+    backgroundColor: "#00e676",
+    padding: 2,
+    marginLeft: 2,
+  },
 };
 
 export default ListCard;
