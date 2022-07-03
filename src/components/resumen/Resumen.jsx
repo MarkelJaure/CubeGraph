@@ -34,7 +34,7 @@ const Resumen = (props) => {
        onClick={handleOpen}
         style={{  display: "flex", justifyContent: "center", margin: 10 }}
       >
-        Finalizar partida
+        Finalize Match
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"

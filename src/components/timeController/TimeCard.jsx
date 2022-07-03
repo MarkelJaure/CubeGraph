@@ -62,6 +62,7 @@ const TimeCard = (props) => {
           color="text.secondary"
           gutterBottom
         >
+          
           Player {props.playerName}
         </Typography>
         <Typography variant="h5" component="div" sx={{  display: "flex", justifyContent: "center" }}>
@@ -73,7 +74,7 @@ const TimeCard = (props) => {
           color="text.secondary"
           gutterBottom
         >
-          {`Hold [${props.keyName}] to start`}
+          {!timerPlayer ? `Hold [${props.keyName}] to start` : `Press [${props.keyName}] to stop`}
         </Typography>
       </CardContent>
     </Card>
