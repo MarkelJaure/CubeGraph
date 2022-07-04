@@ -33,7 +33,14 @@ const Resumen = (props) => {
         >
           Finalize Match
         </Button>
-        <CompetitionModal open={isModalOpen} onClose={handleClose} />
+        <CompetitionModal
+          open={isModalOpen}
+          onClose={handleClose}
+          timesPlayer1={props.timesPlayer1}
+          timesPlayer2={props.timesPlayer2}
+          playerName1={props.playerName1}
+          playerName2={props.playerName2}
+        />
       </div>
     </>
   );

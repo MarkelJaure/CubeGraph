@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import StatsComparationCard from "./StatsComparationCard";
-import TimesComparationCard from "./TimesComparationCard";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -13,7 +10,8 @@ import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import SwipeableViews from "react-swipeable-views";
-
+import StatsComparationTable from "./StatsComparationTable";
+import WinnerModalTab from "./WinnerModalTab";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -97,10 +95,15 @@ const CompetitionModal = (props) => {
               onChangeIndex={handleChangeIndex}
             >
               <TabPanel value={value} index={0} dir={theme.direction}>
-                Resultado
+                <WinnerModalTab />
               </TabPanel>
               <TabPanel value={value} index={1} dir={theme.direction}>
-                Estadisticas
+                <StatsComparationTable
+                  timesPlayer1={props.timesPlayer1}
+                  timesPlayer2={props.timesPlayer2}
+                  playerName1={props.playerName1}
+                  playerName2={props.playerName2}
+                />
               </TabPanel>
               <TabPanel value={value} index={2} dir={theme.direction}>
                 Grafico

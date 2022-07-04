@@ -2,17 +2,9 @@ import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import {
-  Table,
-  TableContainer,
-  TableBody,
-} from "@mui/material";
-import Paper from "@mui/material/Paper";
-import SingleTimeComparation from "./SingleTimeComparation";
+import TimesComparationTable from "./TimesComparationTable";
 
 const TimesComparationCard = (props) => {
-  useEffect(() => {}, [props.timesPlayer1, props.timesPlayer2]);
-
   return (
     <Card
       sx={{ minWidth: 50, maxWidth: 350 }}
@@ -31,42 +23,12 @@ const TimesComparationCard = (props) => {
           Times
         </Typography>
         <Typography variant="h5" component="div">
-          <TableContainer component={Paper}
-                    sx={{
-            minHeight: 20 ,
-            maxHeight: 270,    
-          }}>
-            <Table sx={{ minWidth: 70, maxWidth: 350, tableLayout: "fixed", height: "max-content" }}>
-              <TableBody>
-                {props.timesPlayer1 >= props.timesPlayer2 &&
-                  props.timesPlayer1
-                    .map((time, index) => {
-                      return (
-                        <SingleTimeComparation
-                          time1={time}
-                          time2={props.timesPlayer2[index]}
-                          playerName1={props.playerName1}
-                          playerName2={props.playerName2}
-                        />
-                      );
-                    })
-                    .reverse()}
-                {props.timesPlayer2 > props.timesPlayer1 &&
-                  props.timesPlayer2
-                    .map((time, index) => {
-                      return (
-                        <SingleTimeComparation
-                          time1={props.timesPlayer1[index]}
-                          time2={time}
-                          playerName1={props.playerName1}
-                          playerName2={props.playerName2}
-                        />
-                      );
-                    })
-                    .reverse()}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <TimesComparationTable
+            timesPlayer1={props.timesPlayer1}
+            timesPlayer2={props.timesPlayer2}
+            playerName1={props.playerName1}
+            playerName2={props.playerName2}
+          />
         </Typography>
       </CardContent>
     </Card>
