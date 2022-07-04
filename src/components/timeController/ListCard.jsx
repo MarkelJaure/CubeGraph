@@ -15,18 +15,19 @@ import Paper from "@mui/material/Paper";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const ListCard = (props) => {
-
   const isTheBestTime = (time) => {
-    var bestTime = Math.min(...props.listOfTimes.map((item) => item.time))
-    var bestPB = props.listOfTimes.find((aTime) => aTime.time === bestTime) 
+    var bestTime = Math.min(...props.listOfTimes.map((item) => item.time));
+    var bestPB = props.listOfTimes.find((aTime) => aTime.time === bestTime);
     return bestPB === time;
   };
 
   return (
     <Card
-      sx={{ 
-        minWidth: 50, 
-        maxWidth: 400 }}
+      sx={{
+        minWidth: 50,
+        maxWidth: 400,
+        //width: 9 / 10,
+      }}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -42,13 +43,13 @@ const ListCard = (props) => {
           Times
         </Typography>
         <Typography variant="h5" component="div">
-          <TableContainer 
-          component={Paper}   
-          sx={{
-            minHeight: 20 ,
-            maxHeight: 400    
-          }}>
-            <Table sx={{ minWidth: 70, maxWidth: 300, tableLayout: "fixed",height: "max-content"}}>
+          <TableContainer component={Paper} sx={{}}>
+            <Table
+              sx={{
+                tableLayout: "fixed",
+                height: "max-content",
+              }}
+            >
               <TableBody>
                 {props.listOfTimes
                   .map((time, index) => {
@@ -59,10 +60,11 @@ const ListCard = (props) => {
                           "&:last-child td, &:last-child th": { border: 0 },
                         }}
                       >
-                        <TableCell  align="left" component="th" scope="row">
+                        <TableCell align="left" component="th" scope="row">
                           {index + 1}
                         </TableCell>
-                        <TableCell align="right">
+                        <TableCell align="right" width={"9%"}></TableCell>
+                        <TableCell align="center">
                           <DisplayTime time={time.time} />
                         </TableCell>
                         <TableCell align="left" width={"9%"}>
@@ -99,7 +101,7 @@ const style = {
     borderRadius: 4,
     backgroundColor: "#00e676",
     padding: 2,
-    marginRigth:20,
+    marginRigth: 20,
   },
 };
 

@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import CubeTimerController from "../components/timeController/CubeTimerController";
 
 const KEY_PLAYER = 32;
-const KEY_NAME= "Space";
-const NAME_PLAYER = 1;
+const KEY_NAME = "Space";
+const NAME_PLAYER = "Player 1";
 
 const PracticePage = () => {
   return (
@@ -12,7 +12,11 @@ const PracticePage = () => {
       <div style={styles.container}>
         <div style={styles.div}>
           <div style={styles.div2}>
-            <CubeTimerController keyValue={KEY_PLAYER} playerName={NAME_PLAYER} keyName={KEY_NAME} />
+            <CubeTimerController
+              keyValue={KEY_PLAYER}
+              playerName={NAME_PLAYER}
+              keyName={KEY_NAME}
+            />
           </div>
         </div>
       </div>
@@ -32,7 +36,7 @@ const styles = {
   },
   div2: {
     flex: 1,
-    width: "100%",
+    display: "flex",
     justifyContent: "center",
   },
 };

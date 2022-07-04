@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import StatsComparationCard from "./StatsComparationCard";
 import TimesComparationCard from "./TimesComparationCard";
-import CompetitionModal from "./CompetitionModal";
+import CompetitionModal from "../CompetitionModal/CompetitionModal";
 
 const Resumen = (props) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);

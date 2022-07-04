@@ -15,27 +15,28 @@ const TimeCard = (props) => {
   };
 
   function handleKeyDown(e) {
-    console.log("Key Down")
+    console.log("Key Down");
     if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
       setTimerPlayer(false);
       setKeyLockPlayer(true);
-      console.log("Desactivando timer")
+      console.log("Desactivando timer");
     }
   }
 
   function handleKeyUp(e) {
-    console.log("Key Up")
+    console.log("Key Up");
     if (e.keyCode === props.keyValue) {
       if (!keyLockPlayer) {
-          setTimerPlayer(true);
-          console.log("Activando timer")
+        setTimerPlayer(true);
+        console.log("Activando timer");
       } else {
         setKeyLockPlayer(false);
       }
     }
   }
 
-  useEffect(() => { //TODO: si se tapea muy rapido cuando el reloj esta corriendo, se frena y vuelve a arrancar sin esperar la actualizacion de keyLock
+  useEffect(() => {
+    //TODO: si se tapea muy rapido cuando el reloj esta corriendo, se frena y vuelve a arrancar sin esperar la actualizacion de keyLock
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("keyup", handleKeyUp);
 
@@ -45,8 +46,6 @@ const TimeCard = (props) => {
       document.removeEventListener("keyup", handleKeyUp);
     };
   }, [keyLockPlayer, timerPlayer]);
-
-
 
   return (
     <Card
@@ -62,19 +61,24 @@ const TimeCard = (props) => {
           color="text.secondary"
           gutterBottom
         >
-          
-          Player {props.playerName}
+          {props.playerName}
         </Typography>
-        <Typography variant="h5" component="div" sx={{  display: "flex", justifyContent: "center" }}>
+        <Typography
+          variant="h5"
+          component="div"
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
           <Stopwatch isRunning={timerPlayer} parentCallback={returnTime} />
         </Typography>
         <Typography
-          sx={{ fontSize: 14, display: "flex", justifyContent: "center"  }}
+          sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
           //style={{marginTop:2}}
           color="text.secondary"
           gutterBottom
         >
-          {!timerPlayer ? `Hold [${props.keyName}] to start` : `Press [${props.keyName}] to stop`}
+          {!timerPlayer
+            ? `Hold [${props.keyName}] to start`
+            : `Press [${props.keyName}] to stop`}
         </Typography>
       </CardContent>
     </Card>

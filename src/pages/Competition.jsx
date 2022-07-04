@@ -5,12 +5,11 @@ import Resumen from "../components/resumen/Resumen";
 import CubeTimerController from "../components/timeController/CubeTimerController";
 
 const KEY_PLAYER_1 = 32;
-const NAME_PLAYER_1 = 1;
+const NAME_PLAYER_1 = "Player 1";
 const KEY_NAME_1 = "Space";
 
-
 const KEY_PLAYER_2 = 96;
-const NAME_PLAYER_2 = 2;
+const NAME_PLAYER_2 = "Player 2";
 const KEY_NAME_2 = "Num 0";
 
 const CompetitionPage = () => {
@@ -50,7 +49,6 @@ const CompetitionPage = () => {
               playerName={NAME_PLAYER_1}
               addTime={handleAddTimePlayer1}
               deleteTime={handleDeleteTimePlayer1}
-              
             />
           </div>
         </div>

@@ -8,6 +8,7 @@ import {
   TableBody,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import { getMedia, getPB } from "../Number/ArrayLib";
 
 const StatsComparationTable = (props) => {
   const [pb1, setPb1] = useState(null);
@@ -17,33 +18,21 @@ const StatsComparationTable = (props) => {
 
   useEffect(() => {
     if (props.timesPlayer1.length > 0) {
-      setPb1(Math.min(...props.timesPlayer1.map((item) => item.time)));
-      setAvg1(
-        Math.trunc(
-          props.timesPlayer1.reduce((prev, curr) => prev + curr.time, 0) /
-            props.timesPlayer1.length /
-            10
-        ) * 10
-      );
+      setPb1(getPB(props.timesPlayer1).time);
+      setAvg1(getMedia(props.timesPlayer1));
     }
   }, [props.timesPlayer1]);
 
   useEffect(() => {
     if (props.timesPlayer2.length > 0) {
-      setPb2(Math.min(...props.timesPlayer2.map((item) => item.time)));
-      setAvg2(
-        Math.trunc(
-          props.timesPlayer2.reduce((prev, curr) => prev + curr.time, 0) /
-            props.timesPlayer2.length /
-            10
-        ) * 10
-      );
+      setPb2(getPB(props.timesPlayer2).time);
+      setAvg2(getMedia(props.timesPlayer2));
     }
   }, [props.timesPlayer2]);
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 70, maxWidth: 350, tableLayout: "fixed" }}>
+      <Table sx={{ tableLayout: "fixed" }}>
         <TableBody>
           <TableRow>
             <TableCell component="th" scope="row" align="left">

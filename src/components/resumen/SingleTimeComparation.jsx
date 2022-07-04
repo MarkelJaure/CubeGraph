@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DisplayTime from "../Number/DisplayTime";
-import {
-  TableCell,
-  TableRow,
-} from "@mui/material";
+import { TableCell, TableRow } from "@mui/material";
 
 const SingleTimeComparation = (props) => {
   return (
@@ -32,9 +29,9 @@ const SingleTimeComparation = (props) => {
         {props.time2 && props.time1
           ? props.time2.time >= props.time1.time
             ? props.time2.time > props.time1.time
-              ? "Player " + props.playerName1
+              ? props.playerName1
               : "Draw"
-            : "Player " + props.playerName2
+            : props.playerName2
           : "..."}
       </TableCell>
       <TableCell
