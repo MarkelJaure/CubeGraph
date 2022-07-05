@@ -1,10 +1,8 @@
 import {
   CartesianGrid,
-  Legend,
   Line,
   LineChart,
   ResponsiveContainer,
-  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -33,16 +31,8 @@ export default function CrossTimeGraphic(props) {
   );
 }
 
-const formatData = (data) => {
-  data = data.map(function (element, index) {
-    element.realTime = element.time / 1000;
-    element.index = index;
-    return element;
-  });
-  return data;
-};
-
 const getIntegratedData = (times1, times2) => {
+  //TODO: talvez necesita refactor
   if (times1 >= times2) {
     return times1.map(function (element, index) {
       element.time1 = element.time / 1000;

@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "build",
+    "site": "cubegraph",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}
