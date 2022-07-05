@@ -56,27 +56,32 @@ const ListCard = (props) => {
                           "&:last-child td, &:last-child th": { border: 0 },
                         }}
                       >
-                        <TableCell align="left" component="th" scope="row">
+                        <TableCell
+                          align="left"
+                          component="th"
+                          scope="row"
+                          width={"5vh"}
+                        >
                           {index + 1}
                         </TableCell>
                         <TableCell
                           align="left"
-                          //width={"9%"}
+                          width={"20vh"}
                           sx={{ fontSize: 14 }}
                         >
                           {getSinceAgo(time.timestamp)}
                         </TableCell>
-                        <TableCell align="center">
+                        <TableCell align="center" width={"20vh"}>
                           <DisplayTime time={time.time} />
                         </TableCell>
-                        <TableCell align="left" width={"9%"}>
+                        <TableCell align="left" width={"20vh"}>
                           {isTheBestTime(time) && (
                             <sup style={style.record}>
                               <b>BT</b>
                             </sup>
                           )}
                         </TableCell>
-                        <TableCell align="right">
+                        <TableCell align="right" width={"5vh"}>
                           <Button
                             variant="text"
                             onClick={() => props.deleteTime(time)}
