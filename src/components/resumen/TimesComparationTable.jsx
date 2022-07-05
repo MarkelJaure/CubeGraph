@@ -5,17 +5,9 @@ import SingleTimeComparation from "./SingleTimeComparation";
 
 const TimesComparationTable = (props) => {
   return (
-    <TableContainer
-      component={Paper}
-      sx={{
-        minHeight: 20,
-        maxHeight: 270,
-      }}
-    >
+    <TableContainer component={Paper} style={{ maxHeight: "50vh" }}>
       <Table
         sx={{
-          minWidth: 70,
-          maxWidth: 350,
           tableLayout: "fixed",
           height: "max-content",
         }}

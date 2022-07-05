@@ -7,11 +7,13 @@ import TimesComparationTable from "./TimesComparationTable";
 const TimesComparationCard = (props) => {
   return (
     <Card
-      sx={{ minWidth: 50, maxWidth: 350 }}
+      sx={{
+        width: 9 / 10,
+      }}
       style={{
         display: "flex",
         justifyContent: "center",
-        marginTop: "2%",
+        marginTop: "2vh",
       }}
     >
       <CardContent>

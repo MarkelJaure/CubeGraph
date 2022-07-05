@@ -7,7 +7,10 @@ import StatsComparationTable from "./StatsComparationTable";
 const StatsComparationCard = (props) => {
   return (
     <Card
-      sx={{ minWidth: 50, maxWidth: 350 }}
+      sx={{
+        width: 9 / 10,
+        height: 170,
+      }}
       style={{
         display: "flex",
         justifyContent: "center",

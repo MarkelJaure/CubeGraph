@@ -10,22 +10,38 @@ const Resumen = (props) => {
   const handleClose = () => setIsModalOpen(false);
 
   return (
-    <>
-      <StatsComparationCard
-        timesPlayer1={props.timesPlayer1}
-        timesPlayer2={props.timesPlayer2}
-        playerName1={props.playerName1}
-        playerName2={props.playerName2}
-      />
+    <div
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div style={{ flex: 1, justifyContent: "center", display: "flex" }}>
+        <StatsComparationCard
+          timesPlayer1={props.timesPlayer1}
+          timesPlayer2={props.timesPlayer2}
+          playerName1={props.playerName1}
+          playerName2={props.playerName2}
+        />
+      </div>
+      <div style={{ flex: 1, justifyContent: "center", display: "flex" }}>
+        <TimesComparationCard
+          timesPlayer1={props.timesPlayer1}
+          timesPlayer2={props.timesPlayer2}
+          playerName1={props.playerName1}
+          playerName2={props.playerName2}
+        />
+      </div>
 
-      <TimesComparationCard
-        timesPlayer1={props.timesPlayer1}
-        timesPlayer2={props.timesPlayer2}
-        playerName1={props.playerName1}
-        playerName2={props.playerName2}
-      />
-
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Button
           variant="contained"
           onClick={handleOpen}
@@ -42,7 +58,7 @@ const Resumen = (props) => {
           playerName2={props.playerName2}
         />
       </div>
-    </>
+    </div>
   );
 };
 

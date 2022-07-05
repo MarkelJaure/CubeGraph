@@ -24,14 +24,11 @@ const ListCard = (props) => {
   return (
     <Card
       sx={{
-        minWidth: 50,
-        maxWidth: 400,
-        //width: 9 / 10,
+        width: 9 / 10,
       }}
       style={{
         display: "flex",
         justifyContent: "center",
-        marginTop: "2%",
       }}
     >
       <CardContent>
@@ -43,11 +40,10 @@ const ListCard = (props) => {
           Times
         </Typography>
         <Typography variant="h5" component="div">
-          <TableContainer component={Paper} sx={{}}>
+          <TableContainer component={Paper} style={{ maxHeight: "70vh" }}>
             <Table
               sx={{
                 tableLayout: "fixed",
-                height: "max-content",
               }}
             >
               <TableBody>
@@ -63,7 +59,13 @@ const ListCard = (props) => {
                         <TableCell align="left" component="th" scope="row">
                           {index + 1}
                         </TableCell>
-                        <TableCell align="right" width={"9%"}></TableCell>
+                        <TableCell
+                          align="left"
+                          //width={"9%"}
+                          sx={{ fontSize: 14 }}
+                        >
+                          {getSinceAgo(time.timestamp)}
+                        </TableCell>
                         <TableCell align="center">
                           <DisplayTime time={time.time} />
                         </TableCell>
@@ -103,6 +105,24 @@ const style = {
     padding: 2,
     marginRigth: 20,
   },
+};
+
+const getSinceAgo = (timestamp) => {
+  var currentTimesamp = Date.now();
+  var sinceAgo = currentTimesamp - timestamp;
+  var aMinute = 60 * 1000;
+  var aHour = 60 * aMinute;
+  var aDay = 24 * aHour;
+  if (sinceAgo <= aMinute) {
+    return "Hace menos de 1 minuto";
+  }
+  if (sinceAgo <= aHour) {
+    return "Hace " + Math.trunc(sinceAgo / aMinute) + " minutos";
+  }
+  if (sinceAgo <= aDay) {
+    return "Hace " + Math.trunc(sinceAgo / aHour) + " horas";
+  }
+  return "Hace " + Math.trunc(sinceAgo / aDay) + " dias";
 };
 
 export default ListCard;

@@ -49,7 +49,10 @@ const TimeCard = (props) => {
 
   return (
     <Card
-      sx={{ minWidth: 50, maxWidth: 400 }}
+      sx={{
+        width: 9 / 10,
+        height: 100,
+      }}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -59,7 +62,6 @@ const TimeCard = (props) => {
         <Typography
           sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
           color="text.secondary"
-          gutterBottom
         >
           {props.playerName}
         </Typography>
@@ -74,7 +76,6 @@ const TimeCard = (props) => {
           sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
           //style={{marginTop:2}}
           color="text.secondary"
-          gutterBottom
         >
           {!timerPlayer
             ? `Hold [${props.keyName}] to start`

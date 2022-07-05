@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Deploy firebase
+npm run build
+firebase deploy --only hosting:cubegraph
+
+pagina:
+https://cubegraph.firebaseapp.com/
+
+Run dev:
+npm start
+
+pagina:
+http://localhost:3000/

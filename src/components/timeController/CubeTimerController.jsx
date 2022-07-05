@@ -26,14 +26,32 @@ export default function CubeTimerController(props) {
 
   return (
     <>
-      <div style={{ flex: 1, justifyContent: "center" }}>
-        <TimeCard
-          playerName={props.playerName}
-          keyValue={props.keyValue}
-          keyName={props.keyName}
-          notifyNewTime={handleNewTime}
-        />
-        <ListCard listOfTimes={listOfTimes} deleteTime={handleDeleteTime} />
+      <div
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <div style={{ flex: 1, justifyContent: "center", display: "flex" }}>
+          <TimeCard
+            playerName={props.playerName}
+            keyValue={props.keyValue}
+            keyName={props.keyName}
+            notifyNewTime={handleNewTime}
+          />
+        </div>
+        <div
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            display: "flex",
+            marginTop: "2vh",
+          }}
+        >
+          <ListCard listOfTimes={listOfTimes} deleteTime={handleDeleteTime} />
+        </div>
       </div>
     </>
   );
