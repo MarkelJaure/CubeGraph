@@ -37,7 +37,15 @@ export const NavSidebar = () => {
           isSidebarOpen ? "ease-out translate-x-0" : "ease-in -translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-center mt-10 text-center py-6">
+        <div className="flex justify-center mt-10">
+          <img
+            src="cube.png"
+            alt="CubrGraph icon"
+            width="128"
+            height="128"
+          ></img>
+        </div>
+        <div className="flex items-center justify-center  text-center py-6">
           <span className="mx-2 text-2xl font-semibold text-black">
             Cube Graph
           </span>
