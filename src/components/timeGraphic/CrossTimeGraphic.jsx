@@ -5,6 +5,9 @@ import {
   ResponsiveContainer,
   XAxis,
   YAxis,
+  Label,
+  Tooltip,
+  Legend,
 } from "recharts";
 import React, { useEffect, useState } from "react";
 
@@ -18,13 +21,50 @@ export default function CrossTimeGraphic(props) {
   }, [props.data1, props.data2]);
   return (
     <div>
-      <ResponsiveContainer width={"95%"} height={200}>
-        <LineChart data={integratedData} margin={{}}>
+      <ResponsiveContainer
+        width={props.width - 100}
+        height={props.height - 100}
+      >
+        <LineChart
+          data={integratedData}
+          style={{ width: props.width - 100, height: props.height - 100 }}
+        >
           <CartesianGrid />
-          <YAxis />
-          <XAxis dataKey="index" tick={{ fontSize: 10 }} />
-          <Line type="monotone" dataKey="time1" stroke={props.color1} />
-          <Line type="monotone" dataKey="time2" stroke={props.color2} />
+          <YAxis>
+            {/* <Label
+              style={{
+                textAnchor: "middle",
+                fontSize: "130%",
+                fill: "black",
+              }}
+              angle={270}
+              value={"Round"}
+            /> */}
+          </YAxis>
+          <XAxis dataKey="index" tick={{ fontSize: 10 }}>
+            {/* <Label
+              style={{
+                textAnchor: "middle",
+                fontSize: "130%",
+                fill: "black",
+              }}
+              value={"Time"}
+            /> */}
+          </XAxis>
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="time1"
+            name={props.playerName1}
+            stroke={props.color1}
+          />
+          <Line
+            type="monotone"
+            dataKey="time2"
+            stroke={props.color2}
+            name={props.playerName2}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>

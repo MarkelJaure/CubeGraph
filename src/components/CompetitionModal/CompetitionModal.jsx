@@ -74,7 +74,11 @@ const CompetitionModal = (props) => {
       >
         <Fade in={props.open}>
           <Box
-            sx={{ bgcolor: "background.paper", width: 500 }}
+            sx={{
+              bgcolor: "background.paper",
+              width: props.width,
+              height: props.height,
+            }}
             style={style.modal}
           >
             <AppBar position="static">
@@ -102,6 +106,8 @@ const CompetitionModal = (props) => {
                   mediaPlayer2={getMedia(props.timesPlayer2)}
                   playerName1={props.playerName1}
                   playerName2={props.playerName2}
+                  width={props.width}
+                  height={props.height}
                 />
               </TabPanel>
               <TabPanel value={value} index={1} dir={theme.direction}>
@@ -110,12 +116,18 @@ const CompetitionModal = (props) => {
                   timesPlayer2={props.timesPlayer2}
                   playerName1={props.playerName1}
                   playerName2={props.playerName2}
+                  width={props.width}
+                  height={props.height}
                 />
               </TabPanel>
               <TabPanel value={value} index={2} dir={theme.direction}>
                 <GraphicModalTab
                   timesPlayer1={props.timesPlayer1}
                   timesPlayer2={props.timesPlayer2}
+                  width={props.width}
+                  height={props.height}
+                  playerName1={props.playerName1}
+                  playerName2={props.playerName2}
                 />
               </TabPanel>
             </SwipeableViews>
@@ -132,7 +144,6 @@ const style = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
     bgcolor: "background.paper",
     boxShadow: 24,
     p: 4,

@@ -56,6 +56,8 @@ const Resumen = (props) => {
           timesPlayer2={props.timesPlayer2}
           playerName1={props.playerName1}
           playerName2={props.playerName2}
+          height={360}
+          width={600}
         />
       </div>
     </div>

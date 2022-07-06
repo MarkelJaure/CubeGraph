@@ -2,17 +2,22 @@ import { Typography } from "@mui/material";
 
 const WinnerModalTab = (props) => {
   return (
-    <>
+    <div
+      style={{
+        marginTop: "10%",
+        justifyContent: "center",
+      }}
+    >
       <Typography
         component="div"
-        sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
+        sx={{ fontSize: 18, display: "flex", justifyContent: "center" }}
       >
         El ganador es:
       </Typography>
       <Typography
         variant="h5"
         component="div"
-        sx={{ display: "flex", justifyContent: "center" }}
+        sx={{ fontSize: 40, display: "flex", justifyContent: "center" }}
       >
         {props.mediaPlayer1 && props.mediaPlayer2
           ? props.mediaPlayer1 <= props.mediaPlayer2
@@ -23,7 +28,7 @@ const WinnerModalTab = (props) => {
           : " - "}
         !
       </Typography>
-    </>
+    </div>
   );
 };
 

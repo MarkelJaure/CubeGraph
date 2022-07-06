@@ -35,8 +35,13 @@ const StatsModalTab = (props) => {
 
   return (
     <>
-      <TableContainer component={Paper}>
-        <Table sx={{ tableLayout: "fixed" }}>
+      <TableContainer component={Paper} style={{ maxHeight: "50vh" }}>
+        <Table
+          sx={{
+            tableLayout: "fixed",
+            height: "max-content",
+          }}
+        >
           <TableHead>
             <TableRow>
               <TableCell align="center">
