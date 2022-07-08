@@ -58,21 +58,21 @@ export const NavSidebar = () => {
             history.push(itemId);
           }}
           items={[
-            {
-              title: "Home",
-              itemId: "/",
-              // Optional
-            },
-            {
-              title: "Graphics",
-              itemId: "/graphics",
-              // Optional
-            },
-            {
-              title: "About",
-              itemId: "/about",
-              // Optional
-            },
+            // {
+            //   title: "Home",
+            //   itemId: "/",
+            //   // Optional
+            // },
+            // {
+            //   title: "Graphics",
+            //   itemId: "/graphics",
+            //   // Optional
+            // },
+            // {
+            //   title: "About",
+            //   itemId: "/about",
+            //   // Optional
+            // },
             {
               title: "Practice",
               itemId: "/practice",

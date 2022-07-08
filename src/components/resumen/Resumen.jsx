@@ -9,6 +9,10 @@ const Resumen = (props) => {
   const handleOpen = () => setIsModalOpen(true);
   const handleClose = () => setIsModalOpen(false);
 
+  useEffect(() => {
+    console.log("Something happened");
+  }, [JSON.stringify(props.timesPlayer1)]);
+
   return (
     <div
       style={{
@@ -56,8 +60,8 @@ const Resumen = (props) => {
           timesPlayer2={props.timesPlayer2}
           playerName1={props.playerName1}
           playerName2={props.playerName2}
-          height={360}
-          width={600}
+          height={260}
+          width={550}
         />
       </div>
     </div>

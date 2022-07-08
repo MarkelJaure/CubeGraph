@@ -21,13 +21,10 @@ export default function CrossTimeGraphic(props) {
   }, [props.data1, props.data2]);
   return (
     <div>
-      <ResponsiveContainer
-        width={props.width - 100}
-        height={props.height - 100}
-      >
+      <ResponsiveContainer width={props.width} height={props.height}>
         <LineChart
           data={integratedData}
-          style={{ width: props.width - 100, height: props.height - 100 }}
+          style={{ width: props.width, height: props.height }}
         >
           <CartesianGrid />
           <YAxis>

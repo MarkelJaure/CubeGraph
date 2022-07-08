@@ -76,8 +76,8 @@ const CompetitionModal = (props) => {
           <Box
             sx={{
               bgcolor: "background.paper",
-              width: props.width,
-              height: props.height,
+              width: props.width + 50,
+              height: props.height + 100,
             }}
             style={style.modal}
           >
@@ -96,6 +96,7 @@ const CompetitionModal = (props) => {
               </Tabs>
             </AppBar>
             <SwipeableViews
+              style={{ overflowY: "hidden" }}
               axis={theme.direction === "rtl" ? "x-reverse" : "x"}
               index={value}
               onChangeIndex={handleChangeIndex}

@@ -31,8 +31,9 @@ const styles = {
   },
   div: {
     flex: 1,
-    display: "inline-grid",
+    display: "flex",
     justifyContent: "center",
+    width: 9 / 10,
   },
   div2: {
     flex: 1,

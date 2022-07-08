@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import DisplayTime from "../Number/DisplayTime";
 import { TableCell, TableRow } from "@mui/material";
+import DisplayCubeTime from "../Number/DisplayCubeTime";
+import { comparationOfTime } from "../Number/ArrayLib";
 
 const SingleTimeComparation = (props) => {
+  const [comparation, setComparation] = useState(0);
+
   return (
     <TableRow
       sx={{
@@ -14,21 +18,21 @@ const SingleTimeComparation = (props) => {
         style={{
           color:
             props.time2 && props.time1
-              ? props.time2.time >= props.time1.time
-                ? props.time2.time > props.time1.time
+              ? comparationOfTime(props.time1, props.time2) >= 0
+                ? comparationOfTime(props.time1, props.time2) === 1
                   ? "green"
                   : "gray"
                 : "red"
               : "black",
         }}
       >
-        {props.time1 && <DisplayTime time={props.time1.time} />}
+        {props.time1 && <DisplayCubeTime time={props.time1} />}
       </TableCell>
 
       <TableCell align="center">
         {props.time2 && props.time1
-          ? props.time2.time >= props.time1.time
-            ? props.time2.time > props.time1.time
+          ? comparationOfTime(props.time1, props.time2) >= 0
+            ? comparationOfTime(props.time1, props.time2) === 1
               ? props.playerName1
               : "Draw"
             : props.playerName2
@@ -39,15 +43,15 @@ const SingleTimeComparation = (props) => {
         style={{
           color:
             props.time2 && props.time1
-              ? props.time2.time >= props.time1.time
-                ? props.time2.time > props.time1.time
+              ? comparationOfTime(props.time1, props.time2) >= 0
+                ? comparationOfTime(props.time1, props.time2) === 1
                   ? "red"
                   : "gray"
                 : "green"
               : "black",
         }}
       >
-        {props.time2 && <DisplayTime time={props.time2.time} />}
+        {props.time2 && <DisplayCubeTime time={props.time2} />}
       </TableCell>
     </TableRow>
   );

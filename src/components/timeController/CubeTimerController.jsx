@@ -6,7 +6,12 @@ export default function CubeTimerController(props) {
   const [listOfTimes, setListOfTimes] = useState([]);
 
   const handleNewTime = (time) => {
-    var newTime = { time: time, timestamp: Date.now() };
+    var newTime = {
+      time: time,
+      timestamp: Date.now(),
+      plus2: false,
+      dnf: false,
+    };
     setListOfTimes((listOfTimes) => [...listOfTimes, newTime]);
     if (props.addTime) {
       props.addTime(newTime);
@@ -20,6 +25,40 @@ export default function CubeTimerController(props) {
 
       if (props.deleteTime) {
         props.deleteTime(time);
+      }
+    }
+  };
+
+  const handlePlus2 = (time) => {
+    if (listOfTimes.includes(time)) {
+      var tmpList = listOfTimes.map((aTime) => {
+        if (aTime === time) {
+          aTime.plus2 = !aTime.plus2;
+        }
+        return aTime;
+      });
+
+      setListOfTimes(tmpList);
+
+      if (props.plus2) {
+        props.plus2(time);
+      }
+    }
+  };
+
+  const handleDNF = (time) => {
+    if (listOfTimes.includes(time)) {
+      var tmpList = listOfTimes.map((aTime) => {
+        if (aTime === time) {
+          aTime.dnf = !aTime.dnf;
+        }
+        return aTime;
+      });
+
+      setListOfTimes(tmpList);
+
+      if (props.dnf) {
+        props.dnf(time);
       }
     }
   };
@@ -50,7 +89,12 @@ export default function CubeTimerController(props) {
             marginTop: "2vh",
           }}
         >
-          <ListCard listOfTimes={listOfTimes} deleteTime={handleDeleteTime} />
+          <ListCard
+            listOfTimes={listOfTimes}
+            deleteTime={handleDeleteTime}
+            plus2={handlePlus2}
+            dnf={handleDNF}
+          />
         </div>
       </div>
     </>

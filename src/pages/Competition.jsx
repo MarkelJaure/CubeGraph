@@ -15,6 +15,8 @@ const KEY_NAME_2 = "Num 0";
 const CompetitionPage = () => {
   const [timesPlayer1, setTimesPlayer1] = useState([]);
   const [timesPlayer2, setTimesPlayer2] = useState([]);
+  const [updateInTimesPlayer1, setUpdateInTimesPlayer1] = useState(false);
+  const [updateInTimesPlayer2, setUpdateInTimesPlayer2] = useState(false);
 
   const handleAddTimePlayer1 = (time) => {
     setTimesPlayer1((timesPlayer1) => [...timesPlayer1, time]);
@@ -37,6 +39,20 @@ const CompetitionPage = () => {
       setTimesPlayer2(tmpList);
     }
   };
+  const handlePlus2TimePlayer1 = (time) => {
+    setUpdateInTimesPlayer1(!updateInTimesPlayer1);
+  };
+
+  const handleDNFTimePlayer1 = (time) => {
+    setUpdateInTimesPlayer1(!updateInTimesPlayer1);
+  };
+  const handlePlus2TimePlayer2 = (time) => {
+    setUpdateInTimesPlayer2(!updateInTimesPlayer2);
+  };
+
+  const handleDNFTimePlayer2 = (time) => {
+    setUpdateInTimesPlayer2(!updateInTimesPlayer2);
+  };
 
   return (
     <DashboardLayout>
@@ -49,6 +65,8 @@ const CompetitionPage = () => {
               playerName={NAME_PLAYER_1}
               addTime={handleAddTimePlayer1}
               deleteTime={handleDeleteTimePlayer1}
+              plus2={handlePlus2TimePlayer1}
+              dnf={handleDNFTimePlayer1}
             />
           </div>
         </div>
@@ -70,6 +88,8 @@ const CompetitionPage = () => {
               playerName={NAME_PLAYER_2}
               addTime={handleAddTimePlayer2}
               deleteTime={handleDeleteTimePlayer2}
+              plus2={handlePlus2TimePlayer2}
+              dnf={handleDNFTimePlayer2}
             />
           </div>
         </div>
@@ -85,8 +105,9 @@ const styles = {
   },
   div: {
     flex: 1,
-    display: "inline-grid",
+    display: "flex",
     justifyContent: "center",
+    width: 9 / 10,
   },
   div2: {
     flex: 1,
