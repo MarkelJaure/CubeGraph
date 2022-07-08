@@ -9,10 +9,6 @@ const Resumen = (props) => {
   const handleOpen = () => setIsModalOpen(true);
   const handleClose = () => setIsModalOpen(false);
 
-  useEffect(() => {
-    console.log("Something happened");
-  }, [JSON.stringify(props.timesPlayer1)]);
-
   return (
     <div
       style={{

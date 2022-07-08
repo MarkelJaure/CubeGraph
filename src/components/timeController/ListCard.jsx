@@ -2,18 +2,9 @@ import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import DisplayTime from "../Number/DisplayTime";
-import {
-  Table,
-  TableContainer,
-  TableCell,
-  TableRow,
-  TableBody,
-} from "@mui/material";
+import { Table, TableContainer, TableBody } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import DeleteIcon from "@mui/icons-material/Delete";
-import DisplayCubeTime from "../Number/DisplayCubeTime";
+import SingleCubeTimeRow from "./SingleCubeTimeRow";
 
 const ListCard = (props) => {
   const isTheBestTime = (time) => {
@@ -45,61 +36,14 @@ const ListCard = (props) => {
                 {props.listOfTimes
                   .map((time, index) => {
                     return (
-                      <TableRow
-                        key={time.timestamp}
-                        sx={{
-                          "&:last-child td, &:last-child th": { border: 0 },
-                        }}
-                      >
-                        <TableCell align="left" width={"40%"}>
-                          {index + 1}
-                        </TableCell>
-                        {/* <TableCell align="left" sx={{ fontSize: 14 }}>
-                          {getSinceAgo(time.timestamp)}
-                        </TableCell> */}
-                        <TableCell align="center" width={"20%"}>
-                          <DisplayCubeTime time={time} />
-                        </TableCell>
-                        <TableCell align="left" width={"10%"}>
-                          {isTheBestTime(time) && (
-                            <sup style={style.record}>
-                              <b>BT</b>
-                            </sup>
-                          )}
-                        </TableCell>
-                        <TableCell align="center" width={"10%"}>
-                          <Button
-                            variant="text"
-                            style={{
-                              backgroundColor: time.plus2
-                                ? "#3b82f64d"
-                                : "white",
-                            }}
-                            onClick={() => props.plus2(time)}
-                          >
-                            +2
-                          </Button>
-                        </TableCell>
-                        <TableCell align="center" width={"10%"}>
-                          <Button
-                            style={{
-                              backgroundColor: time.dnf ? "#3b82f64d" : "white",
-                            }}
-                            variant="text"
-                            onClick={() => props.dnf(time)}
-                          >
-                            DNF
-                          </Button>
-                        </TableCell>
-                        <TableCell align="center" width={"10%"}>
-                          <Button
-                            variant="text"
-                            onClick={() => props.deleteTime(time)}
-                          >
-                            <DeleteIcon />
-                          </Button>
-                        </TableCell>
-                      </TableRow>
+                      <SingleCubeTimeRow
+                        index={index}
+                        time={time}
+                        isBestTime={isTheBestTime(time)}
+                        deleteTime={props.deleteTime}
+                        plus2={props.plus2}
+                        dnf={props.dnf}
+                      />
                     );
                   })
                   .reverse()}
