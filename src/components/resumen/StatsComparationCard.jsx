@@ -30,6 +30,8 @@ const StatsComparationCard = (props) => {
             timesPlayer2={props.timesPlayer2}
             playerName1={props.playerName1}
             playerName2={props.playerName2}
+            updateInTimesPlayer1={props.updateInTimesPlayer1}
+            updateInTimesPlayer2={props.updateInTimesPlayer2}
           />
         </Typography>
       </CardContent>

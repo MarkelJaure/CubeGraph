@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { getMedia, getPB } from "../Number/ArrayLib";
+import DisplayCubeTime from "../Number/DisplayCubeTime";
 
 const StatsComparationTable = (props) => {
   const [pb1, setPb1] = useState(null);
@@ -18,17 +19,19 @@ const StatsComparationTable = (props) => {
 
   useEffect(() => {
     if (props.timesPlayer1.length > 0) {
-      setPb1(getPB(props.timesPlayer1).time);
+      console.log(props.timesPlayer1);
+      setPb1(getPB(props.timesPlayer1));
       setAvg1(getMedia(props.timesPlayer1));
+      console.log("Actualizando stats player 1");
     }
-  }, [props.timesPlayer1]);
+  }, [props.updateInTimesPlayer1, props.timesPlayer1]);
 
   useEffect(() => {
     if (props.timesPlayer2.length > 0) {
-      setPb2(getPB(props.timesPlayer2).time);
+      setPb2(getPB(props.timesPlayer2));
       setAvg2(getMedia(props.timesPlayer2));
     }
-  }, [props.timesPlayer2]);
+  }, [props.updateInTimesPlayer2, props.timesPlayer2]);
 
   return (
     <TableContainer component={Paper}>
@@ -36,13 +39,13 @@ const StatsComparationTable = (props) => {
         <TableBody>
           <TableRow>
             <TableCell component="th" scope="row" align="left">
-              {pb1 ? <DisplayTime time={pb1} /> : ""}
+              {pb1 ? <DisplayCubeTime time={pb1} /> : ""}
             </TableCell>
             <TableCell component="th" scope="row" align="center">
               PB
             </TableCell>
             <TableCell component="th" scope="row" align="right">
-              {pb2 ? <DisplayTime time={pb2} /> : ""}
+              {pb2 ? <DisplayCubeTime time={pb2} /> : ""}
             </TableCell>
           </TableRow>
           <TableRow>

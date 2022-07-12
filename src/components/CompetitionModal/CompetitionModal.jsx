@@ -13,7 +13,7 @@ import SwipeableViews from "react-swipeable-views";
 import WinnerModalTab from "./WinnerModalTab";
 import StatsModalTab from "./StatsModalTab";
 import GraphicModalTab from "./GraphicModalTab";
-import { getMedia } from "../Number/ArrayLib";
+import { getMedia, getListWithoutDNFs } from "../Number/ArrayLib";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -119,12 +119,14 @@ const CompetitionModal = (props) => {
                   playerName2={props.playerName2}
                   width={props.width}
                   height={props.height}
+                  updateInTimesPlayer1={props.updateInTimesPlayer1}
+                  updateInTimesPlayer2={props.updateInTimesPlayer2}
                 />
               </TabPanel>
               <TabPanel value={value} index={2} dir={theme.direction}>
                 <GraphicModalTab
-                  timesPlayer1={props.timesPlayer1}
-                  timesPlayer2={props.timesPlayer2}
+                  timesPlayer1={getListWithoutDNFs(props.timesPlayer1)}
+                  timesPlayer2={getListWithoutDNFs(props.timesPlayer2)}
                   width={props.width}
                   height={props.height}
                   playerName1={props.playerName1}

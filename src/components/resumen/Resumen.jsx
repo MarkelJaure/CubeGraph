@@ -24,6 +24,8 @@ const Resumen = (props) => {
           timesPlayer2={props.timesPlayer2}
           playerName1={props.playerName1}
           playerName2={props.playerName2}
+          updateInTimesPlayer1={props.updateInTimesPlayer1}
+          updateInTimesPlayer2={props.updateInTimesPlayer2}
         />
       </div>
       <div style={{ flex: 1, justifyContent: "center", display: "flex" }}>
@@ -58,6 +60,8 @@ const Resumen = (props) => {
           playerName2={props.playerName2}
           height={260}
           width={550}
+          updateInTimesPlayer1={props.updateInTimesPlayer1}
+          updateInTimesPlayer2={props.updateInTimesPlayer2}
         />
       </div>
     </div>

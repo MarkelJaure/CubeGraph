@@ -5,12 +5,11 @@ import Typography from "@mui/material/Typography";
 import { Table, TableContainer, TableBody } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import SingleCubeTimeRow from "./SingleCubeTimeRow";
+import { getPB } from "../Number/ArrayLib";
 
 const ListCard = (props) => {
   const isTheBestTime = (time) => {
-    var bestTime = Math.min(...props.listOfTimes.map((item) => item.time));
-    var bestPB = props.listOfTimes.find((aTime) => aTime.time === bestTime);
-    return bestPB === time;
+    return getPB(props.listOfTimes) === time;
   };
 
   return (

@@ -9,7 +9,13 @@ import {
   TableHead,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { getMedia, getPB, getRoundsWin } from "../Number/ArrayLib";
+import {
+  comparationOfTime,
+  getMedia,
+  getPB,
+  getRoundsWin,
+} from "../Number/ArrayLib";
+import DisplayCubeTime from "../Number/DisplayCubeTime";
 
 const StatsModalTab = (props) => {
   const [pb1, setPb1] = useState(null);
@@ -21,17 +27,22 @@ const StatsModalTab = (props) => {
 
   useEffect(() => {
     if (props.timesPlayer1.length > 0) {
-      setPb1(getPB(props.timesPlayer1).time);
+      setPb1(getPB(props.timesPlayer1));
       setAvg1(getMedia(props.timesPlayer1));
       setRoundsWinPlayer1(getRoundsWin(props.timesPlayer1, props.timesPlayer2));
     }
 
     if (props.timesPlayer2.length > 0) {
-      setPb2(getPB(props.timesPlayer2).time);
+      setPb2(getPB(props.timesPlayer2));
       setAvg2(getMedia(props.timesPlayer2));
       setRoundsWinPlayer2(getRoundsWin(props.timesPlayer2, props.timesPlayer1));
     }
-  }, [props.timesPlayer1, props.timesPlayer2]);
+  }, [
+    props.timesPlayer1,
+    props.timesPlayer2,
+    props.updateInTimesPlayer1,
+    props.updateInTimesPlayer2,
+  ]);
 
   return (
     <>
@@ -62,15 +73,15 @@ const StatsModalTab = (props) => {
                 style={{
                   color:
                     pb1 && pb2
-                      ? pb2 >= pb1
-                        ? pb2 > pb1
+                      ? comparationOfTime(pb1, pb2) >= 0
+                        ? comparationOfTime(pb1, pb2) === 1
                           ? "green"
                           : "gray"
                         : "red"
                       : "black",
                 }}
               >
-                {pb1 ? <DisplayTime time={pb1} /> : ""}
+                {pb1 ? <DisplayCubeTime time={pb1} /> : ""}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
                 PB
@@ -82,15 +93,15 @@ const StatsModalTab = (props) => {
                 style={{
                   color:
                     pb1 && pb2
-                      ? pb2 <= pb1
-                        ? pb2 < pb1
+                      ? comparationOfTime(pb2, pb1) >= 0
+                        ? comparationOfTime(pb2, pb1) === 1
                           ? "green"
                           : "gray"
                         : "red"
                       : "black",
                 }}
               >
-                {pb2 ? <DisplayTime time={pb2} /> : ""}
+                {pb2 ? <DisplayCubeTime time={pb2} /> : ""}
               </TableCell>
             </TableRow>
             <TableRow>

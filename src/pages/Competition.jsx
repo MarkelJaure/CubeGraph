@@ -41,6 +41,13 @@ const CompetitionPage = () => {
   };
   const handlePlus2TimePlayer1 = (time) => {
     setUpdateInTimesPlayer1(!updateInTimesPlayer1);
+    var tmpList = timesPlayer1;
+    tmpList.forEach((aTime) => {
+      if (aTime.timestamp === time.timestamp) {
+        aTime = time;
+      }
+    });
+    setTimesPlayer1(tmpList);
   };
 
   const handleDNFTimePlayer1 = (time) => {
@@ -77,6 +84,8 @@ const CompetitionPage = () => {
               playerName2={NAME_PLAYER_2}
               timesPlayer1={timesPlayer1}
               timesPlayer2={timesPlayer2}
+              updateInTimesPlayer1={updateInTimesPlayer1}
+              updateInTimesPlayer2={updateInTimesPlayer2}
             />
           </div>
         </div>

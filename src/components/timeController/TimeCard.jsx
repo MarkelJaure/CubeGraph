@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stopwatch from "./Stopwatch";
+import { CardActionArea } from "@mui/material";
 
 const TimeCard = (props) => {
   const [timerPlayer, setTimerPlayer] = useState(false);
@@ -15,7 +16,6 @@ const TimeCard = (props) => {
   };
 
   function handleKeyDown(e) {
-    console.log("Key Down");
     if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
       setTimerPlayer(false);
       setKeyLockPlayer(true);
@@ -24,7 +24,6 @@ const TimeCard = (props) => {
   }
 
   function handleKeyUp(e) {
-    console.log("Key Up");
     if (e.keyCode === props.keyValue) {
       if (!keyLockPlayer) {
         setTimerPlayer(true);
@@ -32,6 +31,23 @@ const TimeCard = (props) => {
       } else {
         setKeyLockPlayer(false);
       }
+    }
+  }
+
+  function handleMouseDownListener() {
+    if (!keyLockPlayer && timerPlayer) {
+      setTimerPlayer(false);
+      setKeyLockPlayer(true);
+      console.log("Desactivando timer");
+    }
+  }
+
+  function handleMouseUpListener() {
+    if (!keyLockPlayer) {
+      setTimerPlayer(true);
+      console.log("Activando timer");
+    } else {
+      setKeyLockPlayer(false);
     }
   }
 
@@ -58,30 +74,35 @@ const TimeCard = (props) => {
         justifyContent: "center",
       }}
     >
-      <CardContent>
-        <Typography
-          sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
-          color="text.secondary"
-        >
-          {props.playerName}
-        </Typography>
-        <Typography
-          variant="h5"
-          component="div"
-          sx={{ display: "flex", justifyContent: "center" }}
-        >
-          <Stopwatch isRunning={timerPlayer} parentCallback={returnTime} />
-        </Typography>
-        <Typography
-          sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
-          //style={{marginTop:2}}
-          color="text.secondary"
-        >
-          {!timerPlayer
-            ? `Hold [${props.keyName}] to start`
-            : `Press [${props.keyName}] to stop`}
-        </Typography>
-      </CardContent>
+      <CardActionArea
+        onMouseDown={() => handleMouseDownListener()}
+        onMouseUp={() => handleMouseUpListener()}
+      >
+        <CardContent>
+          <Typography
+            sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
+            color="text.secondary"
+          >
+            {props.playerName}
+          </Typography>
+          <Typography
+            variant="h5"
+            component="div"
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <Stopwatch isRunning={timerPlayer} parentCallback={returnTime} />
+          </Typography>
+          <Typography
+            sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
+            //style={{marginTop:2}}
+            color="text.secondary"
+          >
+            {!timerPlayer
+              ? `Hold [${props.keyName}] to start`
+              : `Press [${props.keyName}] to stop`}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 };

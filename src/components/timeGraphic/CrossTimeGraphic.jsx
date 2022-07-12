@@ -10,6 +10,7 @@ import {
   Legend,
 } from "recharts";
 import React, { useEffect, useState } from "react";
+import { TWO_SECONDS } from "../Number/ArrayLib";
 
 export default function CrossTimeGraphic(props) {
   const [integratedData, setIntegratedData] = useState([]);
@@ -72,10 +73,11 @@ const getIntegratedData = (times1, times2) => {
   //TODO: talvez necesita refactor
   if (times1 >= times2) {
     return times1.map(function (element, index) {
-      element.time1 = element.time / 1000;
+      element.time1 = (element.time + (element.plus2 ? TWO_SECONDS : 0)) / 1000;
       element.index = index;
       if (times2[index]) {
-        element.time2 = times2[index].time / 1000;
+        element.time2 =
+          (times2[index].time + (times2[index].plus2 ? TWO_SECONDS : 0)) / 1000;
       } else {
         element.time2 = null;
       }
@@ -83,10 +85,11 @@ const getIntegratedData = (times1, times2) => {
     });
   } else {
     return times2.map(function (element, index) {
-      element.time2 = element.time / 1000;
+      element.time2 = (element.time + (element.plus2 ? TWO_SECONDS : 0)) / 1000;
       element.index = index;
       if (times1[index]) {
-        element.time1 = times1[index].time / 1000;
+        element.time1 =
+          (times1[index].time + (times1[index].plus2 ? TWO_SECONDS : 0)) / 1000;
       } else {
         element.time1 = null;
       }
