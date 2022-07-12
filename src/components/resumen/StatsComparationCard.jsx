@@ -3,6 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import StatsComparationTable from "./StatsComparationTable";
+import { getMedia, getPB } from "../Number/ArrayLib";
 
 const StatsComparationCard = (props) => {
   return (
@@ -26,12 +27,12 @@ const StatsComparationCard = (props) => {
         </Typography>
         <Typography variant="h5" component="div">
           <StatsComparationTable
-            timesPlayer1={props.timesPlayer1}
-            timesPlayer2={props.timesPlayer2}
+            pbPlayer1={getPB(props.timesPlayer1)}
+            pbPlayer2={getPB(props.timesPlayer2)}
+            mediaPlayer1={getMedia(props.timesPlayer1)}
+            mediaPlayer2={getMedia(props.timesPlayer2)}
             playerName1={props.playerName1}
             playerName2={props.playerName2}
-            updateInTimesPlayer1={props.updateInTimesPlayer1}
-            updateInTimesPlayer2={props.updateInTimesPlayer2}
           />
         </Typography>
       </CardContent>
