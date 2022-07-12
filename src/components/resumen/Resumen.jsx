@@ -3,11 +3,30 @@ import Button from "@mui/material/Button";
 import StatsComparationCard from "./StatsComparationCard";
 import TimesComparationCard from "./TimesComparationCard";
 import CompetitionModal from "../CompetitionModal/CompetitionModal";
+import { getListWithoutDNFs } from "../Number/ArrayLib";
 
 const Resumen = (props) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const handleOpen = () => setIsModalOpen(true);
   const handleClose = () => setIsModalOpen(false);
+
+  const checkButtonDisabled = () => {
+    console.log(props.timesPlayer1);
+    console.log(props.timesPlayer2);
+    if (!props.timesPlayer1 || !props.timesPlayer2) {
+      console.log("No hay tiempos");
+      return true;
+    }
+    if (
+      getListWithoutDNFs(props.timesPlayer1).length === 0 ||
+      getListWithoutDNFs(props.timesPlayer2).length === 0
+    ) {
+      console.log("No hay tiempos 2");
+      return true;
+    }
+    console.log("ninguna");
+    return false;
+  };
 
   return (
     <div
@@ -48,6 +67,7 @@ const Resumen = (props) => {
           variant="contained"
           onClick={handleOpen}
           style={{ display: "flex", justifyContent: "center", margin: 10 }}
+          disabled={checkButtonDisabled()}
         >
           Finalize Match
         </Button>
