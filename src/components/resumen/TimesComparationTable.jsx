@@ -10,6 +10,8 @@ const TimesComparationTable = (props) => {
         sx={{
           tableLayout: "fixed",
           height: "max-content",
+          minWidth: 180,
+          whiteSpace: "nowrap",
         }}
       >
         <TableBody>

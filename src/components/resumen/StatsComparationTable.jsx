@@ -14,20 +14,20 @@ import DisplayCubeTime from "../Number/DisplayCubeTime";
 const StatsComparationTable = (props) => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ tableLayout: "fixed" }}>
+      <Table sx={{ tableLayout: "fixed", minWidth: 130, whiteSpace: "nowrap" }}>
         <TableBody>
           <TableRow>
-            <TableCell component="th" scope="row" align="left">
+            <TableCell align="left" width={"30%"}>
               {props.pbPlayer1 ? (
                 <DisplayCubeTime time={props.pbPlayer1} />
               ) : (
                 ""
               )}
             </TableCell>
-            <TableCell component="th" scope="row" align="center">
+            <TableCell align="center" width={"40%"}>
               PB
             </TableCell>
-            <TableCell component="th" scope="row" align="right">
+            <TableCell align="right" width={"30%"}>
               {props.pbPlayer2 ? (
                 <DisplayCubeTime time={props.pbPlayer2} />
               ) : (
@@ -36,17 +36,17 @@ const StatsComparationTable = (props) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell component="th" scope="row" align="left">
+            <TableCell component="th" scope="row" align="left" width={"25%"}>
               {props.mediaPlayer1 ? (
                 <DisplayTime time={props.mediaPlayer1} />
               ) : (
                 ""
               )}
             </TableCell>
-            <TableCell component="th" scope="row" align="center">
+            <TableCell component="th" scope="row" align="center" width={"50%"}>
               Media
             </TableCell>
-            <TableCell component="th" scope="row" align="right">
+            <TableCell component="th" scope="row" align="right" width={"25%"}>
               {props.mediaPlayer2 ? (
                 <DisplayTime time={props.mediaPlayer2} />
               ) : (

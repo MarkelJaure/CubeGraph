@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import TimeCard from "./TimeCard";
 import ListCard from "./ListCard";
+import PracticeBarCard from "./PracticeBarCard";
+import {
+  getCurrAvg,
+  getMedia,
+  getPB,
+  getRandomScramble,
+} from "../Number/ArrayLib";
 
 export default function CubeTimerController(props) {
-  const [listOfTimes, setListOfTimes] = useState([]);
+  const [listOfTimes, setListOfTimes] = useState(
+    props.initialTimes ? props.initialTimes : []
+  );
+  const [actualScramble, setActualScramble] = useState(getRandomScramble());
 
   const handleNewTime = (time) => {
     var newTime = {
@@ -11,8 +21,11 @@ export default function CubeTimerController(props) {
       timestamp: Date.now(),
       plus2: false,
       dnf: false,
+      scramble: actualScramble,
     };
     setListOfTimes((listOfTimes) => [...listOfTimes, newTime]);
+    setActualScramble(getRandomScramble());
+
     if (props.addTime) {
       props.addTime(newTime);
     }
@@ -25,7 +38,18 @@ export default function CubeTimerController(props) {
 
       if (props.deleteTime) {
         props.deleteTime(time);
+      } else {
+        localStorage.setItem("times", JSON.stringify(tmpList));
       }
+    }
+  };
+
+  const handleDeleteAllTimes = () => {
+    setListOfTimes([]);
+    if (props.deleteAll) {
+      props.deleteAll();
+    } else {
+      localStorage.setItem("times", JSON.stringify([]));
     }
   };
 
@@ -86,7 +110,28 @@ export default function CubeTimerController(props) {
             flex: 1,
             justifyContent: "center",
             display: "flex",
-            marginTop: "2vh",
+            marginTop: "1vh",
+          }}
+        >
+          {props.mode === 0 && (
+            <PracticeBarCard
+              scramble={actualScramble}
+              pb={getPB(listOfTimes)}
+              media={getMedia(listOfTimes)}
+              avg5={getCurrAvg(5, listOfTimes)}
+              avg12={getCurrAvg(12, listOfTimes)}
+              avg50={getCurrAvg(50, listOfTimes)}
+              avg100={getCurrAvg(100, listOfTimes)}
+              deleteAll={handleDeleteAllTimes}
+            />
+          )}
+        </div>
+        <div
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            display: "flex",
+            marginTop: "1vh",
           }}
         >
           <ListCard

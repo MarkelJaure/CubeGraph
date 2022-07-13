@@ -67,6 +67,7 @@ const CompetitionPage = () => {
         <div style={styles.div}>
           <div style={styles.div2}>
             <CubeTimerController
+              mode={1}
               keyValue={KEY_PLAYER_1}
               keyName={KEY_NAME_1}
               playerName={NAME_PLAYER_1}
@@ -92,6 +93,7 @@ const CompetitionPage = () => {
         <div style={styles.div}>
           <div style={styles.div2}>
             <CubeTimerController
+              mode={1}
               keyValue={KEY_PLAYER_2}
               keyName={KEY_NAME_2}
               playerName={NAME_PLAYER_2}

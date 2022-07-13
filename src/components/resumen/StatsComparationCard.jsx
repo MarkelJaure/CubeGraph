@@ -17,7 +17,7 @@ const StatsComparationCard = (props) => {
         justifyContent: "center",
       }}
     >
-      <CardContent>
+      <CardContent sx={{ width: 1 }}>
         <Typography
           sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
           color="text.secondary"

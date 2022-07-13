@@ -1,17 +1,32 @@
+import data from "../../scrambles.json";
+
 export const getPB = (listOfTimes) => {
+  if (listOfTimes.length === 0) return null;
+
   var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
 
   var bestTime = Math.min(
     ...listWithoutDNFs.map((item) => item.time + (item.plus2 ? TWO_SECONDS : 0))
   );
 
-  var bestPB = listWithoutDNFs.find(
+  return listWithoutDNFs.find(
     (aTime) => aTime.time + (aTime.plus2 ? TWO_SECONDS : 0) === bestTime
   );
-  return bestPB;
+};
+
+export const getWorstTime = (listOfTimes) => {
+  var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
+
+  var worstTime = Math.max(
+    ...listWithoutDNFs.map((item) => item.time + (item.plus2 ? TWO_SECONDS : 0))
+  );
+  return listWithoutDNFs.find(
+    (aTime) => aTime.time + (aTime.plus2 ? TWO_SECONDS : 0) === worstTime
+  );
 };
 
 export const getMedia = (listOfTimes) => {
+  if (listOfTimes.length === 0) return null;
   var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
 
   return (
@@ -70,6 +85,39 @@ export const getListWithoutDNFs = (listOfTimes) => {
   return listOfTimes.filter((time) => {
     return !time.dnf;
   });
+};
+
+export const getCurrAvg = (aNumber, listOfTimes) => {
+  if (listOfTimes.length === 0) return null;
+  const lastElements = listOfTimes.slice(-aNumber);
+  var DNFs = countDNF(lastElements);
+  if (DNFs >= 2) return -1;
+
+  var pb = getPB(lastElements);
+  if (DNFs === 1) {
+    var listWithoutDNFs = getListWithoutDNFs(lastElements);
+    return getMedia(
+      listWithoutDNFs.filter((time) => {
+        return time !== pb;
+      })
+    );
+  }
+  var worstTime = getWorstTime(lastElements);
+
+  return getMedia(
+    lastElements.filter((time) => {
+      return time !== pb && time !== worstTime;
+    })
+  );
+};
+export const getRandomScramble = () => {
+  return data.scrambles[Math.floor(Math.random() * data.scrambles.length)];
+};
+
+const countDNF = (listOfTimes) => {
+  return listOfTimes.filter((time) => {
+    return time.dnf;
+  }).length;
 };
 
 export const TWO_SECONDS = 2000;

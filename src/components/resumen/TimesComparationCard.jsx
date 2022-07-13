@@ -16,7 +16,7 @@ const TimesComparationCard = (props) => {
         marginTop: "2vh",
       }}
     >
-      <CardContent>
+      <CardContent sx={{ width: 1 }}>
         <Typography
           sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
           color="text.secondary"

@@ -17,17 +17,23 @@ const TimeCard = (props) => {
 
   function handleKeyDown(e) {
     if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
+      console.log("DesactivandoTimer timer");
+      console.log("===============");
+      console.log("Tecla lockeada (deberia ser false):" + keyLockPlayer);
+      console.log("timer player  (deberia ser true):" + timerPlayer);
+      console.log("===============");
       setTimerPlayer(false);
       setKeyLockPlayer(true);
-      console.log("Desactivando timer");
     }
   }
 
   function handleKeyUp(e) {
     if (e.keyCode === props.keyValue) {
       if (!keyLockPlayer) {
+        console.log("===============");
+        console.log("Tecla lockeada (deberia ser true):" + keyLockPlayer);
+        console.log("===============");
         setTimerPlayer(true);
-        console.log("Activando timer");
       } else {
         setKeyLockPlayer(false);
       }
@@ -36,17 +42,27 @@ const TimeCard = (props) => {
 
   function handleMouseDownListener() {
     if (!keyLockPlayer && timerPlayer) {
+      console.log("DesactivandoTimer timer");
+      console.log("===============");
+      console.log("Tecla lockeada (deberia ser false):" + keyLockPlayer);
+      console.log("timer player  (deberia ser true):" + timerPlayer);
+      console.log("===============");
       setTimerPlayer(false);
       setKeyLockPlayer(true);
-      console.log("Desactivando timer");
     }
   }
 
   function handleMouseUpListener() {
     if (!keyLockPlayer) {
-      setTimerPlayer(true);
       console.log("Activando timer");
+      console.log("===============");
+      console.log("Tecla lockeada (deberia ser false):" + keyLockPlayer);
+      console.log("===============");
+      setTimerPlayer(true);
     } else {
+      console.log("===============");
+      console.log("Tecla lockeada (deberia ser true):" + keyLockPlayer);
+      console.log("===============");
       setKeyLockPlayer(false);
     }
   }
