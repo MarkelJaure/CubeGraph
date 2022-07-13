@@ -23,6 +23,7 @@ export default function CubeTimerController(props) {
       dnf: false,
       scramble: actualScramble,
     };
+    console.log(newTime);
     setListOfTimes((listOfTimes) => [...listOfTimes, newTime]);
     setActualScramble(getRandomScramble());
 
@@ -48,8 +49,6 @@ export default function CubeTimerController(props) {
     setListOfTimes([]);
     if (props.deleteAll) {
       props.deleteAll();
-    } else {
-      localStorage.setItem("times", JSON.stringify([]));
     }
   };
 
@@ -123,6 +122,7 @@ export default function CubeTimerController(props) {
               avg50={getCurrAvg(50, listOfTimes)}
               avg100={getCurrAvg(100, listOfTimes)}
               deleteAll={handleDeleteAllTimes}
+              listOfTimes={listOfTimes}
             />
           )}
         </div>

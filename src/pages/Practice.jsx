@@ -44,6 +44,10 @@ const PracticePage = () => {
     localStorage.setItem("times", JSON.stringify(listOfTimes));
   };
 
+  const handleDeleteAllTimes = () => {
+    localStorage.setItem("times", JSON.stringify([]));
+  };
+
   return (
     <DashboardLayout>
       <div style={styles.container}>
@@ -59,6 +63,7 @@ const PracticePage = () => {
               deleteTime={handleDeleteTime}
               plus2={handlePlus2Time}
               dnf={handleDNFTime}
+              deleteAll={handleDeleteAllTimes}
             />
           </div>
         </div>

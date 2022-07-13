@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Stopwatch from "./Stopwatch";
-import { Button, CardActionArea } from "@mui/material";
+import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TimelineIcon from "@mui/icons-material/Timeline";
-import { minWidth } from "@mui/system";
 import DisplayCubeTime from "../Number/DisplayCubeTime";
 import DisplayTime from "../Number/DisplayTime";
+import ProgressModal from "../ProgressModal/ProgressModal";
 
 const PracticeBarCard = (props) => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const handleOpen = () => setIsModalOpen(true);
+  const handleClose = () => setIsModalOpen(false);
+
   return (
     <Card
       sx={{
@@ -122,9 +125,20 @@ const PracticeBarCard = (props) => {
             align="center"
             variant="text"
             style={{ minWidth: "40px" }}
+            onClick={handleOpen}
           >
             <TimelineIcon />
           </Button>
+          <ProgressModal
+            open={isModalOpen}
+            onClose={handleClose}
+            listOfTimes={props.listOfTimes}
+            playerName={props.playerName1}
+            playerName2={props.playerName2}
+            height={260}
+            width={550}
+            updateInTimesPlayer1={props.updateInTimesPlayer1}
+          />
         </div>
       </CardContent>
     </Card>
