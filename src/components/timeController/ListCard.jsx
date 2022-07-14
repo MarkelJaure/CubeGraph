@@ -94,7 +94,7 @@ const ListCard = (props) => {
   };
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -109,6 +109,10 @@ const ListCard = (props) => {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
+  };
+
+  const checkHidden = () => {
+    return props.listOfTimes.length <= rowsPerPage;
   };
 
   return (
@@ -139,6 +143,7 @@ const ListCard = (props) => {
                 overflowX: "auto",
                 minWidth: 200,
               }}
+              size="small"
             >
               <TableBody>
                 {reverse(props.listOfTimes)
@@ -156,15 +161,10 @@ const ListCard = (props) => {
                     );
                   })}
               </TableBody>
-              <TableFooter>
+              <TableFooter style={{ display: checkHidden() ? "none" : "" }}>
                 <TableRow>
                   <TablePagination
-                    rowsPerPageOptions={[
-                      5,
-                      10,
-                      25,
-                      { label: "All", value: -1 },
-                    ]}
+                    rowsPerPageOptions={[10]}
                     colSpan={6}
                     count={props.listOfTimes.length}
                     rowsPerPage={rowsPerPage}

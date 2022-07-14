@@ -8,11 +8,27 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import DisplayCubeTime from "../Number/DisplayCubeTime";
 import DisplayTime from "../Number/DisplayTime";
 import ProgressModal from "../ProgressModal/ProgressModal";
+import { getListWithoutDNFs } from "../Number/ArrayLib";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
 const PracticeBarCard = (props) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const handleOpen = () => setIsModalOpen(true);
   const handleClose = () => setIsModalOpen(false);
+
+  const [isOpenDialog, setIsOpenDialog] = React.useState(false);
+  const handleDialogOpen = () => setIsOpenDialog(true);
+  const handleDialogClose = () => setIsOpenDialog(false);
+
+  const checkDisabledGraphicButton = () => {
+    if (!props.listOfTimes) {
+      return true;
+    }
+    if (getListWithoutDNFs(props.listOfTimes).length === 0) {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <Card
@@ -31,7 +47,6 @@ const PracticeBarCard = (props) => {
         <div style={useStyles.header}>
           <Typography
             color="textSecondary"
-            display="inline"
             align="left"
             style={{ minWidth: "200px" }}
             width={"35%"}
@@ -40,7 +55,6 @@ const PracticeBarCard = (props) => {
           </Typography>
 
           <Typography
-            display="inline"
             align="center"
             style={{ minWidth: "60px" }}
             sx={{ fontSize: 13 }}
@@ -52,7 +66,6 @@ const PracticeBarCard = (props) => {
             </b>
           </Typography>
           <Typography
-            display="inline"
             align="center"
             style={{ minWidth: "60px" }}
             sx={{ fontSize: 13 }}
@@ -64,7 +77,6 @@ const PracticeBarCard = (props) => {
             </b>
           </Typography>
           <Typography
-            display="inline"
             align="center"
             style={{ minWidth: "60px" }}
             sx={{ fontSize: 13 }}
@@ -76,7 +88,6 @@ const PracticeBarCard = (props) => {
             </b>
           </Typography>
           <Typography
-            display="inline"
             align="center"
             style={{ minWidth: "60px" }}
             sx={{ fontSize: 13 }}
@@ -88,7 +99,6 @@ const PracticeBarCard = (props) => {
             </b>
           </Typography>
           <Typography
-            display="inline"
             align="center"
             style={{ minWidth: "60px" }}
             sx={{ fontSize: 13 }}
@@ -100,7 +110,6 @@ const PracticeBarCard = (props) => {
             </b>
           </Typography>
           <Typography
-            display="inline"
             align="center"
             style={{ minWidth: "60px" }}
             sx={{ fontSize: 13 }}
@@ -116,16 +125,30 @@ const PracticeBarCard = (props) => {
             align="right"
             width={"7%"}
             style={{ minWidth: "40px" }}
-            onClick={props.deleteAll}
+            onClick={handleDialogOpen}
           >
             <DeleteIcon />
           </Button>
+          <ConfirmationModal
+            open={isOpenDialog}
+            handleClose={handleDialogClose}
+            title={"Eliminar todos"}
+            text={
+              "Esta seguro que desea eliminar todos los tiempos? esta accion no se puede deshacer."
+            }
+            cancel={handleDialogClose}
+            accept={() => {
+              props.deleteAll();
+              handleDialogClose();
+            }}
+          />
           <Button
             width={"7%"}
             align="center"
             variant="text"
             style={{ minWidth: "40px" }}
             onClick={handleOpen}
+            disabled={checkDisabledGraphicButton()}
           >
             <TimelineIcon />
           </Button>

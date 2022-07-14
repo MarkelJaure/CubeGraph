@@ -6,7 +6,7 @@ import DisplayCubeTime from "../Number/DisplayCubeTime";
 
 const SingleCubeTimeRow = (props) => {
   return (
-    <TableRow key={props.time.timestamp}>
+    <TableRow key={props.time.timestamp} style={{ height: "10px" }}>
       <TableCell align="left" width={"5%"}>
         <b>{props.index + 1}</b>
       </TableCell>

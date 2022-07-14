@@ -9,6 +9,21 @@ const TimeCard = (props) => {
   const [timerPlayer, setTimerPlayer] = useState(false);
   const [keyLockPlayer, setKeyLockPlayer] = useState(false);
 
+  const stopTimer = () => {
+    if (!keyLockPlayer && timerPlayer) {
+      setKeyLockPlayer(true);
+      setTimerPlayer(false);
+    }
+  };
+
+  const startTimer = () => {
+    if (!keyLockPlayer) {
+      setTimerPlayer(true);
+    } else {
+      setKeyLockPlayer(false);
+    }
+  };
+
   const returnTime = (time) => {
     if (props.notifyNewTime) {
       props.notifyNewTime(time);
@@ -16,55 +31,23 @@ const TimeCard = (props) => {
   };
 
   function handleKeyDown(e) {
-    if (e.keyCode === props.keyValue && !keyLockPlayer && timerPlayer) {
-      console.log("DesactivandoTimer timer");
-      console.log("===============");
-      console.log("Tecla lockeada (deberia ser false):" + keyLockPlayer);
-      console.log("timer player  (deberia ser true):" + timerPlayer);
-      console.log("===============");
-      setTimerPlayer(false);
-      setKeyLockPlayer(true);
+    if (e.keyCode === props.keyValue) {
+      stopTimer();
     }
   }
 
   function handleKeyUp(e) {
     if (e.keyCode === props.keyValue) {
-      if (!keyLockPlayer) {
-        console.log("===============");
-        console.log("Tecla lockeada (deberia ser true):" + keyLockPlayer);
-        console.log("===============");
-        setTimerPlayer(true);
-      } else {
-        setKeyLockPlayer(false);
-      }
+      startTimer();
     }
   }
 
   function handleMouseDownListener() {
-    if (!keyLockPlayer && timerPlayer) {
-      console.log("DesactivandoTimer timer");
-      console.log("===============");
-      console.log("Tecla lockeada (deberia ser false):" + keyLockPlayer);
-      console.log("timer player  (deberia ser true):" + timerPlayer);
-      console.log("===============");
-      setTimerPlayer(false);
-      setKeyLockPlayer(true);
-    }
+    stopTimer();
   }
 
   function handleMouseUpListener() {
-    if (!keyLockPlayer) {
-      console.log("Activando timer");
-      console.log("===============");
-      console.log("Tecla lockeada (deberia ser false):" + keyLockPlayer);
-      console.log("===============");
-      setTimerPlayer(true);
-    } else {
-      console.log("===============");
-      console.log("Tecla lockeada (deberia ser true):" + keyLockPlayer);
-      console.log("===============");
-      setKeyLockPlayer(false);
-    }
+    startTimer();
   }
 
   useEffect(() => {
@@ -83,7 +66,9 @@ const TimeCard = (props) => {
     <Card
       sx={{
         width: 9 / 10,
-        height: 100,
+        height: "20vh",
+        maxHeight: "100px",
+        minHeight: "100px",
       }}
       style={{
         display: "flex",
@@ -96,7 +81,11 @@ const TimeCard = (props) => {
       >
         <CardContent>
           <Typography
-            sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
+            sx={{
+              fontSize: "14px",
+              display: "flex",
+              justifyContent: "center",
+            }}
             color="text.secondary"
           >
             {props.playerName}

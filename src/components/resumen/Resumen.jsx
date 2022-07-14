@@ -11,8 +11,6 @@ const Resumen = (props) => {
   const handleClose = () => setIsModalOpen(false);
 
   const checkButtonDisabled = () => {
-    console.log(props.timesPlayer1);
-    console.log(props.timesPlayer2);
     if (!props.timesPlayer1 || !props.timesPlayer2) {
       console.log("No hay tiempos");
       return true;

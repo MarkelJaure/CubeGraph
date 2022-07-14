@@ -18,7 +18,9 @@ const Stopwatch = (props) => {
   }, [running]);
 
   useEffect(() => {
+    console.log("hm");
     if (props.isRunning) {
+      console.log("Iniciando timer");
       setTime(0);
     } else {
       if (time !== 0) {
