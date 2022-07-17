@@ -14,6 +14,8 @@ import WinnerModalTab from "./WinnerModalTab";
 import StatsModalTab from "./StatsModalTab";
 import GraphicModalTab from "./GraphicModalTab";
 import { getMedia, getListWithoutDNFs } from "../Number/ArrayLib";
+import { useTranslation } from "react-i18next";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -48,6 +50,7 @@ function a11yProps(index) {
 }
 
 const CompetitionModal = (props) => {
+  const { t } = useTranslation();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -90,9 +93,9 @@ const CompetitionModal = (props) => {
                 variant="fullWidth"
                 aria-label="full width tabs example"
               >
-                <Tab label="Resultado" {...a11yProps(0)} />
-                <Tab label="Estadisticas" {...a11yProps(1)} />
-                <Tab label="Grafico" {...a11yProps(2)} />
+                <Tab label={t("Result")} {...a11yProps(0)} />
+                <Tab label={t("Stats")} {...a11yProps(1)} />
+                <Tab label={t("Graph")} {...a11yProps(2)} />
               </Tabs>
             </AppBar>
             <SwipeableViews

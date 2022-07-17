@@ -3,10 +3,12 @@ import { Navigation } from "react-minimal-side-navigation";
 import { useHistory, useLocation } from "react-router-dom";
 import Icon from "awesome-react-icons";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 
 export const NavSidebar = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -47,7 +49,7 @@ export const NavSidebar = () => {
         </div>
         <div className="flex items-center justify-center  text-center py-6">
           <span className="mx-2 text-2xl font-semibold text-black">
-            Cube Graph
+            CubeGraph
           </span>
         </div>
 
@@ -74,12 +76,12 @@ export const NavSidebar = () => {
             //   // Optional
             // },
             {
-              title: "Practice",
+              title: t("Practice"),
               itemId: "/practice",
               // Optional
             },
             {
-              title: "Competition",
+              title: t("Competition"),
               itemId: "/competition",
               // Optional
             },

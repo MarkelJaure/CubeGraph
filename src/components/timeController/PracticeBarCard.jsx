@@ -10,8 +10,11 @@ import DisplayTime from "../Number/DisplayTime";
 import ProgressModal from "../ProgressModal/ProgressModal";
 import { getListWithoutDNFs } from "../Number/ArrayLib";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import { useTranslation } from "react-i18next";
 
 const PracticeBarCard = (props) => {
+  const { t } = useTranslation();
+
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const handleOpen = () => setIsModalOpen(true);
   const handleClose = () => setIsModalOpen(false);
@@ -132,10 +135,8 @@ const PracticeBarCard = (props) => {
           <ConfirmationModal
             open={isOpenDialog}
             handleClose={handleDialogClose}
-            title={"Eliminar todos"}
-            text={
-              "Esta seguro que desea eliminar todos los tiempos? esta accion no se puede deshacer."
-            }
+            title={t("Delete all")}
+            text={t("Sure to delete all?")}
             cancel={handleDialogClose}
             accept={() => {
               props.deleteAll();

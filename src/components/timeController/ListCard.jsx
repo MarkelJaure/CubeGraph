@@ -18,6 +18,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -89,6 +90,8 @@ TablePaginationActions.propTypes = {
 };
 
 const ListCard = (props) => {
+  const { t } = useTranslation();
+
   const isTheBestTime = (time) => {
     return getPB(props.listOfTimes) === time;
   };
@@ -129,7 +132,7 @@ const ListCard = (props) => {
           color="text.secondary"
           gutterBottom
         >
-          Times
+          {t("Times")}
         </Typography>
         <Typography variant="h5" component="div">
           <TableContainer

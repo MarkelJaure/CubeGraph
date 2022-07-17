@@ -6,12 +6,22 @@ import {
   TableCell,
   TableRow,
   TableBody,
+  Button,
+  IconButton,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { getMedia, getPB } from "../Number/ArrayLib";
 import DisplayCubeTime from "../Number/DisplayCubeTime";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import { useTranslation } from "react-i18next";
 
 const StatsComparationTable = (props) => {
+  const { t } = useTranslation();
+
+  const [showMedia, setShowMedia] = useState(true);
+  const handelShowOffMedia = () => setShowMedia(false);
+  const handelShowOnMedia = () => setShowMedia(true);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ tableLayout: "fixed", minWidth: 130, whiteSpace: "nowrap" }}>
@@ -38,17 +48,45 @@ const StatsComparationTable = (props) => {
           <TableRow>
             <TableCell component="th" scope="row" align="left" width={"25%"}>
               {props.mediaPlayer1 ? (
-                <DisplayTime time={props.mediaPlayer1} />
+                showMedia ? (
+                  <DisplayTime time={props.mediaPlayer1} />
+                ) : (
+                  "*****"
+                )
               ) : (
                 ""
               )}
             </TableCell>
             <TableCell component="th" scope="row" align="center" width={"50%"}>
-              Media
+              {t("Average")}
+              {showMedia && (
+                <IconButton
+                  color="default"
+                  aria-label="upload picture"
+                  component="label"
+                  onClick={() => handelShowOffMedia()}
+                >
+                  <VisibilityOffIcon />
+                </IconButton>
+              )}
+              {!showMedia && (
+                <IconButton
+                  color="default"
+                  aria-label="upload picture"
+                  component="label"
+                  onClick={() => handelShowOnMedia()}
+                >
+                  <VisibilityIcon />
+                </IconButton>
+              )}
             </TableCell>
             <TableCell component="th" scope="row" align="right" width={"25%"}>
               {props.mediaPlayer2 ? (
-                <DisplayTime time={props.mediaPlayer2} />
+                showMedia ? (
+                  <DisplayTime time={props.mediaPlayer2} />
+                ) : (
+                  "*****"
+                )
               ) : (
                 ""
               )}

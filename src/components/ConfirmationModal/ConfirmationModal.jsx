@@ -5,8 +5,11 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useTranslation } from "react-i18next";
 
 const ConfirmationModal = (props) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Dialog
@@ -22,9 +25,9 @@ const ConfirmationModal = (props) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.cancel}>Cancel</Button>
+          <Button onClick={props.cancel}>{t("Cancel")}</Button>
           <Button onClick={props.accept} autoFocus>
-            Agree
+            {t("Accept")}
           </Button>
         </DialogActions>
       </Dialog>

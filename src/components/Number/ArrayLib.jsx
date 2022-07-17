@@ -28,6 +28,7 @@ export const getWorstTime = (listOfTimes) => {
 export const getMedia = (listOfTimes) => {
   if (listOfTimes.length === 0) return null;
   var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
+  if (listWithoutDNFs.length === 0) return null;
 
   return (
     Math.trunc(

@@ -4,8 +4,11 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stopwatch from "./Stopwatch";
 import { CardActionArea } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const TimeCard = (props) => {
+  const { t } = useTranslation();
+
   const [timerPlayer, setTimerPlayer] = useState(false);
   const [keyLockPlayer, setKeyLockPlayer] = useState(false);
 
@@ -103,8 +106,8 @@ const TimeCard = (props) => {
             color="text.secondary"
           >
             {!timerPlayer
-              ? `Hold [${props.keyName}] to start`
-              : `Press [${props.keyName}] to stop`}
+              ? `${t("Hold")} [${props.keyName}] ${t("to start")}`
+              : `${t("Press")} [${props.keyName}] ${t("to stop")}`}
           </Typography>
         </CardContent>
       </CardActionArea>

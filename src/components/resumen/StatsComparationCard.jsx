@@ -4,8 +4,11 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import StatsComparationTable from "./StatsComparationTable";
 import { getMedia, getPB } from "../Number/ArrayLib";
+import { useTranslation } from "react-i18next";
 
 const StatsComparationCard = (props) => {
+  const { t } = useTranslation();
+
   return (
     <Card
       sx={{
@@ -23,7 +26,7 @@ const StatsComparationCard = (props) => {
           color="text.secondary"
           gutterBottom
         >
-          Comparation
+          {t("Comparation")}
         </Typography>
         <Typography variant="h5" component="div">
           <StatsComparationTable

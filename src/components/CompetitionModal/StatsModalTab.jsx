@@ -16,8 +16,11 @@ import {
   getRoundsWin,
 } from "../Number/ArrayLib";
 import DisplayCubeTime from "../Number/DisplayCubeTime";
+import { useTranslation } from "react-i18next";
 
 const StatsModalTab = (props) => {
+  const { t } = useTranslation();
+
   const [pb1, setPb1] = useState(null);
   const [pb2, setPb2] = useState(null);
   const [avg1, setAvg1] = useState(null);
@@ -123,7 +126,7 @@ const StatsModalTab = (props) => {
                 {avg1 ? <DisplayTime time={avg1} /> : ""}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
-                Media
+                {t("Average")}
               </TableCell>
               <TableCell
                 component="th"
@@ -166,7 +169,7 @@ const StatsModalTab = (props) => {
                 )}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
-                Difference
+                {t("Difference")}
               </TableCell>
               <TableCell
                 component="th"
@@ -207,7 +210,7 @@ const StatsModalTab = (props) => {
                 {roundsWinPlayer1}
               </TableCell>
               <TableCell component="th" scope="row" align="center">
-                Rounds Win
+                {t("Rounds win")}
               </TableCell>
               <TableCell
                 component="th"

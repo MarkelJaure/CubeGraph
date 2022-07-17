@@ -1,0 +1,25 @@
+{
+  "Competition": "Competition",
+  "Practice": "Practice",
+
+  "homePage": "This is the home page",
+
+  "Hold": "Hold",
+  "Press": "Press",
+  "to start": "to start",
+  "to stop": "to stop",
+  "Times": "Times",
+  "Comparation": "Comparation",
+  "Finalize Match": "Finalize Match",
+  "Result": "Result",
+  "Stats": "Stats",
+  "Graph": "Graph",
+  "The winner is": "The winner is",
+  "Average": "Average",
+  "Difference": "Difference",
+  "Rounds win": "Rounds win",
+  "Delete all": "Delete all",
+  "Sure to delete all?": "Are you sure to delete all? This action cant be undone",
+  "Cancel": "Cancel",
+  "Accept": "Accept"
+}

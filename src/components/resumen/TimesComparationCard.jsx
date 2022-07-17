@@ -3,8 +3,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import TimesComparationTable from "./TimesComparationTable";
+import { useTranslation } from "react-i18next";
 
 const TimesComparationCard = (props) => {
+  const { t } = useTranslation();
+
   return (
     <Card
       sx={{
@@ -22,7 +25,7 @@ const TimesComparationCard = (props) => {
           color="text.secondary"
           gutterBottom
         >
-          Times
+          {t("Times")}
         </Typography>
         <Typography variant="h5" component="div">
           <TimesComparationTable

@@ -1,0 +1,25 @@
+{
+  "Competition": "Competencia",
+  "Practice": "Practica",
+
+  "homePage": "Esta es la pagina de inicio",
+
+  "Hold": "Manten",
+  "Press": "Presiona",
+  "to start": "para empezar",
+  "to stop": "para frenar",
+  "Times": "Tiempos",
+  "Comparation": "Comparacion",
+  "Finalize Match": "Finalizar competencia",
+  "Result": "Resultado",
+  "Stats": "Estadisticas",
+  "Graph": "Grafico",
+  "The winner is": "El ganador es",
+  "Average": "Media",
+  "Difference": "Diferencia",
+  "Rounds win": "Rondas ganadas",
+  "Delete all": "Eliminar todos",
+  "Sure to delete all?": "Esta seguro que desea eliminar todos? esta accion no se puede deshacer",
+  "Cancel": "Cancelar",
+  "Accept": "Aceptar"
+}

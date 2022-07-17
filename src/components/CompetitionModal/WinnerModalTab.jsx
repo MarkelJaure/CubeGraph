@@ -1,7 +1,10 @@
 import { Typography } from "@mui/material";
 import "./styles.css";
+import { useTranslation } from "react-i18next";
 
 const WinnerModalTab = (props) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <div
@@ -14,7 +17,7 @@ const WinnerModalTab = (props) => {
           component="div"
           sx={{ fontSize: 18, display: "flex", justifyContent: "center" }}
         >
-          El ganador es:
+          {t("The winner is")}:
         </Typography>
         <Typography
           className="fade-in-text"
