@@ -1,11 +1,15 @@
 import { Typography } from "@mui/material";
-import { getMedia } from "../lib/ArrayTimesUtil";
+import { getCurrAvg, getMedia } from "../lib/ArrayTimesUtil";
 import CrossTimeGraphic from "../TimeGraphic/CrossTimeGraphic";
 
 const GraphicModalTab = (props) => {
   const getColor = (times1, times2) => {
-    if (getMedia(times1) <= getMedia(times2)) {
-      if (getMedia(times1) === getMedia(times2)) {
+    if (
+      getCurrAvg(times1.length, times1) <= getCurrAvg(times2.length, times2)
+    ) {
+      if (
+        getCurrAvg(times1.length, times1) === getCurrAvg(times2.length, times2)
+      ) {
         return "gray";
       }
       return "green";

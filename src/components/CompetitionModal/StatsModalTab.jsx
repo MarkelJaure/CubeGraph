@@ -9,7 +9,12 @@ import {
   TableHead,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { getMedia, getPB, getRoundsWin } from "../lib/ArrayTimesUtil";
+import {
+  getCurrAvg,
+  getMedia,
+  getPB,
+  getRoundsWin,
+} from "../lib/ArrayTimesUtil";
 import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
 import { comparationOfTime } from "../lib/SingleTimeUtil";
 
@@ -28,13 +33,13 @@ const StatsModalTab = (props) => {
   useEffect(() => {
     if (props.timesPlayer1.length > 0) {
       setPb1(getPB(props.timesPlayer1));
-      setAvg1(getMedia(props.timesPlayer1));
+      setAvg1(getCurrAvg(props.timesPlayer1.length, props.timesPlayer1));
       setRoundsWinPlayer1(getRoundsWin(props.timesPlayer1, props.timesPlayer2));
     }
 
     if (props.timesPlayer2.length > 0) {
       setPb2(getPB(props.timesPlayer2));
-      setAvg2(getMedia(props.timesPlayer2));
+      setAvg2(getCurrAvg(props.timesPlayer2.length, props.timesPlayer2));
       setRoundsWinPlayer2(getRoundsWin(props.timesPlayer2, props.timesPlayer1));
     }
   }, [
