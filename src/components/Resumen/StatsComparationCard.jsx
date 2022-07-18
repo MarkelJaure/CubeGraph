@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import StatsComparationTable from "./StatsComparationTable";
-import { getMedia, getPB } from "../Number/ArrayLib";
+import { getMedia, getPB } from "../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
 
 const StatsComparationCard = (props) => {

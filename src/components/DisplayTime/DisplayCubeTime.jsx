@@ -1,4 +1,4 @@
-import { TWO_SECONDS } from "./ArrayLib";
+import { TWO_SECONDS } from "../lib/Constants";
 import DisplayTime from "./DisplayTime";
 
 const DisplayCubeTime = (props) => {

@@ -1,4 +1,5 @@
 import data from "../../scrambles.json";
+import { TWO_SECONDS } from "./Constants";
 
 export const getPB = (listOfTimes) => {
   if (listOfTimes.length === 0) return null;
@@ -120,5 +121,3 @@ const countDNF = (listOfTimes) => {
     return time.dnf;
   }).length;
 };
-
-export const TWO_SECONDS = 2000;

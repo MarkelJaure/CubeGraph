@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import { getMedia } from "../Number/ArrayLib";
-import CrossTimeGraphic from "../timeGraphic/CrossTimeGraphic";
+import { getMedia } from "../lib/ArrayTimesUtil";
+import CrossTimeGraphic from "../TimeGraphic/CrossTimeGraphic";
 
 const GraphicModalTab = (props) => {
   const getColor = (times1, times2) => {

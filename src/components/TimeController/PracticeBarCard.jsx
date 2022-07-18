@@ -5,10 +5,10 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TimelineIcon from "@mui/icons-material/Timeline";
-import DisplayCubeTime from "../Number/DisplayCubeTime";
-import DisplayTime from "../Number/DisplayTime";
+import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
+import DisplayTime from "../DisplayTime/DisplayTime";
 import ProgressModal from "../ProgressModal/ProgressModal";
-import { getListWithoutDNFs } from "../Number/ArrayLib";
+import { getListWithoutDNFs } from "../lib/ArrayTimesUtil";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import { useTranslation } from "react-i18next";
 

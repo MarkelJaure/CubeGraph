@@ -3,7 +3,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import AppBar from "@mui/material/AppBar";
-import { getListWithoutDNFs } from "../Number/ArrayLib";
+import { getListWithoutDNFs } from "../lib/ArrayTimesUtil";
 import ProgressGraphic from "./ProgressGraphic";
 import Box from "@mui/material/Box";
 

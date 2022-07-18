@@ -15,7 +15,7 @@ import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import { DashboardLayout } from "../components/navBar/Layout";
-import TimeGraphic from "../components/timeGraphic/TimeGraphic";
+import TimeGraphic from "../components/TimeGraphic/TimeGraphic";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

@@ -5,7 +5,7 @@ import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 
 i18n
     .use(new Backend(null, {
-        loadPath: '/locales/en/translation.json'
+        loadPath: '/locales/en/translation.json' //TODO: seteado actualmente siempre en ingles
     }))
     .use(I18nextBrowserLanguageDetector)
     .use(initReactI18next) // passes i18n down to react-i18next

@@ -5,12 +5,11 @@ import {
   ResponsiveContainer,
   XAxis,
   YAxis,
-  Label,
   Tooltip,
   Legend,
 } from "recharts";
 import React, { useEffect, useState } from "react";
-import { TWO_SECONDS } from "../Number/ArrayLib";
+import { TWO_SECONDS } from "../lib/Constants";
 
 export default function CrossTimeGraphic(props) {
   const [integratedData, setIntegratedData] = useState([]);

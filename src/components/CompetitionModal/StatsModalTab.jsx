@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DisplayTime from "../Number/DisplayTime";
+import DisplayTime from "../DisplayTime/DisplayTime";
 import {
   Table,
   TableContainer,
@@ -14,8 +14,8 @@ import {
   getMedia,
   getPB,
   getRoundsWin,
-} from "../Number/ArrayLib";
-import DisplayCubeTime from "../Number/DisplayCubeTime";
+} from "../lib/ArrayTimesUtil";
+import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
 import { useTranslation } from "react-i18next";
 
 const StatsModalTab = (props) => {

@@ -9,7 +9,7 @@ import {
   Legend,
 } from "recharts";
 import React, { useEffect, useState } from "react";
-import { TWO_SECONDS } from "../Number/ArrayLib";
+import { TWO_SECONDS } from "../lib/Constants";
 
 export default function ProgressGraphic(props) {
   const [data, setData] = useState([]);

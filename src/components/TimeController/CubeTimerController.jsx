@@ -7,7 +7,7 @@ import {
   getMedia,
   getPB,
   getRandomScramble,
-} from "../Number/ArrayLib";
+} from "../lib/ArrayTimesUtil";
 
 export default function CubeTimerController(props) {
   const [listOfTimes, setListOfTimes] = useState(

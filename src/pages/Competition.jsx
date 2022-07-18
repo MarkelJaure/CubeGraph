@@ -1,8 +1,8 @@
 import { DashboardLayout } from "../components/navBar/Layout";
 import React from "react";
 import { useState, useEffect } from "react";
-import Resumen from "../components/resumen/Resumen";
-import CubeTimerController from "../components/timeController/CubeTimerController";
+import Resumen from "../components/Resumen/Resumen";
+import CubeTimerController from "../components/TimeController/CubeTimerController";
 
 const KEY_PLAYER_1 = 32;
 const NAME_PLAYER_1 = "Player 1";

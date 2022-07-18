@@ -1,6 +1,6 @@
 import { DashboardLayout } from "../components/navBar/Layout";
 import React, { useState, useEffect } from "react";
-import CubeTimerController from "../components/timeController/CubeTimerController";
+import CubeTimerController from "../components/TimeController/CubeTimerController";
 
 const KEY_PLAYER = 32;
 const KEY_NAME = "Space";

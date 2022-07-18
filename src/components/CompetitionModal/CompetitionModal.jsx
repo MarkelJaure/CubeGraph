@@ -13,7 +13,7 @@ import SwipeableViews from "react-swipeable-views";
 import WinnerModalTab from "./WinnerModalTab";
 import StatsModalTab from "./StatsModalTab";
 import GraphicModalTab from "./GraphicModalTab";
-import { getMedia, getListWithoutDNFs } from "../Number/ArrayLib";
+import { getMedia, getListWithoutDNFs } from "../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
 
 function TabPanel(props) {

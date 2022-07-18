@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import DisplayTime from "../Number/DisplayTime";
+import DisplayTime from "../DisplayTime/DisplayTime";
 
 const Stopwatch = (props) => {
   const [time, setTime] = useState(0);

@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import StatsComparationCard from "./StatsComparationCard";
 import TimesComparationCard from "./TimesComparationCard";
 import CompetitionModal from "../CompetitionModal/CompetitionModal";
-import { getListWithoutDNFs } from "../Number/ArrayLib";
+import { getListWithoutDNFs } from "../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
 
 const Resumen = (props) => {

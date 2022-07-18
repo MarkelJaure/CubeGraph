@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DisplayTime from "../Number/DisplayTime";
+import DisplayTime from "../DisplayTime/DisplayTime";
 import {
   Table,
   TableContainer,
@@ -10,8 +10,8 @@ import {
   IconButton,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { getMedia, getPB } from "../Number/ArrayLib";
-import DisplayCubeTime from "../Number/DisplayCubeTime";
+import { getMedia, getPB } from "../lib/ArrayTimesUtil";
+import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useTranslation } from "react-i18next";
