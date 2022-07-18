@@ -16,6 +16,7 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 import { US, AR } from "country-flag-icons/react/3x2";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
+import { useEffect } from "react";
 
 export const NavSidebar = () => {
   const { t } = useTranslation();
@@ -24,6 +25,16 @@ export const NavSidebar = () => {
   const history = useHistory();
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [languageSelected, setLanguageSelected] = useState(
+    locale.substring(0, 2)
+  );
+
+  useEffect(() => {
+    setLanguageSelected(locale.substring(0, 2));
+    if (languageSelected !== "es" && languageSelected !== "en") {
+      setLanguageSelected("en");
+    }
+  }, [locale]);
 
   function changeLocale(l) {
     if (locale !== l) {
@@ -122,7 +133,7 @@ export const NavSidebar = () => {
           >
             <InputLabel>{t("Language")}</InputLabel>
             <Select
-              value={locale}
+              value={languageSelected}
               label={t("Language")}
               onChange={handleChangeLenguaje}
             >
