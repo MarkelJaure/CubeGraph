@@ -13,6 +13,7 @@ const TimesComparationTable = (props) => {
           minWidth: 180,
           whiteSpace: "nowrap",
         }}
+        size="small"
       >
         <TableBody>
           {props.timesPlayer1 >= props.timesPlayer2 &&

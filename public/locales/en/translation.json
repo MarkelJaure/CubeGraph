@@ -21,5 +21,8 @@
   "Delete all": "Delete all",
   "Sure to delete all?": "Are you sure to delete all? This action cant be undone",
   "Cancel": "Cancel",
-  "Accept": "Accept"
+  "Accept": "Accept",
+  "Language": "Language",
+  "English": "English",
+  "Spanish": "Spanish"
 }

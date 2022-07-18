@@ -2,16 +2,38 @@
 import { Navigation } from "react-minimal-side-navigation";
 import { useHistory, useLocation } from "react-router-dom";
 import Icon from "awesome-react-icons";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import i18n from "../../i18n";
 
 import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 
+import AppsIcon from "@mui/icons-material/Apps";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+
+import LocaleContext from "../../LocaleContext";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+
+import { US, AR } from "country-flag-icons/react/3x2";
+import getUnicodeFlagIcon from "country-flag-icons/unicode";
+
 export const NavSidebar = () => {
   const { t } = useTranslation();
+  const { locale } = useContext(LocaleContext);
+
   const history = useHistory();
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  function changeLocale(l) {
+    if (locale !== l) {
+      i18n.changeLanguage(l);
+    }
+  }
+
+  function handleChangeLenguaje(event) {
+    changeLocale(event.target.value);
+  }
 
   return (
     <React.Fragment>
@@ -26,7 +48,7 @@ export const NavSidebar = () => {
       <div>
         <button
           className="btn-menu"
-          onClick={(): void => setIsSidebarOpen(true)}
+          onClick={() => setIsSidebarOpen(true)}
           type="button"
         >
           <Icon name="burger" className="w-6 h-6" />
@@ -78,15 +100,41 @@ export const NavSidebar = () => {
             {
               title: t("Practice"),
               itemId: "/practice",
+              elemBefore: () => <AppsIcon />,
               // Optional
             },
             {
               title: t("Competition"),
               itemId: "/competition",
+              elemBefore: () => <EmojiEventsIcon />,
               // Optional
             },
           ]}
         />
+        <div
+          className="absolute bottom-0 w-full my-8"
+          style={{ justifyContent: "center", display: "flex" }}
+        >
+          <FormControl
+            style={{
+              width: "90%",
+            }}
+          >
+            <InputLabel>{t("Language")}</InputLabel>
+            <Select
+              value={locale}
+              label={t("Language")}
+              onChange={handleChangeLenguaje}
+            >
+              <MenuItem value={"en"}>
+                {getUnicodeFlagIcon("US") + " " + t("English")}
+              </MenuItem>
+              <MenuItem value={"es"}>
+                {getUnicodeFlagIcon("AR") + " " + t("Spanish")}
+              </MenuItem>
+            </Select>
+          </FormControl>
+        </div>
       </div>
     </React.Fragment>
   );

@@ -13,7 +13,6 @@ const StatsComparationCard = (props) => {
     <Card
       sx={{
         width: 9 / 10,
-        height: 170,
       }}
       style={{
         display: "flex",

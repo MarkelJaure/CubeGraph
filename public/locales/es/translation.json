@@ -21,5 +21,9 @@
   "Delete all": "Eliminar todos",
   "Sure to delete all?": "Esta seguro que desea eliminar todos? esta accion no se puede deshacer",
   "Cancel": "Cancelar",
-  "Accept": "Aceptar"
+  "Accept": "Aceptar",
+
+  "Language": "Idioma",
+  "English": "Ingles",
+  "Spanish": "Español"
 }

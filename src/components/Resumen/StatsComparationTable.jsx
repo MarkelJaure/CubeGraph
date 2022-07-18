@@ -24,7 +24,15 @@ const StatsComparationTable = (props) => {
   const handelShowOnMedia = () => setShowMedia(true);
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ tableLayout: "fixed", minWidth: 130, whiteSpace: "nowrap" }}>
+      <Table
+        sx={{
+          tableLayout: "fixed",
+          minWidth: 200,
+          whiteSpace: "nowrap",
+          height: "max-content",
+        }}
+        size="small"
+      >
         <TableBody>
           <TableRow>
             <TableCell align="left" width={"30%"}>
