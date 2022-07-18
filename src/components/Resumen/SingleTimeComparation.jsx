@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { TableCell, TableRow } from "@mui/material";
 import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
 import { comparationOfTime } from "../lib/SingleTimeUtil";
+import { useTranslation } from "react-i18next";
 
 const SingleTimeComparation = (props) => {
-  const [comparation, setComparation] = useState(0);
+  const { t } = useTranslation();
 
   return (
     <TableRow
@@ -33,7 +34,7 @@ const SingleTimeComparation = (props) => {
           ? comparationOfTime(props.time1, props.time2) >= 0
             ? comparationOfTime(props.time1, props.time2) === 1
               ? props.playerName1
-              : "Draw"
+              : t("Draw")
             : props.playerName2
           : "..."}
       </TableCell>

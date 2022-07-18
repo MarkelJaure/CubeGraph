@@ -5,6 +5,14 @@ import { useTranslation } from "react-i18next";
 const WinnerModalTab = (props) => {
   const { t } = useTranslation();
 
+  const IsPlayerWin = (aMedia1, aMedia2) => {
+    if (!aMedia1) return false;
+    if (!aMedia2) return true;
+    if (aMedia1 === -1) return false;
+    if (aMedia2 === -1) return true;
+    return aMedia1 < aMedia2;
+  };
+
   return (
     <>
       <div
@@ -25,13 +33,11 @@ const WinnerModalTab = (props) => {
           component="div"
           sx={{ fontSize: 40, display: "flex", justifyContent: "center" }}
         >
-          {props.mediaPlayer1 && props.mediaPlayer2
-            ? props.mediaPlayer1 <= props.mediaPlayer2
-              ? props.mediaPlayer1 < props.mediaPlayer2
-                ? props.playerName1
-                : "Empate"
-              : props.playerName2
-            : " Nadie "}
+          {IsPlayerWin(props.mediaPlayer1, props.mediaPlayer2)
+            ? props.playerName1
+            : IsPlayerWin(props.mediaPlayer2, props.mediaPlayer1)
+            ? props.playerName2
+            : t("Draw")}
           !
         </Typography>
       </div>

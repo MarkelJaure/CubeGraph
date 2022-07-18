@@ -13,7 +13,11 @@ import SwipeableViews from "react-swipeable-views";
 import WinnerModalTab from "./WinnerModalTab";
 import StatsModalTab from "./StatsModalTab";
 import GraphicModalTab from "./GraphicModalTab";
-import { getMedia, getListWithoutDNFs } from "../lib/ArrayTimesUtil";
+import {
+  getMedia,
+  getListWithoutDNFs,
+  getCurrAvg,
+} from "../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
 
 function TabPanel(props) {
@@ -106,8 +110,14 @@ const CompetitionModal = (props) => {
             >
               <TabPanel value={value} index={0} dir={theme.direction}>
                 <WinnerModalTab
-                  mediaPlayer1={getMedia(props.timesPlayer1)}
-                  mediaPlayer2={getMedia(props.timesPlayer2)}
+                  mediaPlayer1={getCurrAvg(
+                    props.timesPlayer1.length,
+                    props.timesPlayer1
+                  )}
+                  mediaPlayer2={getCurrAvg(
+                    props.timesPlayer2.length,
+                    props.timesPlayer2
+                  )}
                   playerName1={props.playerName1}
                   playerName2={props.playerName2}
                   width={props.width}
