@@ -9,13 +9,10 @@ import {
   TableHead,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import {
-  comparationOfTime,
-  getMedia,
-  getPB,
-  getRoundsWin,
-} from "../lib/ArrayTimesUtil";
+import { getMedia, getPB, getRoundsWin } from "../lib/ArrayTimesUtil";
 import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
+import { comparationOfTime } from "../lib/SingleTimeUtil";
+
 import { useTranslation } from "react-i18next";
 
 const StatsModalTab = (props) => {

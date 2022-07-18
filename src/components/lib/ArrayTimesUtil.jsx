@@ -1,5 +1,4 @@
-import data from "../../scrambles.json";
-import { TWO_SECONDS } from "./Constants";
+import { comparationOfTime, getTimeWithPlus2 } from "./SingleTimeUtil";
 
 export const getPB = (listOfTimes) => {
   if (listOfTimes.length === 0) return null;
@@ -7,23 +6,19 @@ export const getPB = (listOfTimes) => {
   var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
 
   var bestTime = Math.min(
-    ...listWithoutDNFs.map((item) => item.time + (item.plus2 ? TWO_SECONDS : 0))
+    ...listWithoutDNFs.map((item) => getTimeWithPlus2(item))
   );
 
-  return listWithoutDNFs.find(
-    (aTime) => aTime.time + (aTime.plus2 ? TWO_SECONDS : 0) === bestTime
-  );
+  return listWithoutDNFs.find((aTime) => getTimeWithPlus2(aTime) === bestTime);
 };
 
 export const getWorstTime = (listOfTimes) => {
   var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
 
   var worstTime = Math.max(
-    ...listWithoutDNFs.map((item) => item.time + (item.plus2 ? TWO_SECONDS : 0))
+    ...listWithoutDNFs.map((item) => getTimeWithPlus2(item))
   );
-  return listWithoutDNFs.find(
-    (aTime) => aTime.time + (aTime.plus2 ? TWO_SECONDS : 0) === worstTime
-  );
+  return listWithoutDNFs.find((aTime) => getTimeWithPlus2(aTime) === worstTime);
 };
 
 export const getMedia = (listOfTimes) => {
@@ -33,10 +28,7 @@ export const getMedia = (listOfTimes) => {
 
   return (
     Math.trunc(
-      listWithoutDNFs.reduce(
-        (prev, curr) => prev + (curr.time + (curr.plus2 ? TWO_SECONDS : 0)),
-        0
-      ) /
+      listWithoutDNFs.reduce((prev, curr) => prev + getTimeWithPlus2(curr), 0) /
         listWithoutDNFs.length /
         10
     ) * 10
@@ -58,27 +50,6 @@ export const getRoundsWin = (timesPlayer1, timesPlayer2) => {
         0
       );
     }
-  }
-  return 0;
-};
-
-export const comparationOfTime = (aTime1, aTime2) => {
-  if (aTime1.dnf && aTime2.dnf) {
-    return 0;
-  }
-  if (aTime1.dnf) {
-    return -1;
-  }
-  if (aTime2.dnf) {
-    return 1;
-  }
-  var realTime1 = aTime1.time + (aTime1.plus2 ? TWO_SECONDS : 0);
-  var realTime2 = aTime2.time + (aTime2.plus2 ? TWO_SECONDS : 0);
-  if (realTime1 < realTime2) {
-    return 1;
-  }
-  if (realTime1 > realTime2) {
-    return -1;
   }
   return 0;
 };
@@ -111,9 +82,6 @@ export const getCurrAvg = (aNumber, listOfTimes) => {
       return time !== pb && time !== worstTime;
     })
   );
-};
-export const getRandomScramble = () => {
-  return data.scrambles[Math.floor(Math.random() * data.scrambles.length)];
 };
 
 const countDNF = (listOfTimes) => {

@@ -2,12 +2,8 @@ import React, { useState, useEffect } from "react";
 import TimeCard from "./TimeCard";
 import ListCard from "./ListCard";
 import PracticeBarCard from "./PracticeBarCard";
-import {
-  getCurrAvg,
-  getMedia,
-  getPB,
-  getRandomScramble,
-} from "../lib/ArrayTimesUtil";
+import { getCurrAvg, getMedia, getPB } from "../lib/ArrayTimesUtil";
+import { getRandomScramble } from "../lib/SingleTimeUtil";
 
 export default function CubeTimerController(props) {
   const [listOfTimes, setListOfTimes] = useState(

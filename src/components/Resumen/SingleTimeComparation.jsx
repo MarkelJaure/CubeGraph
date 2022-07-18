@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TableCell, TableRow } from "@mui/material";
 import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
-import { comparationOfTime } from "../lib/ArrayTimesUtil";
+import { comparationOfTime } from "../lib/SingleTimeUtil";
 
 const SingleTimeComparation = (props) => {
   const [comparation, setComparation] = useState(0);

@@ -9,7 +9,7 @@ import {
   Legend,
 } from "recharts";
 import React, { useEffect, useState } from "react";
-import { TWO_SECONDS } from "../lib/Constants";
+import { getTimeWithPlus2 } from "../lib/SingleTimeUtil";
 
 export default function ProgressGraphic(props) {
   const [data, setData] = useState([]);
@@ -63,7 +63,7 @@ export default function ProgressGraphic(props) {
 
 const getData = (times1) => {
   return times1.map(function (element, index) {
-    element.time1 = (element.time + (element.plus2 ? TWO_SECONDS : 0)) / 1000;
+    element.time1 = getTimeWithPlus2(element) / 1000;
     element.index = index;
     return element;
   });
