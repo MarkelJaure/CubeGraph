@@ -26,5 +26,10 @@
 
   "Language": "Language",
   "English": "English",
-  "Spanish": "Spanish"
+  "Spanish": "Spanish",
+
+  "FinalizeMatchTooltip": "Min: 3 times per player",
+  "Plus2Tooltip": "Add +2",
+  "DNFTooltip": "Set DNF",
+  "DeleteTooltip": "Delete time"
 }

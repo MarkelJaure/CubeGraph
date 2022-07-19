@@ -5,6 +5,7 @@ import TimesComparationCard from "./TimesComparationCard";
 import CompetitionModal from "../CompetitionModal/CompetitionModal";
 import { getListWithoutDNFs } from "../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
+import { Tooltip } from "@mui/material";
 
 const Resumen = (props) => {
   const { t } = useTranslation();
@@ -60,14 +61,16 @@ const Resumen = (props) => {
           alignItems: "center",
         }}
       >
-        <Button
-          variant="contained"
-          onClick={handleOpen}
-          style={{ display: "flex", justifyContent: "center", margin: 10 }}
-          disabled={checkButtonDisabled()}
-        >
-          {t("Finalize Match")}
-        </Button>
+        <Tooltip title={t("FinalizeMatchTooltip")} placement="bottom">
+          <Button
+            variant="contained"
+            onClick={handleOpen}
+            style={{ display: "flex", justifyContent: "center", margin: 10 }}
+            disabled={checkButtonDisabled()}
+          >
+            {t("Finalize Match")}
+          </Button>
+        </Tooltip>
         <CompetitionModal
           open={isModalOpen}
           onClose={handleClose}

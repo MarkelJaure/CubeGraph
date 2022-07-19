@@ -1,5 +1,4 @@
-import { Typography } from "@mui/material";
-import { getCurrAvg, getMedia } from "../lib/ArrayTimesUtil";
+import { getCurrAvg } from "../lib/ArrayTimesUtil";
 import CrossTimeGraphic from "../TimeGraphic/CrossTimeGraphic";
 
 const GraphicModalTab = (props) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -6,17 +6,9 @@ import { Table, TableContainer, TableBody } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import SingleCubeTimeRow from "./SingleCubeTimeRow";
 import { getPB } from "../lib/ArrayTimesUtil";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import TableFooter from "@mui/material/TableFooter";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import IconButton from "@mui/material/IconButton";
-import FirstPageIcon from "@mui/icons-material/FirstPage";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import LastPageIcon from "@mui/icons-material/LastPage";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { TablePaginationActions } from "../lib/TablePaginationActionsUtil";
 

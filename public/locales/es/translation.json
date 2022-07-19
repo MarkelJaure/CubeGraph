@@ -26,5 +26,10 @@
 
   "Language": "Idioma",
   "English": "Ingles",
-  "Spanish": "Español"
+  "Spanish": "Español",
+
+  "FinalizeMatchTooltip": "Minimo: 3 tiempos por jugador",
+  "Plus2Tooltip": "Agregar +2",
+  "DNFTooltip": "Setear DNF",
+  "DeleteTooltip": "Eliminar tiempo"
 }

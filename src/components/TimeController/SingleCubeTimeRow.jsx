@@ -3,8 +3,12 @@ import Button from "@mui/material/Button";
 import { TableCell, TableRow } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
+import { Tooltip } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const SingleCubeTimeRow = (props) => {
+  const { t } = useTranslation();
+
   return (
     <TableRow key={props.time.timestamp} style={{ height: "10px" }}>
       <TableCell align="left" width={"5%"}>
@@ -35,41 +39,47 @@ const SingleCubeTimeRow = (props) => {
         )}
       </TableCell>
       <TableCell align="center" width={"8%"}>
-        <Button
-          style={{
-            backgroundColor: props.time.plus2 ? "#3b82f64d" : "white",
-            minWidth: "30px",
-            minHeight: "30px",
-          }}
-          onClick={() => props.plus2(props.time)}
-        >
-          +2
-        </Button>
+        <Tooltip title={t("Plus2Tooltip")} placement="bottom">
+          <Button
+            style={{
+              backgroundColor: props.time.plus2 ? "#3b82f64d" : "white",
+              minWidth: "30px",
+              minHeight: "30px",
+            }}
+            onClick={() => props.plus2(props.time)}
+          >
+            +2
+          </Button>
+        </Tooltip>
       </TableCell>
       <TableCell align="center" width={"10%"}>
-        <Button
-          style={{
-            backgroundColor: props.time.dnf ? "#3b82f64d" : "white",
-            minWidth: "30px",
-            minHeight: "30px",
-          }}
-          variant="text"
-          onClick={() => props.dnf(props.time)}
-        >
-          DNF
-        </Button>
+        <Tooltip title={t("DNFTooltip")} placement="bottom">
+          <Button
+            style={{
+              backgroundColor: props.time.dnf ? "#3b82f64d" : "white",
+              minWidth: "30px",
+              minHeight: "30px",
+            }}
+            variant="text"
+            onClick={() => props.dnf(props.time)}
+          >
+            DNF
+          </Button>
+        </Tooltip>
       </TableCell>
       <TableCell align="center" width={"10%"}>
-        <Button
-          variant="text"
-          onClick={() => props.deleteTime(props.time)}
-          style={{
-            minWidth: "30px",
-            minHeight: "30px",
-          }}
-        >
-          <DeleteIcon />
-        </Button>
+        <Tooltip title={t("DeleteTooltip")} placement="bottom">
+          <Button
+            variant="text"
+            onClick={() => props.deleteTime(props.time)}
+            style={{
+              minWidth: "30px",
+              minHeight: "30px",
+            }}
+          >
+            <DeleteIcon />
+          </Button>
+        </Tooltip>
       </TableCell>
     </TableRow>
   );
