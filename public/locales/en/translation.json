@@ -31,5 +31,7 @@
   "FinalizeMatchTooltip": "Min: 3 times per player",
   "Plus2Tooltip": "Add +2",
   "DNFTooltip": "Set DNF",
-  "DeleteTooltip": "Delete time"
+  "DeleteTooltip": "Delete time",
+  "DeleteAllTooltip": "Delete all times",
+  "PracticeGraphTooltip": "See personal graph"
 }

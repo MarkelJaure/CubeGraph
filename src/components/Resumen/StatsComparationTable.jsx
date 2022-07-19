@@ -66,13 +66,17 @@ const StatsComparationTable = (props) => {
               )}
             </TableCell>
             <TableCell component="th" scope="row" align="center" width={"50%"}>
-              {t("Average")}
+              {t("Average")}{" "}
               {showMedia && (
                 <IconButton
                   color="default"
                   aria-label="upload picture"
                   component="label"
                   onClick={() => handelShowOffMedia()}
+                  style={{
+                    height: "30px",
+                    width: "30px",
+                  }}
                 >
                   <VisibilityOffIcon />
                 </IconButton>
@@ -83,6 +87,10 @@ const StatsComparationTable = (props) => {
                   aria-label="upload picture"
                   component="label"
                   onClick={() => handelShowOnMedia()}
+                  style={{
+                    height: "30px",
+                    width: "30px",
+                  }}
                 >
                   <VisibilityIcon />
                 </IconButton>

@@ -31,5 +31,7 @@
   "FinalizeMatchTooltip": "Minimo: 3 tiempos por jugador",
   "Plus2Tooltip": "Agregar +2",
   "DNFTooltip": "Setear DNF",
-  "DeleteTooltip": "Eliminar tiempo"
+  "DeleteTooltip": "Eliminar tiempo",
+  "DeleteAllTooltip": "Eliminar todos los tiempos",
+  "PracticeGraphTooltip": "Ver grafico de progreso"
 }

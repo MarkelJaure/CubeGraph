@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
@@ -123,15 +123,17 @@ const PracticeBarCard = (props) => {
               <DisplayTime time={props.avg100}></DisplayTime>
             </b>
           </Typography>
-          <Button
-            variant="text"
-            align="right"
-            width={"7%"}
-            style={{ minWidth: "40px" }}
-            onClick={handleDialogOpen}
-          >
-            <DeleteIcon />
-          </Button>
+          <Tooltip title={t("DeleteAllTooltip")} placement="bottom">
+            <Button
+              variant="text"
+              align="right"
+              width={"7%"}
+              style={{ minWidth: "40px" }}
+              onClick={handleDialogOpen}
+            >
+              <DeleteIcon />
+            </Button>
+          </Tooltip>
           <ConfirmationModal
             open={isOpenDialog}
             handleClose={handleDialogClose}
@@ -143,16 +145,18 @@ const PracticeBarCard = (props) => {
               handleDialogClose();
             }}
           />
-          <Button
-            width={"7%"}
-            align="center"
-            variant="text"
-            style={{ minWidth: "40px" }}
-            onClick={handleOpen}
-            disabled={checkDisabledGraphicButton()}
-          >
-            <TimelineIcon />
-          </Button>
+          <Tooltip title={t("PracticeGraphTooltip")} placement="bottom">
+            <Button
+              width={"7%"}
+              align="center"
+              variant="text"
+              style={{ minWidth: "40px" }}
+              onClick={handleOpen}
+              disabled={checkDisabledGraphicButton()}
+            >
+              <TimelineIcon />
+            </Button>
+          </Tooltip>
           <ProgressModal
             open={isModalOpen}
             onClose={handleClose}
