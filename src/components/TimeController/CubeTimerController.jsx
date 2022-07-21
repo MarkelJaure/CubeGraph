@@ -19,7 +19,6 @@ export default function CubeTimerController(props) {
       dnf: false,
       scramble: actualScramble,
     };
-    console.log(newTime);
     setListOfTimes((listOfTimes) => [...listOfTimes, newTime]);
     setActualScramble(getRandomScramble());
 
