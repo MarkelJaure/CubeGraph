@@ -2,31 +2,20 @@
 
 Clone
 
-## Run on dev
+`git clone https://github.com/MarkelJaure/CubeGraph.git`
 
-In the project directory, you can run:
+## Run on dev
 
 ### `npm start`
 
+pagina:
+http://localhost:3000/
 
 ## Deploy on firebase
 
-
 ### `npm run build`
-
 
 ### `firebase deploy --only hosting:cubegraph`
 
-
-Deploy firebase
-npm run build
-firebase deploy --only hosting:cubegraph
-
 pagina:
 https://cubegraph.firebaseapp.com/
-
-Run dev:
-npm start
-
-pagina:
-http://localhost:3000/

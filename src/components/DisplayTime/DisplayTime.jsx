@@ -2,7 +2,8 @@ const DisplayTime = (props) => {
   return (
     <>
       {props.time === -1 && <span>DNF</span>}
-      {props.time !== -1 && (
+      {props.time === -2 && <span>---</span>}
+      {props.time >= 0 && (
         <>
           {Math.floor((props.time / 60000) % 60) > 0 && (
             <span>

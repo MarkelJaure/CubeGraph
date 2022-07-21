@@ -5,6 +5,10 @@ import Typography from "@mui/material/Typography";
 import Stopwatch from "./Stopwatch";
 import { CardActionArea } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import TimeCardText from "./TimeCardText";
+import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
+import DisplayTime from "../DisplayTime/DisplayTime";
+import { getBestAvg } from "../lib/ArrayTimesUtil";
 
 const TimeCard = (props) => {
   const { t } = useTranslation();
@@ -24,12 +28,6 @@ const TimeCard = (props) => {
       setTimerPlayer(true);
     } else {
       setKeyLockPlayer(false);
-    }
-  };
-
-  const returnTime = (time) => {
-    if (props.notifyNewTime) {
-      props.notifyNewTime(time);
     }
   };
 
@@ -82,37 +80,80 @@ const TimeCard = (props) => {
         onMouseDown={() => handleMouseDownListener()}
         onMouseUp={() => handleMouseUpListener()}
       >
-        <CardContent>
-          <Typography
-            sx={{
-              fontSize: "14px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-            color="text.secondary"
-          >
-            {props.playerName}
-          </Typography>
-          <Typography
-            variant="h5"
-            component="div"
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
-            <Stopwatch isRunning={timerPlayer} parentCallback={returnTime} />
-          </Typography>
-          <Typography
-            sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
-            //style={{marginTop:2}}
-            color="text.secondary"
-          >
-            {!timerPlayer
-              ? `${t("Hold")} [${props.keyName}] ${t("to start")}`
-              : `${t("Press")} [${props.keyName}] ${t("to stop")}`}
-          </Typography>
+        <CardContent style={useStyles.header}>
+          <div></div>
+          <div>
+            <TimeCardText
+              playerName={props.playerName}
+              keyValue={props.keyValue}
+              keyName={props.keyName}
+              notifyNewTime={props.notifyNewTime}
+              keyLockPlayer={keyLockPlayer}
+              timerPlayer={timerPlayer}
+            />
+          </div>
+          <div>
+            <Typography
+              align="center"
+              style={{ minWidth: "60px" }}
+              sx={{ fontSize: 13 }}
+            >
+              Avg5:{" "}
+              <b>
+                <DisplayTime
+                  time={getBestAvg(5, props.listOfTimes)}
+                ></DisplayTime>
+              </b>
+            </Typography>
+            <Typography
+              align="center"
+              style={{ minWidth: "60px" }}
+              sx={{ fontSize: 13 }}
+            >
+              Avg12:{" "}
+              <b>
+                <DisplayTime
+                  time={getBestAvg(12, props.listOfTimes)}
+                ></DisplayTime>
+              </b>
+            </Typography>
+            <Typography
+              align="center"
+              style={{ minWidth: "60px" }}
+              sx={{ fontSize: 13 }}
+            >
+              Avg50:{" "}
+              <b>
+                <DisplayTime
+                  time={getBestAvg(50, props.listOfTimes)}
+                ></DisplayTime>
+              </b>
+            </Typography>
+            <Typography
+              align="center"
+              style={{ minWidth: "60px" }}
+              sx={{ fontSize: 13 }}
+            >
+              Avg100:{" "}
+              <b>
+                <DisplayTime
+                  time={getBestAvg(100, props.listOfTimes)}
+                ></DisplayTime>
+              </b>
+            </Typography>
+          </div>
         </CardContent>
       </CardActionArea>
     </Card>
   );
+};
+
+const useStyles = {
+  header: {
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
 };
 
 export default TimeCard;

@@ -98,6 +98,7 @@ export default function CubeTimerController(props) {
             keyValue={props.keyValue}
             keyName={props.keyName}
             notifyNewTime={handleNewTime}
+            listOfTimes={listOfTimes}
           />
         </div>
         <div

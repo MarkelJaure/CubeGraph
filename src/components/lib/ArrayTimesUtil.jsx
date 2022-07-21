@@ -61,8 +61,28 @@ export const getListWithoutDNFs = (listOfTimes) => {
 };
 
 export const getCurrAvg = (aNumber, listOfTimes) => {
+  return getAvg(aNumber, listOfTimes, listOfTimes.length - aNumber);
+};
+
+export const getBestAvg = (aNumber, listOfTimes) => {
+  var avgsLength = listOfTimes.length - aNumber + 1;
+  var avgs = [];
+
+  if (avgsLength > 0) {
+    for (var i = -1; i < avgsLength; i++) {
+      var tmpAvg = getAvg(aNumber, listOfTimes, i);
+      if (tmpAvg && tmpAvg >= 0) avgs.push(tmpAvg);
+    }
+    return Math.min(...avgs);
+  } else {
+    return -2;
+  }
+};
+
+export const getAvg = (aNumber, listOfTimes, aStart) => {
   if (listOfTimes.length === 0) return null;
-  const lastElements = listOfTimes.slice(-aNumber);
+  if (aNumber > listOfTimes.length) return -2;
+  const lastElements = listOfTimes.slice(aStart, aStart + aNumber);
   var DNFs = countDNF(lastElements);
   if (DNFs >= 2) return -1;
 
