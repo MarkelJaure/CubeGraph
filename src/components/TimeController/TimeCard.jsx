@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import Stopwatch from "./Stopwatch";
 import { CardActionArea } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import TimeCardText from "./TimeCardText";
-import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
-import DisplayTime from "../DisplayTime/DisplayTime";
 import { getBestAvg } from "../lib/ArrayTimesUtil";
+import BestAvgs from "./BestAvgs";
 
 const TimeCard = (props) => {
-  const { t } = useTranslation();
-
   const [timerPlayer, setTimerPlayer] = useState(false);
   const [keyLockPlayer, setKeyLockPlayer] = useState(false);
 
@@ -93,54 +87,14 @@ const TimeCard = (props) => {
             />
           </div>
           <div>
-            <Typography
-              align="center"
-              style={{ minWidth: "60px" }}
-              sx={{ fontSize: 13 }}
-            >
-              Avg5:{" "}
-              <b>
-                <DisplayTime
-                  time={getBestAvg(5, props.listOfTimes)}
-                ></DisplayTime>
-              </b>
-            </Typography>
-            <Typography
-              align="center"
-              style={{ minWidth: "60px" }}
-              sx={{ fontSize: 13 }}
-            >
-              Avg12:{" "}
-              <b>
-                <DisplayTime
-                  time={getBestAvg(12, props.listOfTimes)}
-                ></DisplayTime>
-              </b>
-            </Typography>
-            <Typography
-              align="center"
-              style={{ minWidth: "60px" }}
-              sx={{ fontSize: 13 }}
-            >
-              Avg50:{" "}
-              <b>
-                <DisplayTime
-                  time={getBestAvg(50, props.listOfTimes)}
-                ></DisplayTime>
-              </b>
-            </Typography>
-            <Typography
-              align="center"
-              style={{ minWidth: "60px" }}
-              sx={{ fontSize: 13 }}
-            >
-              Avg100:{" "}
-              <b>
-                <DisplayTime
-                  time={getBestAvg(100, props.listOfTimes)}
-                ></DisplayTime>
-              </b>
-            </Typography>
+            {props.mode === 0 && (
+              <BestAvgs
+                bestAvg5={getBestAvg(5, props.listOfTimes)}
+                bestAvg12={getBestAvg(12, props.listOfTimes)}
+                bestAvg50={getBestAvg(50, props.listOfTimes)}
+                bestAvg100={getBestAvg(100, props.listOfTimes)}
+              />
+            )}
           </div>
         </CardContent>
       </CardActionArea>
