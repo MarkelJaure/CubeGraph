@@ -36,12 +36,8 @@ const ListCard = (props) => {
   };
 
   return (
-    <Card
-      sx={{ width: 9 / 10,
-    display: "flex",
-        justifyContent: "center", }}
-    >
-      <CardContent sx={{ width: 1 }}>
+    <Card sx={styles.card}>
+      <CardContent sx={styles.cardContent}>
         <Typography
           sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
           color="text.secondary"
@@ -50,14 +46,8 @@ const ListCard = (props) => {
           {t("Times")}
         </Typography>
         <Typography variant="h5" component="div">
-          <TableContainer
-            component={Paper}
-            style={styles.tableContainer}
-          >
-            <Table
-              sx={styles.table}
-              size="small"
-            >
+          <TableContainer component={Paper} style={styles.tableContainer}>
+            <Table sx={styles.table} size="small">
               <TableBody>
                 {reverse(props.listOfTimes)
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -124,16 +114,22 @@ const getSinceAgo = (timestamp) => {
   return "Hace " + Math.trunc(sinceAgo / aDay) + " dias";
 };
 
-const styles={
-  tableContainer:{
-maxHeight: "calc(110vh - 300px)" 
+const styles = {
+  card: {
+    width: 9 / 10,
+    display: "flex",
+    justifyContent: "center",
   },
-  table:{
-     whiteSpace: "nowrap",
-                tableLayout: "fixed",
-                overflowX: "auto",
-                minWidth: 200,
-  }
-}
+  cardContent: { width: 1 },
+  tableContainer: {
+    maxHeight: "calc(110vh - 350px)",
+  },
+  table: {
+    whiteSpace: "nowrap",
+    tableLayout: "fixed",
+    overflowX: "auto",
+    minWidth: 200,
+  },
+};
 
 export default ListCard;

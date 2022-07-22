@@ -13,17 +13,14 @@ const TimeCardText = (props) => {
   };
 
   return (
-    <>
-      <Typography
-        sx={sx.secondaryText}
-        color="text.secondary"
-      >
+    <div>
+      <Typography sx={sx.secondaryText} color="text.secondary">
         {props.playerName}
       </Typography>
       <Typography
         variant="h5"
         component="div"
-        sx={{ display: "flex", justifyContent: "center" }}
+        sx={{ fontSize: 50, display: "flex", justifyContent: "center" }}
       >
         <Stopwatch isRunning={props.timerPlayer} parentCallback={returnTime} />
       </Typography>
@@ -36,16 +33,16 @@ const TimeCardText = (props) => {
           ? `${t("Hold")} [${props.keyName}] ${t("to start")}`
           : `${t("Press")} [${props.keyName}] ${t("to stop")}`}
       </Typography>
-    </>
+    </div>
   );
 };
 
-const sx={
-  secondaryText:{
+const sx = {
+  secondaryText: {
     fontSize: "14px",
     display: "flex",
     justifyContent: "center",
-  }
-}
+  },
+};
 
 export default TimeCardText;

@@ -94,9 +94,7 @@ const TimeCard = (props) => {
 const useStyles = {
   card: {
     width: 9 / 10,
-    height: "20vh",
-    maxHeight: "100px",
-    minHeight: "100px",
+    height: "150px",
     display: "flex",
     justifyContent: "center",
   },
@@ -107,6 +105,8 @@ const useStyles = {
   },
   flexComponent: {
     flex: 1,
+    display: "flex",
+    justifyContent: "center",
   },
 };
 

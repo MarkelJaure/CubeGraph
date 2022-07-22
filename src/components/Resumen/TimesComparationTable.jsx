@@ -63,7 +63,7 @@ const TimesComparationTable = (props) => {
                 );
               })}
         </TableBody>
-        <TableFooter style={styles.tableFooter}>
+        <TableFooter style={{ display: checkHidden() ? "none" : "" }}>
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[10]}
@@ -106,9 +106,6 @@ const styles = {
     minWidth: 180,
     overflowX: "auto",
     whiteSpace: "nowrap",
-  },
-  tableFooter: {
-    display: this.checkHidden() ? "none" : "",
   },
 };
 
