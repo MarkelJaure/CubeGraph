@@ -32,20 +32,8 @@ const TimesComparationTable = (props) => {
   };
 
   return (
-    <TableContainer
-      component={Paper}
-      style={{ maxHeight: "calc(100vh - 300px)" }}
-    >
-      <Table
-        sx={{
-          tableLayout: "fixed",
-          height: "max-content",
-          minWidth: 180,
-          overflowX: "auto",
-          whiteSpace: "nowrap",
-        }}
-        size="small"
-      >
+    <TableContainer component={Paper} style={styles.tableContainer}>
+      <Table sx={styles.table} size="small">
         <TableBody>
           {props.timesPlayer1 >= props.timesPlayer2 &&
             reverse(props.timesPlayer1)
@@ -75,7 +63,7 @@ const TimesComparationTable = (props) => {
                 );
               })}
         </TableBody>
-        <TableFooter style={{ display: checkHidden() ? "none" : "" }}>
+        <TableFooter style={styles.tableFooter}>
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[10]}
@@ -107,5 +95,21 @@ const TimesComparationTable = (props) => {
 function reverse(array) {
   return array.map((item, idx) => array[array.length - 1 - idx]);
 }
+
+const styles = {
+  tableContainer: {
+    maxHeight: "calc(100vh - 300px)",
+  },
+  table: {
+    tableLayout: "fixed",
+    height: "max-content",
+    minWidth: 180,
+    overflowX: "auto",
+    whiteSpace: "nowrap",
+  },
+  tableFooter: {
+    display: this.checkHidden() ? "none" : "",
+  },
+};
 
 export default TimesComparationTable;

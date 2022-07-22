@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stopwatch from "./Stopwatch";
-import { CardActionArea } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 const TimeCardText = (props) => {
@@ -18,11 +15,7 @@ const TimeCardText = (props) => {
   return (
     <>
       <Typography
-        sx={{
-          fontSize: "14px",
-          display: "flex",
-          justifyContent: "center",
-        }}
+        sx={sx.secondaryText}
         color="text.secondary"
       >
         {props.playerName}
@@ -35,7 +28,7 @@ const TimeCardText = (props) => {
         <Stopwatch isRunning={props.timerPlayer} parentCallback={returnTime} />
       </Typography>
       <Typography
-        sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
+        sx={sx.secondaryText}
         //style={{marginTop:2}}
         color="text.secondary"
       >
@@ -46,5 +39,13 @@ const TimeCardText = (props) => {
     </>
   );
 };
+
+const sx={
+  secondaryText:{
+    fontSize: "14px",
+    display: "flex",
+    justifyContent: "center",
+  }
+}
 
 export default TimeCardText;

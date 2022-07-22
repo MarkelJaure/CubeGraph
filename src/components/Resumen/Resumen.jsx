@@ -27,15 +27,8 @@ const Resumen = (props) => {
   };
 
   return (
-    <div
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div style={{ flex: 1, justifyContent: "center", display: "flex" }}>
+    <div style={styles.flexContainer}>
+      <div style={styles.flexComponent}>
         <StatsComparationCard
           timesPlayer1={props.timesPlayer1}
           timesPlayer2={props.timesPlayer2}
@@ -45,7 +38,7 @@ const Resumen = (props) => {
           updateInTimesPlayer2={props.updateInTimesPlayer2}
         />
       </div>
-      <div style={{ flex: 1, justifyContent: "center", display: "flex" }}>
+      <div style={styles.flexComponent}>
         <TimesComparationCard
           timesPlayer1={props.timesPlayer1}
           timesPlayer2={props.timesPlayer2}
@@ -54,18 +47,12 @@ const Resumen = (props) => {
         />
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div style={styles.flexComponent}>
         <Tooltip title={t("FinalizeMatchTooltip")} placement="bottom">
           <Button
             variant="contained"
             onClick={handleOpen}
-            style={{ display: "flex", justifyContent: "center", margin: 10 }}
+            style={styles.finalizeButton}
             disabled={checkButtonDisabled()}
           >
             {t("Finalize Match")}
@@ -86,6 +73,26 @@ const Resumen = (props) => {
       </div>
     </div>
   );
+};
+
+const styles = {
+  flexContainer: {
+    flex: 1,
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "column",
+  },
+  flexComponent: {
+    flex: 1,
+    justifyContent: "center",
+    display: "flex",
+    marginTop: "2vh",
+  },
+  finalizeButton: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "2vh",
+  },
 };
 
 export default Resumen;

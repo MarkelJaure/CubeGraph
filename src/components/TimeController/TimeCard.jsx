@@ -58,25 +58,14 @@ const TimeCard = (props) => {
   }, [keyLockPlayer, timerPlayer]);
 
   return (
-    <Card
-      sx={{
-        width: 9 / 10,
-        height: "20vh",
-        maxHeight: "100px",
-        minHeight: "100px",
-      }}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <Card sx={useStyles.card}>
       <CardActionArea
         onMouseDown={() => handleMouseDownListener()}
         onMouseUp={() => handleMouseUpListener()}
       >
         <CardContent style={useStyles.header}>
-          <div></div>
-          <div>
+          <div style={useStyles.flexComponent}></div>
+          <div style={useStyles.flexComponent}>
             <TimeCardText
               playerName={props.playerName}
               keyValue={props.keyValue}
@@ -86,7 +75,7 @@ const TimeCard = (props) => {
               timerPlayer={timerPlayer}
             />
           </div>
-          <div>
+          <div style={useStyles.flexComponent}>
             {props.mode === 0 && (
               <BestAvgs
                 bestAvg5={getBestAvg(5, props.listOfTimes)}
@@ -103,10 +92,21 @@ const TimeCard = (props) => {
 };
 
 const useStyles = {
+  card: {
+    width: 9 / 10,
+    height: "20vh",
+    maxHeight: "100px",
+    minHeight: "100px",
+    display: "flex",
+    justifyContent: "center",
+  },
   header: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
+  },
+  flexComponent: {
+    flex: 1,
   },
 };
 

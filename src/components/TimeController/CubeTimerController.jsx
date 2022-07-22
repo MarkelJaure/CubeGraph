@@ -83,15 +83,8 @@ export default function CubeTimerController(props) {
 
   return (
     <>
-      <div
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <div style={{ flex: 1, justifyContent: "center", display: "flex" }}>
+      <div style={styles.flexContainer}>
+        <div style={styles.flexComponent}>
           <TimeCard
             playerName={props.playerName}
             keyValue={props.keyValue}
@@ -101,14 +94,7 @@ export default function CubeTimerController(props) {
             mode={props.mode}
           />
         </div>
-        <div
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            display: "flex",
-            marginTop: "1vh",
-          }}
-        >
+        <div style={styles.flexComponent}>
           {props.mode === 0 && (
             <PracticeBarCard
               scramble={actualScramble}
@@ -123,14 +109,7 @@ export default function CubeTimerController(props) {
             />
           )}
         </div>
-        <div
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            display: "flex",
-            marginTop: "1vh",
-          }}
-        >
+        <div style={styles.flexComponent}>
           <ListCard
             listOfTimes={listOfTimes}
             deleteTime={handleDeleteTime}
@@ -142,3 +121,18 @@ export default function CubeTimerController(props) {
     </>
   );
 }
+
+const styles = {
+  flexContainer: {
+    flex: 1,
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "column",
+  },
+  flexComponent: {
+    flex: 1,
+    justifyContent: "center",
+    display: "flex",
+    marginTop: "1vh",
+  },
+};

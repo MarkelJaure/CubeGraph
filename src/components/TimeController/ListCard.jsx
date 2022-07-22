@@ -37,11 +37,9 @@ const ListCard = (props) => {
 
   return (
     <Card
-      sx={{ width: 9 / 10 }}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
+      sx={{ width: 9 / 10,
+    display: "flex",
+        justifyContent: "center", }}
     >
       <CardContent sx={{ width: 1 }}>
         <Typography
@@ -54,15 +52,10 @@ const ListCard = (props) => {
         <Typography variant="h5" component="div">
           <TableContainer
             component={Paper}
-            style={{ maxHeight: "calc(110vh - 300px)" }}
+            style={styles.tableContainer}
           >
             <Table
-              sx={{
-                whiteSpace: "nowrap",
-                tableLayout: "fixed",
-                overflowX: "auto",
-                minWidth: 200,
-              }}
+              sx={styles.table}
               size="small"
             >
               <TableBody>
@@ -130,5 +123,17 @@ const getSinceAgo = (timestamp) => {
   }
   return "Hace " + Math.trunc(sinceAgo / aDay) + " dias";
 };
+
+const styles={
+  tableContainer:{
+maxHeight: "calc(110vh - 300px)" 
+  },
+  table:{
+     whiteSpace: "nowrap",
+                tableLayout: "fixed",
+                overflowX: "auto",
+                minWidth: 200,
+  }
+}
 
 export default ListCard;

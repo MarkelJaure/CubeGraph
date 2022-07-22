@@ -59,8 +59,7 @@ const PracticeBarCard = (props) => {
 
           <Typography
             align="center"
-            style={{ minWidth: "60px" }}
-            sx={{ fontSize: 13 }}
+            style={useStyles.avgTime}
             width={"6%"}
           >
             PB:{" "}
@@ -70,8 +69,7 @@ const PracticeBarCard = (props) => {
           </Typography>
           <Typography
             align="center"
-            style={{ minWidth: "60px" }}
-            sx={{ fontSize: 13 }}
+            style={useStyles.avgTime}
             width={"7%"}
           >
             Media:{" "}
@@ -81,8 +79,7 @@ const PracticeBarCard = (props) => {
           </Typography>
           <Typography
             align="center"
-            style={{ minWidth: "60px" }}
-            sx={{ fontSize: 13 }}
+            style={useStyles.avgTime}
             width={"7%"}
           >
             Avg5:{" "}
@@ -92,8 +89,7 @@ const PracticeBarCard = (props) => {
           </Typography>
           <Typography
             align="center"
-            style={{ minWidth: "60px" }}
-            sx={{ fontSize: 13 }}
+            style={useStyles.avgTime}
             width={"7%"}
           >
             Avg12:{" "}
@@ -103,8 +99,7 @@ const PracticeBarCard = (props) => {
           </Typography>
           <Typography
             align="center"
-            style={{ minWidth: "60px" }}
-            sx={{ fontSize: 13 }}
+            style={useStyles.avgTime}
             width={"7%"}
           >
             Avg50:{" "}
@@ -114,8 +109,7 @@ const PracticeBarCard = (props) => {
           </Typography>
           <Typography
             align="center"
-            style={{ minWidth: "60px" }}
-            sx={{ fontSize: 13 }}
+            style={useStyles.avgTime}
             width={"8%"}
           >
             Avg100:{" "}
@@ -179,6 +173,10 @@ const useStyles = {
     justifyContent: "space-between",
     alignItems: "center",
   },
+  avgTime:{
+    minWidth: "60px",
+    fontSize: 13
+  }
 };
 
 export default PracticeBarCard;

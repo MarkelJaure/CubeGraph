@@ -6,11 +6,9 @@ import {
   TableCell,
   TableRow,
   TableBody,
-  Button,
   IconButton,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { getMedia, getPB } from "../lib/ArrayTimesUtil";
 import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -24,15 +22,7 @@ const StatsComparationTable = (props) => {
   const handelShowOnMedia = () => setShowMedia(true);
   return (
     <TableContainer component={Paper}>
-      <Table
-        sx={{
-          tableLayout: "fixed",
-          minWidth: 200,
-          whiteSpace: "nowrap",
-          height: "max-content",
-        }}
-        size="small"
-      >
+      <Table sx={styles.table} size="small">
         <TableBody>
           <TableRow>
             <TableCell align="left" width={"30%"}>
@@ -112,6 +102,15 @@ const StatsComparationTable = (props) => {
       </Table>
     </TableContainer>
   );
+};
+
+const styles = {
+  table: {
+    tableLayout: "fixed",
+    minWidth: 200,
+    whiteSpace: "nowrap",
+    height: "max-content",
+  },
 };
 
 export default StatsComparationTable;

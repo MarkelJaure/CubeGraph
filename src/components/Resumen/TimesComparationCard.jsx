@@ -9,19 +9,10 @@ const TimesComparationCard = (props) => {
   const { t } = useTranslation();
 
   return (
-    <Card
-      sx={{
-        width: 9 / 10,
-      }}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "2vh",
-      }}
-    >
-      <CardContent sx={{ width: 1 }}>
+    <Card sx={styles.card}>
+      <CardContent sx={styles.cardContent}>
         <Typography
-          sx={{ fontSize: 14, display: "flex", justifyContent: "center" }}
+          sx={styles.secondaryText}
           color="text.secondary"
           gutterBottom
         >
@@ -38,6 +29,22 @@ const TimesComparationCard = (props) => {
       </CardContent>
     </Card>
   );
+};
+
+const styles = {
+  card: {
+    width: 9 / 10,
+    display: "flex",
+    justifyContent: "center",
+  },
+  cardContent: {
+    width: 1,
+  },
+  secondaryText: {
+    fontSize: 14,
+    display: "flex",
+    justifyContent: "center",
+  },
 };
 
 export default TimesComparationCard;
