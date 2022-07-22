@@ -22,9 +22,9 @@ export const getWorstTime = (listOfTimes) => {
 };
 
 export const getMedia = (listOfTimes) => {
-  if (listOfTimes.length === 0) return null;
+  if (listOfTimes.length === 0) return -2;
   var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
-  if (listWithoutDNFs.length === 0) return null;
+  if (listWithoutDNFs.length === 0) return -2;
 
   return (
     Math.trunc(
@@ -71,16 +71,17 @@ export const getBestAvg = (aNumber, listOfTimes) => {
   if (avgsLength > 0) {
     for (var i = -1; i < avgsLength; i++) {
       var tmpAvg = getAvg(aNumber, listOfTimes, i);
-      if (tmpAvg && tmpAvg >= 0) avgs.push(tmpAvg);
+      if (tmpAvg && tmpAvg >= -1) avgs.push(tmpAvg);
     }
-    return Math.min(...avgs);
+    if (avgs.length > 0) return Math.min(...avgs);
+    else return -2;
   } else {
     return -2;
   }
 };
 
 export const getAvg = (aNumber, listOfTimes, aStart) => {
-  if (listOfTimes.length === 0) return null;
+  if (listOfTimes.length === 0) return -2;
   if (aNumber > listOfTimes.length) return -2;
   const lastElements = listOfTimes.slice(aStart, aStart + aNumber);
   var DNFs = countDNF(lastElements);
