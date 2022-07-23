@@ -11,6 +11,19 @@ import {
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";
+import AnimateOnChange from "react-animate-on-change";
+
+import "./styles.css";
+
+const BestAvg = (props) => (
+  <AnimateOnChange
+    baseClassName="bestAvg"
+    animationClassName="bestAvg-change"
+    animate={props.animate}
+  >
+    <DisplayTime time={props.bestAvg} />
+  </AnimateOnChange>
+);
 
 const BestAvgs = (props) => {
   const { t } = useTranslation();
@@ -29,7 +42,10 @@ const BestAvgs = (props) => {
               </TableCell>
               <TableCell align="center" style={styles.tableCell}>
                 <b>
-                  <DisplayTime time={props.bestAvg5}></DisplayTime>
+                  <BestAvg
+                    animate={props.animateAvg5}
+                    bestAvg={props.bestAvg5}
+                  />
                 </b>
               </TableCell>
             </TableRow>
@@ -39,7 +55,10 @@ const BestAvgs = (props) => {
               </TableCell>
               <TableCell align="center" style={styles.tableCell}>
                 <b>
-                  <DisplayTime time={props.bestAvg12}></DisplayTime>
+                  <BestAvg
+                    animate={props.animateAvg12}
+                    bestAvg={props.bestAvg12}
+                  />
                 </b>
               </TableCell>
             </TableRow>
@@ -49,7 +68,10 @@ const BestAvgs = (props) => {
               </TableCell>
               <TableCell align="center" style={styles.tableCell}>
                 <b>
-                  <DisplayTime time={props.bestAvg50}></DisplayTime>
+                  <BestAvg
+                    animate={props.animateAvg50}
+                    bestAvg={props.bestAvg50}
+                  />
                 </b>
               </TableCell>
             </TableRow>
@@ -59,7 +81,10 @@ const BestAvgs = (props) => {
               </TableCell>
               <TableCell align="center" style={styles.tableCell}>
                 <b>
-                  <DisplayTime time={props.bestAvg100}></DisplayTime>
+                  <BestAvg
+                    animate={props.animateAvg100}
+                    bestAvg={props.bestAvg100}
+                  />
                 </b>
               </TableCell>
             </TableRow>

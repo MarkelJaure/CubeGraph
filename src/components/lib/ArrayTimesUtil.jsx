@@ -1,3 +1,4 @@
+import { DNF_TIME, NULL_TIME } from "./Constants";
 import { comparationOfTime, getTimeWithPlus2 } from "./SingleTimeUtil";
 
 export const getPB = (listOfTimes) => {
@@ -22,9 +23,9 @@ export const getWorstTime = (listOfTimes) => {
 };
 
 export const getMedia = (listOfTimes) => {
-  if (listOfTimes.length === 0) return -2;
+  if (listOfTimes.length === 0) return NULL_TIME;
   var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
-  if (listWithoutDNFs.length === 0) return -2;
+  if (listWithoutDNFs.length === 0) return NULL_TIME;
 
   return (
     Math.trunc(
@@ -74,18 +75,18 @@ export const getBestAvg = (aNumber, listOfTimes) => {
       if (tmpAvg && tmpAvg >= -1) avgs.push(tmpAvg);
     }
     if (avgs.length > 0) return Math.min(...avgs);
-    else return -2;
+    else return NULL_TIME;
   } else {
-    return -2;
+    return NULL_TIME;
   }
 };
 
 export const getAvg = (aNumber, listOfTimes, aStart) => {
-  if (listOfTimes.length === 0) return -2;
-  if (aNumber > listOfTimes.length) return -2;
+  if (listOfTimes.length === 0) return NULL_TIME;
+  if (aNumber > listOfTimes.length) return NULL_TIME;
   const lastElements = listOfTimes.slice(aStart, aStart + aNumber);
   var DNFs = countDNF(lastElements);
-  if (DNFs >= 2) return -1;
+  if (DNFs >= 2) return DNF_TIME;
 
   var pb = getPB(lastElements);
   if (DNFs === 1) {

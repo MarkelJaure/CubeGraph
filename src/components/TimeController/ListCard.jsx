@@ -122,13 +122,19 @@ const styles = {
   },
   cardContent: { width: 1 },
   tableContainer: {
-    maxHeight: "calc(110vh - 350px)",
+    maxHeight: "calc(103vh - 350px)",
   },
   table: {
     whiteSpace: "nowrap",
     tableLayout: "fixed",
     overflowX: "auto",
     minWidth: 200,
+  },
+  tableRow: {
+    height: 29,
+  },
+  tableCell: {
+    padding: "0px",
   },
 };
 

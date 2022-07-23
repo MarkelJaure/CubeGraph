@@ -4,6 +4,7 @@ import ListCard from "./ListCard";
 import PracticeBarCard from "./PracticeBarCard";
 import { getCurrAvg, getMedia, getPB } from "../lib/ArrayTimesUtil";
 import { getRandomScramble } from "../lib/SingleTimeUtil";
+import { PRACTICE_MODE } from "../lib/Constants";
 
 export default function CubeTimerController(props) {
   const [listOfTimes, setListOfTimes] = useState(
@@ -95,7 +96,7 @@ export default function CubeTimerController(props) {
           />
         </div>
         <div style={styles.flexComponent}>
-          {props.mode === 0 && (
+          {props.mode === PRACTICE_MODE && (
             <PracticeBarCard
               scramble={actualScramble}
               pb={getPB(listOfTimes)}

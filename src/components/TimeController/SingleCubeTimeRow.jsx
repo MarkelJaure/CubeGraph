@@ -10,8 +10,8 @@ const SingleCubeTimeRow = (props) => {
   const { t } = useTranslation();
 
   return (
-    <TableRow key={props.time.timestamp} style={{ height: "10px" }}>
-      <TableCell align="left" width={"5%"}>
+    <TableRow key={props.time.timestamp} style={styles.tableRow}>
+      <TableCell align="left" width={"5%"} style={styles.tableCell}>
         <b>{props.index + 1}</b>
       </TableCell>
       {/* <TableCell
@@ -27,18 +27,18 @@ const SingleCubeTimeRow = (props) => {
       >
         Holaaa
       </TableCell> */}
-      <TableCell align="center" width={"10%"}>
+      <TableCell align="center" width={"10%"} style={styles.tableCell}>
         <DisplayCubeTime time={props.time} />
       </TableCell>
 
-      <TableCell align="left" width={"5%"}>
+      <TableCell align="left" width={"5%"} style={styles.tableCell}>
         {props.isBestTime && (
-          <sup style={style.record}>
+          <sup style={styles.record}>
             <b>BT</b>
           </sup>
         )}
       </TableCell>
-      <TableCell align="center" width={"8%"}>
+      <TableCell align="center" width={"8%"} style={styles.tableCell}>
         <Tooltip title={t("Plus2Tooltip")} placement="bottom">
           <Button
             style={{
@@ -52,7 +52,7 @@ const SingleCubeTimeRow = (props) => {
           </Button>
         </Tooltip>
       </TableCell>
-      <TableCell align="center" width={"10%"}>
+      <TableCell align="center" width={"10%"} style={styles.tableCell}>
         <Tooltip title={t("DNFTooltip")} placement="bottom">
           <Button
             style={{
@@ -67,7 +67,7 @@ const SingleCubeTimeRow = (props) => {
           </Button>
         </Tooltip>
       </TableCell>
-      <TableCell align="center" width={"10%"}>
+      <TableCell align="center" width={"10%"} style={styles.tableCell}>
         <Tooltip title={t("DeleteTooltip")} placement="bottom">
           <Button
             variant="text"
@@ -85,12 +85,18 @@ const SingleCubeTimeRow = (props) => {
   );
 };
 
-const style = {
+const styles = {
   record: {
     lineHeight: 1,
     borderRadius: 4,
     backgroundColor: "#00e676",
     padding: 2,
+  },
+  tableRow: {
+    height: 29,
+  },
+  tableCell: {
+    padding: "4px 12px",
   },
 };
 

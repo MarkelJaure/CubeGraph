@@ -1,0 +1,21 @@
+.bestAvg-change {
+  animation: fade-in-color 5s, fade-in-size 0.5s;
+}
+
+@keyframes fade-in-color {
+  0% {
+    color: green;
+  }
+  100% {
+    color: black;
+  }
+}
+
+@keyframes fade-in-size {
+  0% {
+    font-size: 110%;
+  }
+  100% {
+    font-size: 100%;
+  }
+}

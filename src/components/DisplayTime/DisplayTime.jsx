@@ -1,8 +1,10 @@
+import { DNF_TIME, NULL_TIME } from "../lib/Constants";
+
 const DisplayTime = (props) => {
   return (
     <>
-      {props.time === -1 && <span>DNF</span>}
-      {props.time === -2 && <span>---</span>}
+      {props.time === DNF_TIME && <span>DNF</span>}
+      {props.time === NULL_TIME && <span>---</span>}
       {props.time >= 0 && (
         <>
           {Math.floor((props.time / 60000) % 60) > 0 && (

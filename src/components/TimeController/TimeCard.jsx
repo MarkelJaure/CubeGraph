@@ -3,8 +3,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import TimeCardText from "./TimeCardText";
-import { getBestAvg } from "../lib/ArrayTimesUtil";
+import { getBestAvg, getCurrAvg } from "../lib/ArrayTimesUtil";
 import BestAvgs from "./BestAvgs";
+import { PRACTICE_MODE } from "../lib/Constants";
 
 const TimeCard = (props) => {
   const [timerPlayer, setTimerPlayer] = useState(false);
@@ -76,12 +77,28 @@ const TimeCard = (props) => {
             />
           </div>
           <div style={useStyles.flexComponent}>
-            {props.mode === 0 && (
+            {props.mode === PRACTICE_MODE && (
               <BestAvgs
                 bestAvg5={getBestAvg(5, props.listOfTimes)}
+                animateAvg5={animateBestAvg(5, props.listOfTimes, timerPlayer)}
                 bestAvg12={getBestAvg(12, props.listOfTimes)}
+                animateAvg12={animateBestAvg(
+                  12,
+                  props.listOfTimes,
+                  timerPlayer
+                )}
                 bestAvg50={getBestAvg(50, props.listOfTimes)}
+                animateAvg50={animateBestAvg(
+                  50,
+                  props.listOfTimes,
+                  timerPlayer
+                )}
                 bestAvg100={getBestAvg(100, props.listOfTimes)}
+                animateAvg100={animateBestAvg(
+                  100,
+                  props.listOfTimes,
+                  timerPlayer
+                )}
               />
             )}
           </div>
@@ -109,5 +126,13 @@ const useStyles = {
     justifyContent: "center",
   },
 };
+
+function animateBestAvg(aNumber, listOfTimes, timerPlayer) {
+  return (
+    getCurrAvg(aNumber, listOfTimes) <
+      getBestAvg(aNumber, listOfTimes.slice(0, listOfTimes.length - 1)) &&
+    !timerPlayer
+  );
+}
 
 export default TimeCard;

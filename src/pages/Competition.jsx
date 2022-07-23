@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Resumen from "../components/Resumen/Resumen";
 import CubeTimerController from "../components/TimeController/CubeTimerController";
+import { COMPETITION_MODE } from "../components/lib/Constants";
 
 const KEY_PLAYER_1 = 32;
 const NAME_PLAYER_1 = "Player 1";
@@ -67,7 +68,7 @@ const CompetitionPage = () => {
         <div style={styles.div}>
           <div style={styles.div2}>
             <CubeTimerController
-              mode={1}
+              mode={COMPETITION_MODE}
               keyValue={KEY_PLAYER_1}
               keyName={KEY_NAME_1}
               playerName={NAME_PLAYER_1}
@@ -93,7 +94,7 @@ const CompetitionPage = () => {
         <div style={styles.div}>
           <div style={styles.div2}>
             <CubeTimerController
-              mode={1}
+              mode={COMPETITION_MODE}
               keyValue={KEY_PLAYER_2}
               keyName={KEY_NAME_2}
               playerName={NAME_PLAYER_2}

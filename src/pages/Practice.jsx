@@ -1,6 +1,7 @@
 import { DashboardLayout } from "../components/navBar/Layout";
 import React, { useState, useEffect } from "react";
 import CubeTimerController from "../components/TimeController/CubeTimerController";
+import { PRACTICE_MODE } from "../components/lib/Constants";
 
 const KEY_PLAYER = 32;
 const KEY_NAME = "Space";
@@ -54,7 +55,7 @@ const PracticePage = () => {
         <div style={styles.div}>
           <div style={styles.div2}>
             <CubeTimerController
-              mode={0}
+              mode={PRACTICE_MODE}
               keyValue={KEY_PLAYER}
               playerName={NAME_PLAYER}
               keyName={KEY_NAME}
