@@ -130,12 +130,6 @@ const styles = {
     overflowX: "auto",
     minWidth: 200,
   },
-  tableRow: {
-    height: 29,
-  },
-  tableCell: {
-    padding: "0px",
-  },
 };
 
 export default ListCard;

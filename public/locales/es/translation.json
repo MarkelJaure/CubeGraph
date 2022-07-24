@@ -34,5 +34,6 @@
   "DNFTooltip": "Setear DNF",
   "DeleteTooltip": "Eliminar tiempo",
   "DeleteAllTooltip": "Eliminar todos los tiempos",
-  "PracticeGraphTooltip": "Ver grafico de progreso"
+  "PracticeGraphTooltip": "Ver grafico de progreso",
+  "InputFromKeyboardTooltip": "Ingrese tiempo manualmente"
 }

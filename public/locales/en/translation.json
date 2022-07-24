@@ -34,5 +34,6 @@
   "DNFTooltip": "Set DNF",
   "DeleteTooltip": "Delete time",
   "DeleteAllTooltip": "Delete all times",
-  "PracticeGraphTooltip": "See personal graph"
+  "PracticeGraphTooltip": "See personal graph",
+  "InputFromKeyboardTooltip": "Upload time manually"
 }

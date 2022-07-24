@@ -2,9 +2,15 @@ import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Stopwatch from "./Stopwatch";
 import { useTranslation } from "react-i18next";
+import { Button, Tooltip } from "@mui/material";
+import KeyboardIcon from "@mui/icons-material/Keyboard";
 
 const TimeCardText = (props) => {
   const { t } = useTranslation();
+
+  const [isInputActivated, setIsInputActivated] = useState(false);
+  const handleEnableInput = () => setIsInputActivated(true);
+  const handleDisableInput = () => setIsInputActivated(false);
 
   const returnTime = (time) => {
     if (props.notifyNewTime) {
@@ -17,13 +23,42 @@ const TimeCardText = (props) => {
       <Typography sx={sx.secondaryText} color="text.secondary">
         {props.playerName}
       </Typography>
-      <Typography
-        variant="h5"
-        component="div"
-        sx={{ fontSize: 50, display: "flex", justifyContent: "center" }}
-      >
-        <Stopwatch isRunning={props.timerPlayer} parentCallback={returnTime} />
-      </Typography>
+      <div style={sx.stopwatchLine}>
+        <div style={sx.stopwatchDiv}></div>
+        <div style={sx.stopwatchDiv}>
+          <Typography
+            variant="h5"
+            sx={{
+              fontSize: 50,
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Stopwatch
+              isRunning={props.timerPlayer}
+              parentCallback={returnTime}
+            />
+          </Typography>
+        </div>
+        <div style={sx.stopwatchDiv}>
+          <Tooltip title={t("InputFromKeyboardTooltip")} placement="bottom">
+            <Button
+              align="center"
+              variant="text"
+              style={{ minWidth: "40px" }}
+              onMouseDown={(event) => event.stopPropagation()}
+              onMouseUp={(event) => event.stopPropagation()}
+              onClick={(event) => {
+                event.preventDefault();
+                console.log("Button clicked");
+              }}
+              //onClick={handleOpen}
+            >
+              <KeyboardIcon />
+            </Button>
+          </Tooltip>
+        </div>
+      </div>
       <Typography
         sx={sx.secondaryText}
         //style={{marginTop:2}}
@@ -41,6 +76,18 @@ const sx = {
   secondaryText: {
     fontSize: "14px",
     display: "flex",
+    justifyContent: "center",
+  },
+  stopwatchLine: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    width: "110%",
+  },
+  stopwatchDiv: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
     justifyContent: "center",
   },
 };
