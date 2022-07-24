@@ -3,7 +3,7 @@ import TimeCard from "./TimeCard";
 import ListCard from "./ListCard";
 import PracticeBarCard from "./PracticeBarCard";
 import { getCurrAvg, getMedia, getPB } from "../lib/ArrayTimesUtil";
-import { getRandomScramble } from "../lib/SingleTimeUtil";
+import { comparationOfTime, getRandomScramble } from "../lib/SingleTimeUtil";
 import { PRACTICE_MODE } from "../lib/Constants";
 
 export default function CubeTimerController(props) {
@@ -100,6 +100,12 @@ export default function CubeTimerController(props) {
             <PracticeBarCard
               scramble={actualScramble}
               pb={getPB(listOfTimes)}
+              animatePb={
+                comparationOfTime(
+                  getPB(listOfTimes),
+                  getPB(listOfTimes.slice(0, listOfTimes.length - 1))
+                ) === 1
+              }
               media={getMedia(listOfTimes)}
               avg5={getCurrAvg(5, listOfTimes)}
               avg12={getCurrAvg(12, listOfTimes)}

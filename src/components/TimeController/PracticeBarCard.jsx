@@ -11,6 +11,8 @@ import ProgressModal from "../ProgressModal/ProgressModal";
 import { getListWithoutDNFs } from "../lib/ArrayTimesUtil";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import { useTranslation } from "react-i18next";
+import AnimateOnChange from "react-animate-on-change";
+import "./styles.css";
 
 const PracticeBarCard = (props) => {
   const { t } = useTranslation();
@@ -57,61 +59,43 @@ const PracticeBarCard = (props) => {
             Scramble: <b>{props.scramble}</b>
           </Typography>
 
-          <Typography
-            align="center"
-            style={useStyles.avgTime}
-            width={"6%"}
-          >
+          <Typography align="center" style={useStyles.avgTime} width={"6%"}>
             PB:{" "}
             <b>
-              <DisplayCubeTime time={props.pb}></DisplayCubeTime>
+              <AnimateOnChange
+                baseClassName="pb"
+                animationClassName="bestPb-change"
+                animate={props.animatePb}
+              >
+                <DisplayCubeTime time={props.pb}></DisplayCubeTime>
+              </AnimateOnChange>
             </b>
           </Typography>
-          <Typography
-            align="center"
-            style={useStyles.avgTime}
-            width={"7%"}
-          >
+          <Typography align="center" style={useStyles.avgTime} width={"7%"}>
             Media:{" "}
             <b>
               <DisplayTime time={props.media}></DisplayTime>
             </b>
           </Typography>
-          <Typography
-            align="center"
-            style={useStyles.avgTime}
-            width={"7%"}
-          >
+          <Typography align="center" style={useStyles.avgTime} width={"7%"}>
             Avg5:{" "}
             <b>
               <DisplayTime time={props.avg5}></DisplayTime>
             </b>
           </Typography>
-          <Typography
-            align="center"
-            style={useStyles.avgTime}
-            width={"7%"}
-          >
+          <Typography align="center" style={useStyles.avgTime} width={"7%"}>
             Avg12:{" "}
             <b>
               <DisplayTime time={props.avg12}></DisplayTime>
             </b>
           </Typography>
-          <Typography
-            align="center"
-            style={useStyles.avgTime}
-            width={"7%"}
-          >
+          <Typography align="center" style={useStyles.avgTime} width={"7%"}>
             Avg50:{" "}
             <b>
               <DisplayTime time={props.avg50}></DisplayTime>
             </b>
           </Typography>
-          <Typography
-            align="center"
-            style={useStyles.avgTime}
-            width={"8%"}
-          >
+          <Typography align="center" style={useStyles.avgTime} width={"8%"}>
             Avg100:{" "}
             <b>
               <DisplayTime time={props.avg100}></DisplayTime>
@@ -173,10 +157,10 @@ const useStyles = {
     justifyContent: "space-between",
     alignItems: "center",
   },
-  avgTime:{
+  avgTime: {
     minWidth: "60px",
-    fontSize: 13
-  }
+    fontSize: 13,
+  },
 };
 
 export default PracticeBarCard;

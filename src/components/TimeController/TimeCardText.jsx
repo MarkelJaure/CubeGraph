@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Stopwatch from "./Stopwatch";
 import { useTranslation } from "react-i18next";
-import { Button, Tooltip } from "@mui/material";
+import { Button, TextField, Tooltip } from "@mui/material";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 
 const TimeCardText = (props) => {
@@ -11,6 +11,9 @@ const TimeCardText = (props) => {
   const [isInputActivated, setIsInputActivated] = useState(false);
   const handleEnableInput = () => setIsInputActivated(true);
   const handleDisableInput = () => setIsInputActivated(false);
+  const handleChangeInput = () => setIsInputActivated(!isInputActivated);
+
+  const [inputValue, setInputValue] = useState(null);
 
   const returnTime = (time) => {
     if (props.notifyNewTime) {
@@ -39,9 +42,23 @@ const TimeCardText = (props) => {
               parentCallback={returnTime}
             />
           </Typography>
+
+          {/* {isInputActivated && (
+            <TextField
+              InputProps={{ style: { fontSize: 50 } }}
+              id="input-time"
+              type="number"
+              value={inputValue}
+              variant="standard"
+              onMouseDown={(event) => event.stopPropagation()}
+              onMouseUp={(event) => event.stopPropagation()}
+              onChange={(e) => setInputValue(e.target.value)}
+              onSubmit={(e) => handleDisableInput()}
+            />
+          )} */}
         </div>
         <div style={sx.stopwatchDiv}>
-          <Tooltip title={t("InputFromKeyboardTooltip")} placement="bottom">
+          {/* <Tooltip title={t("InputFromKeyboardTooltip")} placement="bottom">
             <Button
               align="center"
               variant="text"
@@ -50,13 +67,12 @@ const TimeCardText = (props) => {
               onMouseUp={(event) => event.stopPropagation()}
               onClick={(event) => {
                 event.preventDefault();
-                console.log("Button clicked");
+                handleChangeInput();
               }}
-              //onClick={handleOpen}
             >
               <KeyboardIcon />
             </Button>
-          </Tooltip>
+          </Tooltip> */}
         </div>
       </div>
       <Typography
