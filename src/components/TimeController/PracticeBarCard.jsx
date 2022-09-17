@@ -42,6 +42,7 @@ const PracticeBarCard = (props) => {
         overflowX: "auto",
         overflowY: "hidden",
         display: "flex",
+        height: "max-content",
       }}
     >
       <CardContent

@@ -8,16 +8,25 @@ const DisplayTime = (props) => {
       {props.time >= 0 && (
         <>
           {Math.floor((props.time / 60000) % 60) > 0 && (
-            <span>
-              {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:
-            </span>
+            <span>{getMinutes(props.time)}:</span>
           )}
-          <span>{("0" + Math.floor((props.time / 1000) % 60)).slice(-2)}:</span>
-          <span>{("0" + ((props.time / 10) % 100)).slice(-2)}</span>
+          <span>{getSeconds(props.time)}:</span>
+          <span>{getMiliseconds(props.time)}</span>
         </>
       )}
     </>
   );
 };
 
+const getMinutes = (aTime) => {
+  return ("0" + Math.floor((aTime / 60000) % 60)).slice(-2);
+};
+
+const getSeconds = (aTime) => {
+  return ("0" + Math.floor((aTime / 1000) % 60)).slice(-2);
+};
+
+const getMiliseconds = (aTime) => {
+  return ("0" + ((aTime / 10) % 1000)).slice(-2);
+};
 export default DisplayTime;

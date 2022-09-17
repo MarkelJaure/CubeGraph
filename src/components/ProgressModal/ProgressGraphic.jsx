@@ -54,6 +54,7 @@ export default function ProgressGraphic(props) {
             dataKey="time1"
             stroke={"green"}
             name={props.playerName}
+            dot={false}
           />
         </LineChart>
       </ResponsiveContainer>

@@ -119,10 +119,11 @@ const styles = {
     width: 9 / 10,
     display: "flex",
     justifyContent: "center",
+    height: 580,
   },
   cardContent: { width: 1 },
   tableContainer: {
-    maxHeight: "calc(103vh - 350px)",
+    maxHeight: 580,
   },
   table: {
     whiteSpace: "nowrap",

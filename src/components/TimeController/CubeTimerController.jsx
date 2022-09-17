@@ -35,8 +35,6 @@ export default function CubeTimerController(props) {
 
       if (props.deleteTime) {
         props.deleteTime(time);
-      } else {
-        localStorage.setItem("times", JSON.stringify(tmpList));
       }
     }
   };

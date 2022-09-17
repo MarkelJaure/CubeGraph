@@ -34,7 +34,7 @@ const SingleCubeTimeRow = (props) => {
       <TableCell align="left" width={"5%"} style={styles.tableCell}>
         {props.isBestTime && (
           <sup style={styles.record}>
-            <b>BT</b>
+            <b>PB</b>
           </sup>
         )}
       </TableCell>
