@@ -1,12 +1,12 @@
 import React from "react";
 
-import BodyWrapper from "../navBar/BodyWrapper";
-import { RightSidebar } from "./RightSidebar";
-
+import BodyWrapper from "../BodyWrapper";
+import { RightSidebar } from "./RightNavSidebar";
+import "../styles.css";
 export const RightDashboardLayout = (props) => {
   return (
     <BodyWrapper>
-      <div className="flex h-screen bg-gray-200">
+      <div id="box" className="flex h-screen bg-gray-200">
         <RightSidebar
           actualAvg5={props.actualAvg5}
           bestAvg5={props.bestAvg5}

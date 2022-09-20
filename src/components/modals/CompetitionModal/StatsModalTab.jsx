@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DisplayTime from "../DisplayTime/DisplayTime";
+import DisplayTime from "../../DisplayTime/DisplayTime";
 import {
   Table,
   TableContainer,
@@ -14,9 +14,9 @@ import {
   getMedia,
   getPB,
   getRoundsWin,
-} from "../lib/ArrayTimesUtil";
-import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
-import { comparationOfTime } from "../lib/SingleTimeUtil";
+} from "../../lib/ArrayTimesUtil";
+import DisplayCubeTime from "../../DisplayTime/DisplayCubeTime";
+import { comparationOfTime } from "../../lib/SingleTimeUtil";
 
 import { useTranslation } from "react-i18next";
 

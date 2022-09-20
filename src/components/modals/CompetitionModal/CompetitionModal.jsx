@@ -17,7 +17,7 @@ import {
   getMedia,
   getListWithoutDNFs,
   getCurrAvg,
-} from "../lib/ArrayTimesUtil";
+} from "../../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
 
 function TabPanel(props) {

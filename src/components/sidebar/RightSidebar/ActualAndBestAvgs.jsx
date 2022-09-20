@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
-import DisplayTime from "../DisplayTime/DisplayTime";
+import DisplayTime from "../../DisplayTime/DisplayTime";
 import {
   Table,
   TableContainer,
@@ -8,13 +8,14 @@ import {
   TableRow,
   TableBody,
   IconButton,
+  TableHead,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";
 import AnimateOnChange from "react-animate-on-change";
 
-import "../TimeController/styles.css";
-import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
+import "../../speedCubeTimes/styles.css";
+import DisplayCubeTime from "../../DisplayTime/DisplayCubeTime";
 
 const BestAvg = (props) => (
   <AnimateOnChange
@@ -33,6 +34,13 @@ const ActualAndBestAvgs = (props) => {
     <div>
       <TableContainer component={Paper}>
         <Table sx={styles.table} size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center"></TableCell>
+              <TableCell align="center"> {t("Actual")}</TableCell>
+              <TableCell align="center"> {t("Best")}</TableCell>
+            </TableRow>
+          </TableHead>
           <TableBody>
             <TableRow style={styles.tableRow}>
               <TableCell align="center" style={styles.tableCell}>
@@ -108,16 +116,14 @@ const ActualAndBestAvgs = (props) => {
             </TableRow>
           </TableBody>
         </Table>
-      </TableContainer>
 
-      <TableContainer component={Paper}>
-        <Table sx={styles.table} size="small">
+        <Table>
           <TableBody>
             <TableRow style={styles.tableRow}>
-              <TableCell align="center" style={styles.tableCell}>
+              <TableCell align="center" style={styles.tableCell} width="33%">
                 PB
               </TableCell>
-              <TableCell align="center" style={styles.tableCell}>
+              <TableCell align="center" style={styles.tableCell} width="66%">
                 <b>
                   <AnimateOnChange
                     baseClassName="pb"
@@ -130,10 +136,10 @@ const ActualAndBestAvgs = (props) => {
               </TableCell>
             </TableRow>
             <TableRow style={styles.tableRow}>
-              <TableCell align="center" style={styles.tableCell}>
+              <TableCell align="center" style={styles.tableCell} width="33%">
                 Media
               </TableCell>
-              <TableCell align="center" style={styles.tableCell}>
+              <TableCell align="center" style={styles.tableCell} width="66%">
                 <b>
                   <BestAvg animate={props.animateMedia} bestAvg={props.media} />
                 </b>

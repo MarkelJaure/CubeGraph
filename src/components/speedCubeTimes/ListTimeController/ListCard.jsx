@@ -5,12 +5,12 @@ import Typography from "@mui/material/Typography";
 import { Table, TableContainer, TableBody } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import SingleCubeTimeRow from "./SingleCubeTimeRow";
-import { getPB } from "../lib/ArrayTimesUtil";
+import { getPB } from "../../lib/ArrayTimesUtil";
 import TableFooter from "@mui/material/TableFooter";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { useTranslation } from "react-i18next";
-import { TablePaginationActions } from "../lib/TablePaginationActionsUtil";
+import { TablePaginationActions } from "../../lib/TablePaginationActionsUtil";
 
 const ListCard = (props) => {
   const { t } = useTranslation();
@@ -119,7 +119,6 @@ const styles = {
     width: 9 / 10,
     display: "flex",
     justifyContent: "center",
-    height: 580,
   },
   cardContent: { width: 1 },
   tableContainer: {

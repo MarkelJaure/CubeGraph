@@ -1,4 +1,4 @@
-import { DashboardLayout } from "../components/navBar/Layout";
+import { DashboardLayout } from "../components/sidebar/LeftSidebar/LeftSideLayout";
 
 const AboutPage = () => {
   return (

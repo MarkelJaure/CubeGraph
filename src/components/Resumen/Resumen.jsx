@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import StatsComparationCard from "./StatsComparationCard";
 import TimesComparationCard from "./TimesComparationCard";
-import CompetitionModal from "../CompetitionModal/CompetitionModal";
+import CompetitionModal from "../modals/CompetitionModal/CompetitionModal";
 import { getListWithoutDNFs } from "../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
 import { Tooltip } from "@mui/material";

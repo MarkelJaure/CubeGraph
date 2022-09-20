@@ -1,4 +1,4 @@
-import { DashboardLayout } from "../components/navBar/Layout";
+import { DashboardLayout } from "../components/sidebar/LeftSidebar/LeftSideLayout";
 import { useTranslation } from "react-i18next";
 
 const HomePage = () => {

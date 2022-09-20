@@ -1,9 +1,10 @@
-import { DashboardLayout } from "../components/navBar/Layout";
+import { DashboardLayout } from "../components/sidebar/LeftSidebar/LeftSideLayout";
 import React from "react";
 import { useState, useEffect } from "react";
 import Resumen from "../components/Resumen/Resumen";
-import CubeTimerController from "../components/TimeController/CubeTimerController";
+import CubeTimerController from "../components/speedCubeTimes/CubeTimerController";
 import { COMPETITION_MODE } from "../components/lib/Constants";
+import BodyWrapper from "../components/sidebar/BodyWrapper";
 
 const KEY_PLAYER_1 = 32;
 const NAME_PLAYER_1 = "Player 1";
@@ -64,48 +65,50 @@ const CompetitionPage = () => {
 
   return (
     <DashboardLayout>
-      <div style={styles.container}>
-        <div style={styles.div}>
-          <div style={styles.div2}>
-            <CubeTimerController
-              mode={COMPETITION_MODE}
-              keyValue={KEY_PLAYER_1}
-              keyName={KEY_NAME_1}
-              playerName={NAME_PLAYER_1}
-              addTime={handleAddTimePlayer1}
-              deleteTime={handleDeleteTimePlayer1}
-              plus2={handlePlus2TimePlayer1}
-              dnf={handleDNFTimePlayer1}
-            />
+      <BodyWrapper>
+        <div style={styles.container}>
+          <div style={styles.div}>
+            <div style={styles.div2}>
+              <CubeTimerController
+                mode={COMPETITION_MODE}
+                keyValue={KEY_PLAYER_1}
+                keyName={KEY_NAME_1}
+                playerName={NAME_PLAYER_1}
+                addTime={handleAddTimePlayer1}
+                deleteTime={handleDeleteTimePlayer1}
+                plus2={handlePlus2TimePlayer1}
+                dnf={handleDNFTimePlayer1}
+              />
+            </div>
+          </div>
+          <div style={styles.div}>
+            <div style={styles.div2}>
+              <Resumen
+                playerName1={NAME_PLAYER_1}
+                playerName2={NAME_PLAYER_2}
+                timesPlayer1={timesPlayer1}
+                timesPlayer2={timesPlayer2}
+                updateInTimesPlayer1={updateInTimesPlayer1}
+                updateInTimesPlayer2={updateInTimesPlayer2}
+              />
+            </div>
+          </div>
+          <div style={styles.div}>
+            <div style={styles.div2}>
+              <CubeTimerController
+                mode={COMPETITION_MODE}
+                keyValue={KEY_PLAYER_2}
+                keyName={KEY_NAME_2}
+                playerName={NAME_PLAYER_2}
+                addTime={handleAddTimePlayer2}
+                deleteTime={handleDeleteTimePlayer2}
+                plus2={handlePlus2TimePlayer2}
+                dnf={handleDNFTimePlayer2}
+              />
+            </div>
           </div>
         </div>
-        <div style={styles.div}>
-          <div style={styles.div2}>
-            <Resumen
-              playerName1={NAME_PLAYER_1}
-              playerName2={NAME_PLAYER_2}
-              timesPlayer1={timesPlayer1}
-              timesPlayer2={timesPlayer2}
-              updateInTimesPlayer1={updateInTimesPlayer1}
-              updateInTimesPlayer2={updateInTimesPlayer2}
-            />
-          </div>
-        </div>
-        <div style={styles.div}>
-          <div style={styles.div2}>
-            <CubeTimerController
-              mode={COMPETITION_MODE}
-              keyValue={KEY_PLAYER_2}
-              keyName={KEY_NAME_2}
-              playerName={NAME_PLAYER_2}
-              addTime={handleAddTimePlayer2}
-              deleteTime={handleDeleteTimePlayer2}
-              plus2={handlePlus2TimePlayer2}
-              dnf={handleDNFTimePlayer2}
-            />
-          </div>
-        </div>
-      </div>
+      </BodyWrapper>
     </DashboardLayout>
   );
 };
@@ -123,7 +126,7 @@ const styles = {
   },
   div2: {
     flex: 1,
-    width: "100%",
+    display: "flex",
     justifyContent: "center",
   },
 };

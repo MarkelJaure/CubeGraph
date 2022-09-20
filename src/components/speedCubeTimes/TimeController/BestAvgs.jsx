@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
-import DisplayTime from "../DisplayTime/DisplayTime";
+import DisplayTime from "../../DisplayTime/DisplayTime";
 import {
   Table,
   TableContainer,
@@ -13,7 +13,7 @@ import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";
 import AnimateOnChange from "react-animate-on-change";
 
-import "./styles.css";
+import "../styles.css";
 
 const BestAvg = (props) => (
   <AnimateOnChange

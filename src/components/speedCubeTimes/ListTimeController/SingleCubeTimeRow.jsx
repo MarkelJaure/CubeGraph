@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { TableCell, TableRow } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
+import DisplayCubeTime from "../../DisplayTime/DisplayCubeTime";
 import { Tooltip } from "@mui/material";
 import { useTranslation } from "react-i18next";
 

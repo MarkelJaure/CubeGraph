@@ -5,14 +5,14 @@ import Typography from "@mui/material/Typography";
 import { Button, Tooltip } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import TimelineIcon from "@mui/icons-material/Timeline";
-import DisplayCubeTime from "../DisplayTime/DisplayCubeTime";
-import DisplayTime from "../DisplayTime/DisplayTime";
-import ProgressModal from "../ProgressModal/ProgressModal";
-import { getListWithoutDNFs } from "../lib/ArrayTimesUtil";
-import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import DisplayCubeTime from "../../DisplayTime/DisplayCubeTime";
+import DisplayTime from "../../DisplayTime/DisplayTime";
+import ProgressModal from "../../modals/ProgressModal/ProgressModal";
+import { getListWithoutDNFs } from "../../lib/ArrayTimesUtil";
+import ConfirmationModal from "../../modals/ConfirmationModal/ConfirmationModal";
 import { useTranslation } from "react-i18next";
 import AnimateOnChange from "react-animate-on-change";
-import "./styles.css";
+import "../styles.css";
 
 const PracticeBarCard = (props) => {
   const { t } = useTranslation();
@@ -53,14 +53,14 @@ const PracticeBarCard = (props) => {
         <div style={useStyles.header}>
           <Typography
             color="textSecondary"
-            align="left"
+            align="center"
             style={{ minWidth: "200px" }}
-            width={"35%"}
+            width={"86%"}
           >
             Scramble: <b>{props.scramble}</b>
           </Typography>
 
-          <Typography align="center" style={useStyles.avgTime} width={"6%"}>
+          {/* <Typography align="center" style={useStyles.avgTime} width={"6%"}>
             PB:{" "}
             <b>
               <AnimateOnChange
@@ -101,7 +101,7 @@ const PracticeBarCard = (props) => {
             <b>
               <DisplayTime time={props.avg100}></DisplayTime>
             </b>
-          </Typography>
+          </Typography> */}
           <Tooltip title={t("DeleteAllTooltip")} placement="bottom">
             <Button
               variant="text"

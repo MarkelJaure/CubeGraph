@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import Loading from "./components/Loading/Loading";
+import Loading from "./components/lib/Loading";
 import Routes from "./Routes";
 import i18n from "./i18n";
 import LocaleContext from "./LocaleContext";

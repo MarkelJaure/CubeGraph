@@ -1,7 +1,7 @@
-import { DashboardLayout } from "../components/navBar/Layout";
-import { RightDashboardLayout } from "../components/rightSidebar/Layout";
+import { DashboardLayout } from "../components/sidebar/LeftSidebar/LeftSideLayout";
+import { RightDashboardLayout } from "../components/sidebar/RightSidebar/RighSideLayout";
 import React, { useState, useEffect } from "react";
-import CubeTimerController from "../components/TimeController/CubeTimerController";
+import CubeTimerController from "../components/speedCubeTimes/CubeTimerController";
 import { PRACTICE_MODE } from "../components/lib/Constants";
 
 import {

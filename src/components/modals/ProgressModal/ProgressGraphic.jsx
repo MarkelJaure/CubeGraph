@@ -9,7 +9,7 @@ import {
   Legend,
 } from "recharts";
 import React, { useEffect, useState } from "react";
-import { getTimeWithPlus2 } from "../lib/SingleTimeUtil";
+import { getTimeWithPlus2 } from "../../lib/SingleTimeUtil";
 
 export default function ProgressGraphic(props) {
   const [data, setData] = useState([]);

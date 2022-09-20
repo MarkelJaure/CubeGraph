@@ -3,9 +3,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import TimeCardText from "./TimeCardText";
-import { getBestAvg, getCurrAvg } from "../lib/ArrayTimesUtil";
+import { getBestAvg, getCurrAvg } from "../../lib/ArrayTimesUtil";
 import BestAvgs from "./BestAvgs";
-import { PRACTICE_MODE } from "../lib/Constants";
+import { PRACTICE_MODE } from "../../lib/Constants";
 
 const TimeCard = (props) => {
   const [timerPlayer, setTimerPlayer] = useState(false);
@@ -77,7 +77,7 @@ const TimeCard = (props) => {
             />
           </div>
           <div style={useStyles.flexComponent}>
-            {props.mode === PRACTICE_MODE && (
+            {/* {props.mode === PRACTICE_MODE && (
               <BestAvgs
                 bestAvg5={getBestAvg(5, props.listOfTimes)}
                 animateAvg5={animateBestAvg(5, props.listOfTimes, timerPlayer)}
@@ -100,7 +100,7 @@ const TimeCard = (props) => {
                   timerPlayer
                 )}
               />
-            )}
+            )} */}
           </div>
         </CardContent>
       </CardActionArea>

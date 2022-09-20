@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import TimeCard from "./TimeCard";
-import ListCard from "./ListCard";
-import PracticeBarCard from "./PracticeBarCard";
+import TimeCard from "./TimeController/TimeCard";
+import ListCard from "./ListTimeController/ListCard";
+import PracticeBarCard from "./PracticeBar/PracticeBarCard";
 import { getCurrAvg, getMedia, getPB } from "../lib/ArrayTimesUtil";
 import { comparationOfTime, getRandomScramble } from "../lib/SingleTimeUtil";
 import { PRACTICE_MODE } from "../lib/Constants";
@@ -131,11 +131,11 @@ const styles = {
   flexContainer: {
     flex: 1,
     justifyContent: "center",
+    alignSelf: "start",
     display: "flex",
     flexDirection: "column",
   },
   flexComponent: {
-    flex: 1,
     justifyContent: "center",
     display: "flex",
     marginTop: "1vh",

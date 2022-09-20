@@ -1,5 +1,5 @@
-import { getCurrAvg } from "../lib/ArrayTimesUtil";
-import CrossTimeGraphic from "../TimeGraphic/CrossTimeGraphic";
+import { getCurrAvg } from "../../lib/ArrayTimesUtil";
+import CrossTimeGraphic from "../../TimeGraphic/CrossTimeGraphic";
 
 const GraphicModalTab = (props) => {
   const getColor = (times1, times2) => {
