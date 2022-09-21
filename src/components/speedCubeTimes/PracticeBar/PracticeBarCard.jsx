@@ -13,13 +13,15 @@ import ConfirmationModal from "../../modals/ConfirmationModal/ConfirmationModal"
 import { useTranslation } from "react-i18next";
 import AnimateOnChange from "react-animate-on-change";
 import "../styles.css";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const PracticeBarCard = (props) => {
   const { t } = useTranslation();
 
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const handleOpen = () => setIsModalOpen(true);
-  const handleClose = () => setIsModalOpen(false);
+  const [categorySelected, setCategorySelected] = useState("3x3");
+  function handleChangeLenguaje(event) {
+    setCategorySelected(event.target.value);
+  }
 
   const [isOpenDialog, setIsOpenDialog] = React.useState(false);
   const handleDialogOpen = () => setIsOpenDialog(true);
@@ -51,11 +53,23 @@ const PracticeBarCard = (props) => {
         }}
       >
         <div style={useStyles.header}>
+          <FormControl width={"30%"}>
+            <InputLabel>{t("Category")}</InputLabel>
+            <Select
+              value={categorySelected}
+              label={t("Category")}
+              onChange={handleChangeLenguaje}
+            >
+              <MenuItem value={"2x2"}>{t("Cube2x2")}</MenuItem>
+              <MenuItem value={"3x3"}>{t("Cube3x3")}</MenuItem>
+            </Select>
+          </FormControl>
+
           <Typography
             color="textSecondary"
             align="center"
             style={{ minWidth: "200px" }}
-            width={"86%"}
+            width={"50%"}
           >
             Scramble: <b>{props.scramble}</b>
           </Typography>
@@ -106,7 +120,7 @@ const PracticeBarCard = (props) => {
             <Button
               variant="text"
               align="right"
-              width={"14%"}
+              width={"20%"}
               style={{ minWidth: "40px" }}
               onClick={handleDialogOpen}
             >

@@ -28,6 +28,10 @@
   "Best": "Best",
   "Actual": "Actual",
 
+  "Category": "Category",
+  "Cube2x2": "Cube 2x2",
+  "Cube3x3": "Cube 3x3",
+
   "Language": "Language",
   "English": "English",
   "Spanish": "Spanish",
