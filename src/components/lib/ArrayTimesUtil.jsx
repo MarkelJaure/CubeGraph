@@ -111,3 +111,23 @@ const countDNF = (listOfTimes) => {
     return time.dnf;
   }).length;
 };
+
+export const getStandardDeviation = (listOfTimes) => {
+  var listWithoutDNFs = getListWithoutDNFs(listOfTimes);
+
+  if (!listWithoutDNFs || listWithoutDNFs.length === 0) {
+    return 0;
+  }
+
+  const n = listWithoutDNFs.length;
+  const mean = getMedia(listWithoutDNFs);
+  return (
+    Math.round(
+      Math.sqrt(
+        listWithoutDNFs
+          .map((x) => Math.pow(getTimeWithPlus2(x) - mean, 2))
+          .reduce((a, b) => a + b) / n
+      ) / 10
+    ) * 10
+  );
+};

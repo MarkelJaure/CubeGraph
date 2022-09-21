@@ -20,34 +20,28 @@ import { useEffect } from "react";
 
 import { getBestAvg, getCurrAvg } from "../../lib/ArrayTimesUtil";
 import ActualAndBestAvgs from "./ActualAndBestAvgs";
+import { Button, Tooltip } from "@mui/material";
+import ProgressModal from "../../modals/ProgressModal/ProgressModal";
+import TimelineIcon from "@mui/icons-material/Timeline";
+import { getListWithoutDNFs } from "../../lib/ArrayTimesUtil";
 
 export const RightSidebar = (props) => {
   const { t } = useTranslation();
   const { locale } = useContext(LocaleContext);
 
-  const history = useHistory();
-  const location = useLocation();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [languageSelected, setLanguageSelected] = useState(
-    locale.substring(0, 2)
-  );
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const handleOpen = () => setIsModalOpen(true);
+  const handleClose = () => setIsModalOpen(false);
 
-  useEffect(() => {
-    setLanguageSelected(locale.substring(0, 2));
-    if (languageSelected !== "es" && languageSelected !== "en") {
-      setLanguageSelected("en");
+  const checkDisabledGraphicButton = () => {
+    if (!props.listOfTimes) {
+      return true;
     }
-  }, [locale]);
-
-  function changeLocale(l) {
-    if (locale !== l) {
-      i18n.changeLanguage(l);
+    if (getListWithoutDNFs(props.listOfTimes).length === 0) {
+      return true;
     }
-  }
-
-  function handleChangeLenguaje(event) {
-    changeLocale(event.target.value);
-  }
+    return false;
+  };
 
   return (
     <React.Fragment>
@@ -59,47 +53,65 @@ export const RightSidebar = (props) => {
             display: "flex",
             width: "90%",
             margin: "auto",
+            flexDirection: "column",
+            justifyContent: "center",
           }}
         >
-          <ActualAndBestAvgs
-            actualAvg5={props.actualAvg5}
-            bestAvg5={props.bestAvg5}
-            animateAvg5={props.animateAvg5}
-            actualAvg12={props.actualAvg12}
-            bestAvg12={props.bestAvg12}
-            animateAvg12={props.animateAvg12}
-            actualAvg50={props.actualAvg50}
-            bestAvg50={props.bestAvg50}
-            animateAvg50={props.animateAvg50}
-            actualAvg100={props.actualAvg100}
-            bestAvg100={props.bestAvg100}
-            animateAvg100={props.animateAvg100}
-            pb={props.pb}
-            animatePb={props.animatePb}
-            media={props.media}
-            animateMedia={props.animateMedia}
+          <div
+            style={{
+              alignSelf: "center",
+              marginTop: "2vh",
+            }}
+          >
+            <ActualAndBestAvgs
+              actualAvg5={props.actualAvg5}
+              bestAvg5={props.bestAvg5}
+              animateAvg5={props.animateAvg5}
+              actualAvg12={props.actualAvg12}
+              bestAvg12={props.bestAvg12}
+              animateAvg12={props.animateAvg12}
+              actualAvg50={props.actualAvg50}
+              bestAvg50={props.bestAvg50}
+              animateAvg50={props.animateAvg50}
+              actualAvg100={props.actualAvg100}
+              bestAvg100={props.bestAvg100}
+              animateAvg100={props.animateAvg100}
+              pb={props.pb}
+              animatePb={props.animatePb}
+              media={props.media}
+              animateMedia={props.animateMedia}
+              ed={props.ed}
+            />
+          </div>
+          <div
+            style={{
+              alignSelf: "center",
+              marginTop: "2vh",
+            }}
+          >
+            <Tooltip title={t("PracticeGraphTooltip")} placement="bottom">
+              <Button
+                width={"7%"}
+                align="center"
+                variant="contained"
+                style={{ minWidth: "40px" }}
+                onClick={handleOpen}
+                disabled={checkDisabledGraphicButton()}
+              >
+                {t("PracticeGraphTooltip")} <TimelineIcon />
+              </Button>
+            </Tooltip>
 
-            // bestAvg5={getBestAvg(5, props.listOfTimes)}
-            // animateAvg5={animateBestAvg(5, props.listOfTimes, props.timerPlayer)}
-            // bestAvg12={getBestAvg(12, props.listOfTimes)}
-            // animateAvg12={animateBestAvg(
-            //   12,
-            //   props.listOfTimes,
-            //   props.timerPlayer
-            // )}
-            // bestAvg50={getBestAvg(50, props.listOfTimes)}
-            // animateAvg50={animateBestAvg(
-            //   50,
-            //   props.listOfTimes,
-            //   props.timerPlayer
-            // )}
-            // bestAvg100={getBestAvg(100, props.listOfTimes)}
-            // animateAvg100={animateBestAvg(
-            //   100,
-            //   props.listOfTimes,
-            //   props.timerPlayer
-            // )}
-          />
+            <ProgressModal
+              open={isModalOpen}
+              onClose={handleClose}
+              listOfTimes={props.listOfTimes}
+              playerName={props.playerName}
+              height={260}
+              width={550}
+              updateInTimesPlayer={props.updateInTimesPlayer}
+            />
+          </div>
         </div>
       </div>
     </React.Fragment>

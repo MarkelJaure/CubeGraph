@@ -120,6 +120,7 @@ export default function CubeTimerController(props) {
             deleteTime={handleDeleteTime}
             plus2={handlePlus2}
             dnf={handleDNF}
+            mode={props.mode}
           />
         </div>
       </div>

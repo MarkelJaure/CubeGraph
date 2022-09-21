@@ -10,8 +10,6 @@ export const getRandomScramble = () => {
 };
 
 export const comparationOfTime = (aTime1, aTime2) => {
-  console.log("Time 1:", aTime1);
-  console.log("Time 2:", aTime2);
   if (!aTime1 && !aTime2) {
     return 0;
   }
@@ -33,7 +31,6 @@ export const comparationOfTime = (aTime1, aTime2) => {
   var realTime1 = getTimeWithPlus2(aTime1);
   var realTime2 = getTimeWithPlus2(aTime2);
   if (realTime1 < realTime2) {
-    console.log("Nuevo pb");
     return 1;
   }
   if (realTime1 > realTime2) {

@@ -106,7 +106,7 @@ const PracticeBarCard = (props) => {
             <Button
               variant="text"
               align="right"
-              width={"7%"}
+              width={"14%"}
               style={{ minWidth: "40px" }}
               onClick={handleDialogOpen}
             >
@@ -124,7 +124,7 @@ const PracticeBarCard = (props) => {
               handleDialogClose();
             }}
           />
-          <Tooltip title={t("PracticeGraphTooltip")} placement="bottom">
+          {/* <Tooltip title={t("PracticeGraphTooltip")} placement="bottom">
             <Button
               width={"7%"}
               align="center"
@@ -140,12 +140,11 @@ const PracticeBarCard = (props) => {
             open={isModalOpen}
             onClose={handleClose}
             listOfTimes={props.listOfTimes}
-            playerName={props.playerName1}
-            playerName2={props.playerName2}
+            playerName={props.playerName}
             height={260}
             width={550}
-            updateInTimesPlayer1={props.updateInTimesPlayer1}
-          />
+            updateInTimesPlayer={props.updateInTimesPlayer}
+          /> */}
         </div>
       </CardContent>
     </Card>

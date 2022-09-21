@@ -9,6 +9,7 @@ import {
   getMedia,
   getBestAvg,
   getCurrAvg,
+  getStandardDeviation,
 } from "../components/lib/ArrayTimesUtil";
 
 const KEY_PLAYER = 32;
@@ -36,24 +37,33 @@ const PracticePage = () => {
   };
 
   const handlePlus2Time = (time) => {
-    listOfTimes.forEach((aTime) => {
+    var tmpList = listOfTimes.map((aTime) => {
       if (aTime.timestamp === time.timestamp) {
         aTime = time;
       }
+      return aTime;
     });
+
+    setListOfTimes(tmpList);
+
     localStorage.setItem("times", JSON.stringify(listOfTimes));
   };
 
   const handleDNFTime = (time) => {
-    listOfTimes.forEach((aTime) => {
+    var tmpList = listOfTimes.map((aTime) => {
       if (aTime.timestamp === time.timestamp) {
         aTime = time;
       }
+      return aTime;
     });
+
+    setListOfTimes(tmpList);
+
     localStorage.setItem("times", JSON.stringify(listOfTimes));
   };
 
   const handleDeleteAllTimes = () => {
+    setListOfTimes([]);
     localStorage.setItem("times", JSON.stringify([]));
   };
 
@@ -76,24 +86,7 @@ const PracticePage = () => {
             />
           </div>
         </div>
-        <RightDashboardLayout
-          actualAvg5={getCurrAvg(5, listOfTimes)}
-          bestAvg5={getBestAvg(5, listOfTimes)}
-          animateAvg5={true}
-          actualAvg12={getCurrAvg(12, listOfTimes)}
-          bestAvg12={getBestAvg(12, listOfTimes)}
-          animateAvg12={animateBestAvg(12, listOfTimes, true)}
-          actualAvg50={getCurrAvg(50, listOfTimes)}
-          bestAvg50={getBestAvg(50, listOfTimes)}
-          animateAvg50={animateBestAvg(50, listOfTimes, true)}
-          actualAvg100={getCurrAvg(100, listOfTimes)}
-          bestAvg100={getBestAvg(100, listOfTimes)}
-          animateAvg100={animateBestAvg(100, listOfTimes, true)}
-          pb={getPB(listOfTimes)}
-          media={getMedia(listOfTimes)}
-          animatePb={true}
-          animateMedia={true}
-        ></RightDashboardLayout>
+        <RightDashboardLayout listOfTimes={listOfTimes}></RightDashboardLayout>
       </div>
     </DashboardLayout>
   );

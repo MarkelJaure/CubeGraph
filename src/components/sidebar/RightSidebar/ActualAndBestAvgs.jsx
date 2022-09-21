@@ -30,6 +30,7 @@ const BestAvg = (props) => (
 const ActualAndBestAvgs = (props) => {
   const { t } = useTranslation();
 
+  console.log(props.ed);
   return (
     <div>
       <TableContainer component={Paper}>
@@ -142,6 +143,16 @@ const ActualAndBestAvgs = (props) => {
               <TableCell align="center" style={styles.tableCell} width="66%">
                 <b>
                   <BestAvg animate={props.animateMedia} bestAvg={props.media} />
+                </b>
+              </TableCell>
+            </TableRow>
+            <TableRow style={styles.tableRow}>
+              <TableCell align="center" style={styles.tableCell} width="33%">
+                σ
+              </TableCell>
+              <TableCell align="center" style={styles.tableCell} width="66%">
+                <b>
+                  <DisplayTime time={props.ed}></DisplayTime>
                 </b>
               </TableCell>
             </TableRow>

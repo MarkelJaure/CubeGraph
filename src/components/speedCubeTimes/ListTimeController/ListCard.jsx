@@ -11,6 +11,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { useTranslation } from "react-i18next";
 import { TablePaginationActions } from "../../lib/TablePaginationActionsUtil";
+import { PRACTICE_MODE } from "../../lib/Constants";
 
 const ListCard = (props) => {
   const { t } = useTranslation();
@@ -45,6 +46,7 @@ const ListCard = (props) => {
         >
           {t("Times")}
         </Typography>
+
         <Typography variant="h5" component="div">
           <TableContainer component={Paper} style={styles.tableContainer}>
             <Table sx={styles.table} size="small">
@@ -87,6 +89,14 @@ const ListCard = (props) => {
             </Table>
           </TableContainer>
         </Typography>
+        {props.mode === PRACTICE_MODE && props.listOfTimes.length === 0 && (
+          <Typography
+            sx={{ fontSize: 18, display: "flex", justifyContent: "center" }}
+            variant="subtitle2"
+          >
+            Actualmente no hay tiempos cargados. Empieza a practicar!
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );

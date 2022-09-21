@@ -2,28 +2,37 @@ import React from "react";
 
 import BodyWrapper from "../BodyWrapper";
 import { RightSidebar } from "./RightNavSidebar";
+import {
+  getPB,
+  getMedia,
+  getBestAvg,
+  getCurrAvg,
+  getStandardDeviation,
+} from "../../lib/ArrayTimesUtil";
 import "../styles.css";
 export const RightDashboardLayout = (props) => {
   return (
     <BodyWrapper>
       <div id="box" className="flex h-screen bg-gray-200">
         <RightSidebar
-          actualAvg5={props.actualAvg5}
-          bestAvg5={props.bestAvg5}
-          animateAvg5={props.animateAvg5}
-          actualAvg12={props.actualAvg12}
-          bestAvg12={props.bestAvg12}
-          animateAvg12={props.animateAvg12}
-          actualAvg50={props.actualAvg50}
-          bestAvg50={props.bestAvg50}
-          animateAvg50={props.animateAvg50}
-          actualAvg100={props.actualAvg100}
-          bestAvg100={props.bestAvg100}
-          animateAvg100={props.animateAvg100}
-          pb={props.pb}
-          animatePb={props.animatePb}
-          media={props.media}
-          animateMedia={props.animateMedia}
+          actualAvg5={getCurrAvg(5, props.listOfTimes)}
+          bestAvg5={getBestAvg(5, props.listOfTimes)}
+          animateAvg5={true}
+          actualAvg12={getCurrAvg(12, props.listOfTimes)}
+          bestAvg12={getBestAvg(12, props.listOfTimes)}
+          animateAvg12={true}
+          actualAvg50={getCurrAvg(50, props.listOfTimes)}
+          bestAvg50={getBestAvg(50, props.listOfTimes)}
+          animateAvg50={true}
+          actualAvg100={getCurrAvg(100, props.listOfTimes)}
+          bestAvg100={getBestAvg(100, props.listOfTimes)}
+          animateAvg100={true}
+          pb={getPB(props.listOfTimes)}
+          media={getMedia(props.listOfTimes)}
+          animatePb={true}
+          animateMedia={true}
+          ed={getStandardDeviation(props.listOfTimes)}
+          listOfTimes={props.listOfTimes}
         />
 
         <div className="flex flex-col flex-1 overflowY-scroll overflowX-hidden ">
