@@ -11,33 +11,53 @@ import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 import AppsIcon from "@mui/icons-material/Apps";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
-import LocaleContext from "../../../LocaleContext";
+import LocaleContext from "../../../contexts/LocaleContext";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 import { US, AR } from "country-flag-icons/react/3x2";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import { useEffect } from "react";
 
-import { getBestAvg, getCurrAvg } from "../../lib/ArrayTimesUtil";
+import {
+  getBestAvg,
+  getCurrAvg,
+  getStandardDeviation,
+  getMedia,
+  getPB,
+} from "../../lib/ArrayTimesUtil";
 import ActualAndBestAvgs from "./ActualAndBestAvgs";
 import { Button, Tooltip } from "@mui/material";
 import ProgressModal from "../../modals/ProgressModal/ProgressModal";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import { getListWithoutDNFs } from "../../lib/ArrayTimesUtil";
+import ListOfTimeContext from "../../../contexts/ListOfTimesContext";
 
 export const RightSidebar = (props) => {
   const { t } = useTranslation();
   const { locale } = useContext(LocaleContext);
+
+  const { listOfTimes } = useContext(ListOfTimeContext);
+  var actualAvg5 = getCurrAvg(5, listOfTimes);
+  var bestAvg5 = getBestAvg(5, listOfTimes);
+  var actualAvg12 = getCurrAvg(12, listOfTimes);
+  var bestAvg12 = getBestAvg(12, listOfTimes);
+  var actualAvg50 = getCurrAvg(50, listOfTimes);
+  var bestAvg50 = getBestAvg(50, listOfTimes);
+  var actualAvg100 = getCurrAvg(100, listOfTimes);
+  var bestAvg100 = getBestAvg(100, listOfTimes);
+  var pb = getPB(listOfTimes);
+  var media = getMedia(listOfTimes);
+  var ed = getStandardDeviation(listOfTimes);
 
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const handleOpen = () => setIsModalOpen(true);
   const handleClose = () => setIsModalOpen(false);
 
   const checkDisabledGraphicButton = () => {
-    if (!props.listOfTimes) {
+    if (!listOfTimes) {
       return true;
     }
-    if (getListWithoutDNFs(props.listOfTimes).length === 0) {
+    if (getListWithoutDNFs(listOfTimes).length === 0) {
       return true;
     }
     return false;
@@ -64,23 +84,23 @@ export const RightSidebar = (props) => {
             }}
           >
             <ActualAndBestAvgs
-              actualAvg5={props.actualAvg5}
-              bestAvg5={props.bestAvg5}
-              animateAvg5={props.animateAvg5}
-              actualAvg12={props.actualAvg12}
-              bestAvg12={props.bestAvg12}
-              animateAvg12={props.animateAvg12}
-              actualAvg50={props.actualAvg50}
-              bestAvg50={props.bestAvg50}
-              animateAvg50={props.animateAvg50}
-              actualAvg100={props.actualAvg100}
-              bestAvg100={props.bestAvg100}
-              animateAvg100={props.animateAvg100}
-              pb={props.pb}
-              animatePb={props.animatePb}
-              media={props.media}
-              animateMedia={props.animateMedia}
-              ed={props.ed}
+              actualAvg5={actualAvg5}
+              bestAvg5={bestAvg5}
+              animateAvg5={true}
+              actualAvg12={actualAvg12}
+              bestAvg12={bestAvg12}
+              animateAvg12={true}
+              actualAvg50={actualAvg50}
+              bestAvg50={bestAvg50}
+              animateAvg50={true}
+              actualAvg100={actualAvg100}
+              bestAvg100={bestAvg100}
+              animateAvg100={true}
+              pb={pb}
+              animatePb={true}
+              media={media}
+              animateMedia={true}
+              ed={ed}
             />
           </div>
           <div
@@ -105,7 +125,6 @@ export const RightSidebar = (props) => {
             <ProgressModal
               open={isModalOpen}
               onClose={handleClose}
-              listOfTimes={props.listOfTimes}
               playerName={props.playerName}
               height={260}
               width={550}

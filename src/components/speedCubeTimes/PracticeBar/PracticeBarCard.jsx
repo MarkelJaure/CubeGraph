@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -14,9 +14,11 @@ import { useTranslation } from "react-i18next";
 import AnimateOnChange from "react-animate-on-change";
 import "../styles.css";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import ListOfTimeContext from "../../../contexts/ListOfTimesContext";
 
 const PracticeBarCard = (props) => {
   const { t } = useTranslation();
+  const { handleDeleteAllTimes } = useContext(ListOfTimeContext);
 
   const [categorySelected, setCategorySelected] = useState("3x3");
   function handleChangeLenguaje(event) {
@@ -26,16 +28,6 @@ const PracticeBarCard = (props) => {
   const [isOpenDialog, setIsOpenDialog] = React.useState(false);
   const handleDialogOpen = () => setIsOpenDialog(true);
   const handleDialogClose = () => setIsOpenDialog(false);
-
-  const checkDisabledGraphicButton = () => {
-    if (!props.listOfTimes) {
-      return true;
-    }
-    if (getListWithoutDNFs(props.listOfTimes).length === 0) {
-      return true;
-    }
-    return false;
-  };
 
   return (
     <Card
@@ -134,7 +126,7 @@ const PracticeBarCard = (props) => {
             text={t("Sure to delete all?")}
             cancel={handleDialogClose}
             accept={() => {
-              props.deleteAll();
+              handleDeleteAllTimes();
               handleDialogClose();
             }}
           />

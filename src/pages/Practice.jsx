@@ -12,6 +12,8 @@ import {
   getStandardDeviation,
 } from "../components/lib/ArrayTimesUtil";
 
+import ListOfTimeContext from "../contexts/ListOfTimesContext";
+
 const KEY_PLAYER = 32;
 const KEY_NAME = "Space";
 const NAME_PLAYER = "Player 1";
@@ -32,14 +34,14 @@ const PracticePage = () => {
     if (listOfTimes.includes(time)) {
       var tmpList = listOfTimes.filter((aTime) => aTime !== time);
       setListOfTimes(tmpList);
+      localStorage.setItem("times", JSON.stringify(tmpList));
     }
-    localStorage.setItem("times", JSON.stringify(tmpList));
   };
 
   const handlePlus2Time = (time) => {
     var tmpList = listOfTimes.map((aTime) => {
-      if (aTime.timestamp === time.timestamp) {
-        aTime = time;
+      if (aTime === time) {
+        aTime.plus2 = !aTime.plus2;
       }
       return aTime;
     });
@@ -51,8 +53,8 @@ const PracticePage = () => {
 
   const handleDNFTime = (time) => {
     var tmpList = listOfTimes.map((aTime) => {
-      if (aTime.timestamp === time.timestamp) {
-        aTime = time;
+      if (aTime === time) {
+        aTime.dnf = !aTime.dnf;
       }
       return aTime;
     });
@@ -69,25 +71,36 @@ const PracticePage = () => {
 
   return (
     <DashboardLayout>
-      <div style={styles.container}>
-        <div style={styles.div}>
-          <div style={styles.div2}>
-            <CubeTimerController
-              mode={PRACTICE_MODE}
-              keyValue={KEY_PLAYER}
-              playerName={NAME_PLAYER}
-              keyName={KEY_NAME}
-              initialTimes={listOfTimes}
-              addTime={handleAddTime}
-              deleteTime={handleDeleteTime}
-              plus2={handlePlus2Time}
-              dnf={handleDNFTime}
-              deleteAll={handleDeleteAllTimes}
-            />
+      <ListOfTimeContext.Provider
+        value={{
+          listOfTimes,
+          handleAddTime,
+          handleDeleteTime,
+          handlePlus2Time,
+          handleDNFTime,
+          handleDeleteAllTimes,
+        }}
+      >
+        <div style={styles.container}>
+          <div style={styles.div}>
+            <div style={styles.div2}>
+              <CubeTimerController
+                mode={PRACTICE_MODE}
+                keyValue={KEY_PLAYER}
+                playerName={NAME_PLAYER}
+                keyName={KEY_NAME}
+                initialTimes={listOfTimes}
+                addTime={handleAddTime}
+                deleteTime={handleDeleteTime}
+                plus2={handlePlus2Time}
+                dnf={handleDNFTime}
+                deleteAll={handleDeleteAllTimes}
+              />
+            </div>
           </div>
+          <RightDashboardLayout></RightDashboardLayout>
         </div>
-        <RightDashboardLayout listOfTimes={listOfTimes}></RightDashboardLayout>
-      </div>
+      </ListOfTimeContext.Provider>
     </DashboardLayout>
   );
 };

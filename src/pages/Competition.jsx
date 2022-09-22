@@ -5,6 +5,7 @@ import Resumen from "../components/Resumen/Resumen";
 import CubeTimerController from "../components/speedCubeTimes/CubeTimerController";
 import { COMPETITION_MODE } from "../components/lib/Constants";
 import BodyWrapper from "../components/sidebar/BodyWrapper";
+import ListOfTimesContext from "../contexts/ListOfTimesContext";
 
 const KEY_PLAYER_1 = 32;
 const NAME_PLAYER_1 = "Player 1";
@@ -24,15 +25,15 @@ const CompetitionPage = () => {
     setTimesPlayer1((timesPlayer1) => [...timesPlayer1, time]);
   };
 
+  const handleAddTimePlayer2 = (time) => {
+    setTimesPlayer2((timesPlayer2) => [...timesPlayer2, time]);
+  };
+
   const handleDeleteTimePlayer1 = (time) => {
     if (timesPlayer1.includes(time)) {
       var tmpList = timesPlayer1.filter((aTime) => aTime !== time);
       setTimesPlayer1(tmpList);
     }
-  };
-
-  const handleAddTimePlayer2 = (time) => {
-    setTimesPlayer2((timesPlayer2) => [...timesPlayer2, time]);
   };
 
   const handleDeleteTimePlayer2 = (time) => {
@@ -41,25 +42,50 @@ const CompetitionPage = () => {
       setTimesPlayer2(tmpList);
     }
   };
+
   const handlePlus2TimePlayer1 = (time) => {
-    setUpdateInTimesPlayer1(!updateInTimesPlayer1);
-    var tmpList = timesPlayer1;
-    tmpList.forEach((aTime) => {
-      if (aTime.timestamp === time.timestamp) {
-        aTime = time;
+    var tmpList = timesPlayer1.map((aTime) => {
+      if (aTime === time) {
+        aTime.plus2 = !aTime.plus2;
       }
+      return aTime;
     });
+
     setTimesPlayer1(tmpList);
+    setUpdateInTimesPlayer1(!updateInTimesPlayer1);
   };
 
-  const handleDNFTimePlayer1 = (time) => {
-    setUpdateInTimesPlayer1(!updateInTimesPlayer1);
-  };
   const handlePlus2TimePlayer2 = (time) => {
+    var tmpList = timesPlayer2.map((aTime) => {
+      if (aTime === time) {
+        aTime.plus2 = !aTime.plus2;
+      }
+      return aTime;
+    });
+
+    setTimesPlayer2(tmpList);
     setUpdateInTimesPlayer2(!updateInTimesPlayer2);
   };
 
+  const handleDNFTimePlayer1 = (time) => {
+    var tmpList = timesPlayer1.map((aTime) => {
+      if (aTime === time) {
+        aTime.dnf = !aTime.dnf;
+      }
+      return aTime;
+    });
+    setTimesPlayer1(tmpList);
+    setUpdateInTimesPlayer1(!updateInTimesPlayer1);
+  };
+
   const handleDNFTimePlayer2 = (time) => {
+    var tmpList = timesPlayer2.map((aTime) => {
+      if (aTime === time) {
+        aTime.dnf = !aTime.dnf;
+      }
+      return aTime;
+    });
+    setTimesPlayer2(tmpList);
     setUpdateInTimesPlayer2(!updateInTimesPlayer2);
   };
 
@@ -67,20 +93,27 @@ const CompetitionPage = () => {
     <DashboardLayout>
       <BodyWrapper>
         <div style={styles.container}>
-          <div style={styles.div}>
-            <div style={styles.div2}>
-              <CubeTimerController
-                mode={COMPETITION_MODE}
-                keyValue={KEY_PLAYER_1}
-                keyName={KEY_NAME_1}
-                playerName={NAME_PLAYER_1}
-                addTime={handleAddTimePlayer1}
-                deleteTime={handleDeleteTimePlayer1}
-                plus2={handlePlus2TimePlayer1}
-                dnf={handleDNFTimePlayer1}
-              />
+          <ListOfTimesContext.Provider
+            value={{
+              listOfTimes: timesPlayer1,
+              handleAddTime: handleAddTimePlayer1,
+              handleDeleteTime: handleDeleteTimePlayer1,
+              handlePlus2Time: handlePlus2TimePlayer1,
+              handleDNFTime: handleDNFTimePlayer1,
+              handleDeleteAllTimes: () => {},
+            }}
+          >
+            <div style={styles.div}>
+              <div style={styles.div2}>
+                <CubeTimerController
+                  mode={COMPETITION_MODE}
+                  keyValue={KEY_PLAYER_1}
+                  keyName={KEY_NAME_1}
+                  playerName={NAME_PLAYER_1}
+                />
+              </div>
             </div>
-          </div>
+          </ListOfTimesContext.Provider>
           <div style={styles.div}>
             <div style={styles.div2}>
               <Resumen
@@ -93,20 +126,27 @@ const CompetitionPage = () => {
               />
             </div>
           </div>
-          <div style={styles.div}>
-            <div style={styles.div2}>
-              <CubeTimerController
-                mode={COMPETITION_MODE}
-                keyValue={KEY_PLAYER_2}
-                keyName={KEY_NAME_2}
-                playerName={NAME_PLAYER_2}
-                addTime={handleAddTimePlayer2}
-                deleteTime={handleDeleteTimePlayer2}
-                plus2={handlePlus2TimePlayer2}
-                dnf={handleDNFTimePlayer2}
-              />
+          <ListOfTimesContext.Provider
+            value={{
+              listOfTimes: timesPlayer2,
+              handleAddTime: handleAddTimePlayer2,
+              handleDeleteTime: handleDeleteTimePlayer2,
+              handlePlus2Time: handlePlus2TimePlayer2,
+              handleDNFTime: handleDNFTimePlayer2,
+              handleDeleteAllTimes: () => {},
+            }}
+          >
+            <div style={styles.div}>
+              <div style={styles.div2}>
+                <CubeTimerController
+                  mode={COMPETITION_MODE}
+                  keyValue={KEY_PLAYER_2}
+                  keyName={KEY_NAME_2}
+                  playerName={NAME_PLAYER_2}
+                />
+              </div>
             </div>
-          </div>
+          </ListOfTimesContext.Provider>
         </div>
       </BodyWrapper>
     </DashboardLayout>

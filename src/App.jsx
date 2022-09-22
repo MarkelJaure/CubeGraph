@@ -2,7 +2,7 @@ import React, { Suspense, useState } from "react";
 import Loading from "./components/lib/Loading";
 import Routes from "./Routes";
 import i18n from "./i18n";
-import LocaleContext from "./LocaleContext";
+import LocaleContext from "./contexts/LocaleContext";
 
 const App = () => {
   const [locale, setLocale] = useState(i18n.language);

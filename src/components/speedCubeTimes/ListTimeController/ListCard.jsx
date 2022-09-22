@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -12,12 +12,14 @@ import TableRow from "@mui/material/TableRow";
 import { useTranslation } from "react-i18next";
 import { TablePaginationActions } from "../../lib/TablePaginationActionsUtil";
 import { PRACTICE_MODE } from "../../lib/Constants";
+import ListOfTimeContext from "../../../contexts/ListOfTimesContext";
 
 const ListCard = (props) => {
   const { t } = useTranslation();
+  const { listOfTimes } = useContext(ListOfTimeContext);
 
   const isTheBestTime = (time) => {
-    return getPB(props.listOfTimes) === time;
+    return getPB(listOfTimes) === time;
   };
 
   const [page, setPage] = React.useState(0);
@@ -33,7 +35,7 @@ const ListCard = (props) => {
   };
 
   const checkHidden = () => {
-    return props.listOfTimes.length <= rowsPerPage;
+    return listOfTimes.length <= rowsPerPage;
   };
 
   return (
@@ -51,17 +53,14 @@ const ListCard = (props) => {
           <TableContainer component={Paper} style={styles.tableContainer}>
             <Table sx={styles.table} size="small">
               <TableBody>
-                {reverse(props.listOfTimes)
+                {reverse(listOfTimes)
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((time, index) => {
                     return (
                       <SingleCubeTimeRow
-                        index={props.listOfTimes.indexOf(time)}
+                        index={listOfTimes.indexOf(time)}
                         time={time}
                         isBestTime={isTheBestTime(time)}
-                        deleteTime={props.deleteTime}
-                        plus2={props.plus2}
-                        dnf={props.dnf}
                       />
                     );
                   })}
@@ -71,7 +70,7 @@ const ListCard = (props) => {
                   <TablePagination
                     rowsPerPageOptions={[10]}
                     colSpan={6}
-                    count={props.listOfTimes.length}
+                    count={listOfTimes.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     SelectProps={{
@@ -89,7 +88,7 @@ const ListCard = (props) => {
             </Table>
           </TableContainer>
         </Typography>
-        {props.mode === PRACTICE_MODE && props.listOfTimes.length === 0 && (
+        {props.mode === PRACTICE_MODE && listOfTimes.length === 0 && (
           <Typography
             sx={{ fontSize: 18, display: "flex", justifyContent: "center" }}
             variant="subtitle2"

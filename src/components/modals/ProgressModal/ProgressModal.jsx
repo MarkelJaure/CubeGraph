@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
@@ -6,8 +6,11 @@ import AppBar from "@mui/material/AppBar";
 import { getListWithoutDNFs } from "../../lib/ArrayTimesUtil";
 import ProgressGraphic from "./ProgressGraphic";
 import Box from "@mui/material/Box";
+import ListOfTimeContext from "../../../contexts/ListOfTimesContext";
 
 const ProgressModal = (props) => {
+  const { listOfTimes } = useContext(ListOfTimeContext);
+
   return (
     <>
       <Modal
@@ -31,7 +34,7 @@ const ProgressModal = (props) => {
             style={style.modal}
           >
             <ProgressGraphic
-              listOfTimes={getListWithoutDNFs(props.listOfTimes)}
+              listOfTimes={getListWithoutDNFs(listOfTimes)}
               width={props.width}
               height={props.height}
               playerName={props.playerName}

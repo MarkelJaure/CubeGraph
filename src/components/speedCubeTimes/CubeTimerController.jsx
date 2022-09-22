@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TimeCard from "./TimeController/TimeCard";
 import ListCard from "./ListTimeController/ListCard";
 import PracticeBarCard from "./PracticeBar/PracticeBarCard";
 import { getCurrAvg, getMedia, getPB } from "../lib/ArrayTimesUtil";
 import { comparationOfTime, getRandomScramble } from "../lib/SingleTimeUtil";
 import { PRACTICE_MODE } from "../lib/Constants";
+import ListOfTimeContext from "../../contexts/ListOfTimesContext";
 
 export default function CubeTimerController(props) {
-  const [listOfTimes, setListOfTimes] = useState(
-    props.initialTimes ? props.initialTimes : []
-  );
+  const { listOfTimes, handleAddTime, handleDeleteAllTimes } =
+    useContext(ListOfTimeContext);
+
   const [actualScramble, setActualScramble] = useState(getRandomScramble());
 
   const handleNewTime = (time) => {
@@ -20,64 +21,9 @@ export default function CubeTimerController(props) {
       dnf: false,
       scramble: actualScramble,
     };
-    setListOfTimes((listOfTimes) => [...listOfTimes, newTime]);
+    handleAddTime(newTime);
+
     setActualScramble(getRandomScramble());
-
-    if (props.addTime) {
-      props.addTime(newTime);
-    }
-  };
-
-  const handleDeleteTime = (time) => {
-    if (listOfTimes.includes(time)) {
-      var tmpList = listOfTimes.filter((aTime) => aTime !== time);
-      setListOfTimes(tmpList);
-
-      if (props.deleteTime) {
-        props.deleteTime(time);
-      }
-    }
-  };
-
-  const handleDeleteAllTimes = () => {
-    setListOfTimes([]);
-    if (props.deleteAll) {
-      props.deleteAll();
-    }
-  };
-
-  const handlePlus2 = (time) => {
-    if (listOfTimes.includes(time)) {
-      var tmpList = listOfTimes.map((aTime) => {
-        if (aTime === time) {
-          aTime.plus2 = !aTime.plus2;
-        }
-        return aTime;
-      });
-
-      setListOfTimes(tmpList);
-
-      if (props.plus2) {
-        props.plus2(time);
-      }
-    }
-  };
-
-  const handleDNF = (time) => {
-    if (listOfTimes.includes(time)) {
-      var tmpList = listOfTimes.map((aTime) => {
-        if (aTime === time) {
-          aTime.dnf = !aTime.dnf;
-        }
-        return aTime;
-      });
-
-      setListOfTimes(tmpList);
-
-      if (props.dnf) {
-        props.dnf(time);
-      }
-    }
   };
 
   return (
@@ -89,7 +35,6 @@ export default function CubeTimerController(props) {
             keyValue={props.keyValue}
             keyName={props.keyName}
             notifyNewTime={handleNewTime}
-            listOfTimes={listOfTimes}
             mode={props.mode}
           />
         </div>
@@ -109,19 +54,11 @@ export default function CubeTimerController(props) {
               avg12={getCurrAvg(12, listOfTimes)}
               avg50={getCurrAvg(50, listOfTimes)}
               avg100={getCurrAvg(100, listOfTimes)}
-              deleteAll={handleDeleteAllTimes}
-              listOfTimes={listOfTimes}
             />
           )}
         </div>
         <div style={styles.flexComponent}>
-          <ListCard
-            listOfTimes={listOfTimes}
-            deleteTime={handleDeleteTime}
-            plus2={handlePlus2}
-            dnf={handleDNF}
-            mode={props.mode}
-          />
+          <ListCard mode={props.mode} />
         </div>
       </div>
     </>

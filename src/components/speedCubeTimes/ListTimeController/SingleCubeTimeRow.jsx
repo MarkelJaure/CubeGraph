@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Button from "@mui/material/Button";
 import { TableCell, TableRow } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DisplayCubeTime from "../../DisplayTime/DisplayCubeTime";
 import { Tooltip } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import ListOfTimeContext from "../../../contexts/ListOfTimesContext";
 
 const SingleCubeTimeRow = (props) => {
   const { t } = useTranslation();
+  const { handleDeleteTime, handlePlus2Time, handleDNFTime } =
+    useContext(ListOfTimeContext);
 
   return (
     <TableRow key={props.time.timestamp} style={styles.tableRow}>
@@ -46,7 +49,7 @@ const SingleCubeTimeRow = (props) => {
               minWidth: "30px",
               minHeight: "30px",
             }}
-            onClick={() => props.plus2(props.time)}
+            onClick={() => handlePlus2Time(props.time)}
           >
             +2
           </Button>
@@ -61,7 +64,7 @@ const SingleCubeTimeRow = (props) => {
               minHeight: "30px",
             }}
             variant="text"
-            onClick={() => props.dnf(props.time)}
+            onClick={() => handleDNFTime(props.time)}
           >
             DNF
           </Button>
@@ -71,7 +74,7 @@ const SingleCubeTimeRow = (props) => {
         <Tooltip title={t("DeleteTooltip")} placement="bottom">
           <Button
             variant="text"
-            onClick={() => props.deleteTime(props.time)}
+            onClick={() => handleDeleteTime(props.time)}
             style={{
               minWidth: "30px",
               minHeight: "30px",

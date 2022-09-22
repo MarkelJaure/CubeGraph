@@ -11,7 +11,7 @@ import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 import AppsIcon from "@mui/icons-material/Apps";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
-import LocaleContext from "../../../LocaleContext";
+import LocaleContext from "../../../contexts/LocaleContext";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 import { US, AR } from "country-flag-icons/react/3x2";
