@@ -3,15 +3,6 @@ import { RightDashboardLayout } from "../components/sidebar/RightSidebar/RighSid
 import React, { useState, useEffect } from "react";
 import CubeTimerController from "../components/speedCubeTimes/CubeTimerController";
 import { PRACTICE_MODE } from "../components/lib/Constants";
-
-import {
-  getPB,
-  getMedia,
-  getBestAvg,
-  getCurrAvg,
-  getStandardDeviation,
-} from "../components/lib/ArrayTimesUtil";
-
 import ListOfTimeContext from "../contexts/ListOfTimesContext";
 
 const KEY_PLAYER = 32;
@@ -123,12 +114,12 @@ const styles = {
   },
 };
 
-function animateBestAvg(aNumber, listOfTimes, timerPlayer) {
-  return (
-    getCurrAvg(aNumber, listOfTimes) <
-      getBestAvg(aNumber, listOfTimes.slice(0, listOfTimes.length - 1)) &&
-    !timerPlayer
-  );
-}
+// function animateBestAvg(aNumber, listOfTimes, timerPlayer) {
+//   return (
+//     getCurrAvg(aNumber, listOfTimes) <
+//       getBestAvg(aNumber, listOfTimes.slice(0, listOfTimes.length - 1)) &&
+//     !timerPlayer
+//   );
+// }
 
 export default PracticePage;

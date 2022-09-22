@@ -9,12 +9,7 @@ import {
   TableHead,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import {
-  getCurrAvg,
-  getMedia,
-  getPB,
-  getRoundsWin,
-} from "../../lib/ArrayTimesUtil";
+import { getCurrAvg, getPB, getRoundsWin } from "../../lib/ArrayTimesUtil";
 import DisplayCubeTime from "../../DisplayTime/DisplayCubeTime";
 import { comparationOfTime } from "../../lib/SingleTimeUtil";
 

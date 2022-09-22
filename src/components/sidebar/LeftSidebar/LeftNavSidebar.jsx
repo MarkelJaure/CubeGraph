@@ -14,7 +14,6 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import LocaleContext from "../../../contexts/LocaleContext";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-import { US, AR } from "country-flag-icons/react/3x2";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import { useEffect } from "react";
 

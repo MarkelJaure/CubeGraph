@@ -6,7 +6,6 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
 } from "recharts";
 import React, { useEffect, useState } from "react";
 import { getTimeWithPlus2 } from "../../lib/SingleTimeUtil";

@@ -4,8 +4,6 @@ import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import TimeCardText from "./TimeCardText";
 import { getBestAvg, getCurrAvg } from "../../lib/ArrayTimesUtil";
-import BestAvgs from "./BestAvgs";
-import { PRACTICE_MODE } from "../../lib/Constants";
 
 const TimeCard = (props) => {
   const [timerPlayer, setTimerPlayer] = useState(false);

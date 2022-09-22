@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Typography from "@mui/material/Typography";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
@@ -13,11 +13,7 @@ import SwipeableViews from "react-swipeable-views";
 import WinnerModalTab from "./WinnerModalTab";
 import StatsModalTab from "./StatsModalTab";
 import GraphicModalTab from "./GraphicModalTab";
-import {
-  getMedia,
-  getListWithoutDNFs,
-  getCurrAvg,
-} from "../../lib/ArrayTimesUtil";
+import { getListWithoutDNFs, getCurrAvg } from "../../lib/ArrayTimesUtil";
 import { useTranslation } from "react-i18next";
 
 function TabPanel(props) {

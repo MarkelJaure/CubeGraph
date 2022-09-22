@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Stopwatch from "./Stopwatch";
 import { useTranslation } from "react-i18next";
-import { Button, TextField, Tooltip } from "@mui/material";
-import KeyboardIcon from "@mui/icons-material/Keyboard";
 
 const TimeCardText = (props) => {
   const { t } = useTranslation();

@@ -7,7 +7,6 @@ import {
   TableCell,
   TableRow,
   TableBody,
-  IconButton,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";

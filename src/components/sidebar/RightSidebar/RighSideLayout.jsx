@@ -2,14 +2,8 @@ import React from "react";
 
 import BodyWrapper from "../BodyWrapper";
 import { RightSidebar } from "./RightNavSidebar";
-import {
-  getPB,
-  getMedia,
-  getBestAvg,
-  getCurrAvg,
-  getStandardDeviation,
-} from "../../lib/ArrayTimesUtil";
 import "../styles.css";
+
 export const RightDashboardLayout = (props) => {
   return (
     <BodyWrapper>

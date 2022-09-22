@@ -1,22 +1,6 @@
-/* eslint-disable react/display-name, jsx-a11y/click-events-have-key-events */
-import { Navigation } from "react-minimal-side-navigation";
-import { useHistory, useLocation } from "react-router-dom";
-import Icon from "awesome-react-icons";
 import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../i18n";
-
-import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
-
-import AppsIcon from "@mui/icons-material/Apps";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-
 import LocaleContext from "../../../contexts/LocaleContext";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-
-import { US, AR } from "country-flag-icons/react/3x2";
-import getUnicodeFlagIcon from "country-flag-icons/unicode";
-import { useEffect } from "react";
 
 import {
   getBestAvg,

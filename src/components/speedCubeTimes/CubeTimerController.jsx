@@ -8,8 +8,7 @@ import { PRACTICE_MODE } from "../lib/Constants";
 import ListOfTimeContext from "../../contexts/ListOfTimesContext";
 
 export default function CubeTimerController(props) {
-  const { listOfTimes, handleAddTime, handleDeleteAllTimes } =
-    useContext(ListOfTimeContext);
+  const { listOfTimes, handleAddTime } = useContext(ListOfTimeContext);
 
   const [actualScramble, setActualScramble] = useState(getRandomScramble());
 
