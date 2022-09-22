@@ -42,5 +42,6 @@
   "DeleteTooltip": "Delete time",
   "DeleteAllTooltip": "Delete all times",
   "PracticeGraphTooltip": "See personal graph",
-  "InputFromKeyboardTooltip": "Upload time manually"
+  "InputFromKeyboardTooltip": "Upload time manually",
+  "LightModeTooltip": "Change Theme"
 }
