@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DisplayTime from "../../DisplayTime/DisplayTime";
 import {
   Table,
@@ -7,6 +7,8 @@ import {
   TableRow,
   TableBody,
   TableHead,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";
@@ -14,6 +16,9 @@ import AnimateOnChange from "react-animate-on-change";
 
 import "../../speedCubeTimes/styles.css";
 import DisplayCubeTime from "../../DisplayTime/DisplayCubeTime";
+
+import "../../../contexts/themes.css";
+import ThemeContext from "../../../contexts/ThemeContext";
 
 const BestAvg = (props) => (
   <AnimateOnChange
@@ -27,8 +32,8 @@ const BestAvg = (props) => (
 
 const ActualAndBestAvgs = (props) => {
   const { t } = useTranslation();
+  const { theme, setTheme } = useContext(ThemeContext);
 
-  console.log(props.ed);
   return (
     <div>
       <TableContainer component={Paper}>

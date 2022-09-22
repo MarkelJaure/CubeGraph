@@ -1,0 +1,30 @@
+.bg-light {
+  background-color: #ffffff;
+}
+.bg-dark {
+  background-color: #2b303b;
+}
+
+.tx-p-light {
+  color: #363c49;
+}
+
+.tx-p-dark {
+  color: #ffffff;
+}
+
+.tx-s-light {
+  color: #58627d;
+}
+
+.tx-s-dark {
+  color: #c4c9d4;
+}
+
+.bt-light {
+  background-color: #1976d2;
+}
+
+.bt-dark {
+  background-color: #afcee9;
+}

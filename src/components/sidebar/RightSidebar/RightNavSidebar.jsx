@@ -16,6 +16,9 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import { getListWithoutDNFs } from "../../lib/ArrayTimesUtil";
 import ListOfTimeContext from "../../../contexts/ListOfTimesContext";
 
+import "../../../contexts/themes.css";
+import ThemeContext from "../../../contexts/ThemeContext";
+
 export const RightSidebar = (props) => {
   const { t } = useTranslation();
   const { locale } = useContext(LocaleContext);
@@ -32,6 +35,8 @@ export const RightSidebar = (props) => {
   var pb = getPB(listOfTimes);
   var media = getMedia(listOfTimes);
   var ed = getStandardDeviation(listOfTimes);
+
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const handleOpen = () => setIsModalOpen(true);
@@ -50,7 +55,7 @@ export const RightSidebar = (props) => {
   return (
     <React.Fragment>
       {/* Sidebar */}
-      <div className={`overflow-y-auto bg-white`} style={{ width: 350 }}>
+      <div className={`overflow-y-auto bg-${theme}`} style={{ width: 350 }}>
         <div
           className="my-8 "
           style={{
@@ -95,6 +100,7 @@ export const RightSidebar = (props) => {
           >
             <Tooltip title={t("PracticeGraphTooltip")} placement="bottom">
               <Button
+                className={`bt-${theme}`}
                 width={"7%"}
                 align="center"
                 variant="contained"
