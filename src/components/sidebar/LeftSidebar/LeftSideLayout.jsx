@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import BodyWrapper from "../BodyWrapper";
 import { NavSidebar } from "./LeftNavSidebar";
 import "../styles.css";
+import ThemeContext from "../../../contexts/ThemeContext";
 
 export const DashboardLayout = ({ children }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <BodyWrapper>
-      <div id="box" className="flex h-screen bg-gray-200">
+      <div id="box" className={`flex h-screen bg2-${theme}`}>
         <NavSidebar />
 
         <div className="flex flex-col flex-1 overflowY-scroll overflowX-hidden">

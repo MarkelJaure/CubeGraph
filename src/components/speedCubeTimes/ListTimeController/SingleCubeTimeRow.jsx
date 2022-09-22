@@ -45,7 +45,7 @@ const SingleCubeTimeRow = (props) => {
         <Tooltip title={t("Plus2Tooltip")} placement="bottom">
           <Button
             style={{
-              backgroundColor: props.time.plus2 ? "#3b82f64d" : "white",
+              backgroundColor: props.time.plus2 ? "#3b82f64d" : "",
               minWidth: "30px",
               minHeight: "30px",
             }}
@@ -59,7 +59,7 @@ const SingleCubeTimeRow = (props) => {
         <Tooltip title={t("DNFTooltip")} placement="bottom">
           <Button
             style={{
-              backgroundColor: props.time.dnf ? "#3b82f64d" : "white",
+              backgroundColor: props.time.dnf ? "#3b82f64d" : "",
               minWidth: "30px",
               minHeight: "30px",
             }}

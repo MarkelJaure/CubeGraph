@@ -6,3 +6,8 @@ export const NULL_TIME = -2;
 //Modes of SpeedCube
 export const PRACTICE_MODE = 0;
 export const COMPETITION_MODE = 1;
+
+
+//Themes:
+export const LIGHT = 'light';
+export const DARK = 'dark';

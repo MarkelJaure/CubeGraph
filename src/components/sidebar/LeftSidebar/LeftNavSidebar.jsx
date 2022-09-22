@@ -16,10 +16,12 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import { useEffect } from "react";
+import ThemeContext from "../../../contexts/ThemeContext";
 
 export const NavSidebar = () => {
   const { t } = useTranslation();
   const { locale } = useContext(LocaleContext);
+  const { theme } = useContext(ThemeContext);
 
   const history = useHistory();
   const location = useLocation();
@@ -67,7 +69,7 @@ export const NavSidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 ease-out transform translate-x-0 bg-white border-r-2 lg:translate-x-0 lg:static lg:inset-0 ${
+        className={`fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 ease-out transform translate-x-0 bg-${theme} border-r-2 lg:translate-x-0 lg:static lg:inset-0 ${
           isSidebarOpen ? "ease-out translate-x-0" : "ease-in -translate-x-full"
         }`}
       >
@@ -80,13 +82,14 @@ export const NavSidebar = () => {
           ></img>
         </div>
         <div className="flex items-center justify-center  text-center py-6">
-          <span className="mx-2 text-2xl font-semibold text-black">
+          <span className={`mx-2 text-2xl font-semibold tx-p-${theme}`}>
             CubeGraph
           </span>
         </div>
 
         {/* https://github.com/abhijithvijayan/react-minimal-side-navigation */}
         <Navigation
+          className={`${theme}`}
           activeItemId={location.pathname}
           onSelect={({ itemId }) => {
             history.push(itemId);

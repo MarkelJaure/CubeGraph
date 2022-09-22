@@ -1,7 +1,8 @@
 import React from "react";
+import { LIGHT } from "../components/lib/Constants";
 
 const defaultValue = {
-    theme: 'light',
+    theme: LIGHT,
     setTheme: () => { }
 }
 

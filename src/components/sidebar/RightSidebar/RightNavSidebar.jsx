@@ -13,6 +13,7 @@ import ActualAndBestAvgs from "./ActualAndBestAvgs";
 import { Button, Tooltip } from "@mui/material";
 import ProgressModal from "../../modals/ProgressModal/ProgressModal";
 import TimelineIcon from "@mui/icons-material/Timeline";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import { getListWithoutDNFs } from "../../lib/ArrayTimesUtil";
 import ListOfTimeContext from "../../../contexts/ListOfTimesContext";
 
@@ -36,7 +37,7 @@ export const RightSidebar = (props) => {
   var media = getMedia(listOfTimes);
   var ed = getStandardDeviation(listOfTimes);
 
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, changeTheme } = useContext(ThemeContext);
 
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const handleOpen = () => setIsModalOpen(true);
@@ -72,6 +73,24 @@ export const RightSidebar = (props) => {
               marginTop: "2vh",
             }}
           >
+            <Tooltip title={t("LightModeTooltip")} placement="bottom">
+              <Button
+                width={"7%"}
+                align="center"
+                variant="contained"
+                style={{ minWidth: "40px" }}
+                onClick={changeTheme}
+              >
+                <LightbulbIcon />
+              </Button>
+            </Tooltip>
+          </div>
+          <div
+            style={{
+              alignSelf: "center",
+              marginTop: "2vh",
+            }}
+          >
             <ActualAndBestAvgs
               actualAvg5={actualAvg5}
               bestAvg5={bestAvg5}
@@ -100,7 +119,6 @@ export const RightSidebar = (props) => {
           >
             <Tooltip title={t("PracticeGraphTooltip")} placement="bottom">
               <Button
-                className={`bt-${theme}`}
                 width={"7%"}
                 align="center"
                 variant="contained"

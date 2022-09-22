@@ -5,6 +5,13 @@
   background-color: #2b303b;
 }
 
+.bg2-light {
+  background-color: #edf2f7;
+}
+.bg2-dark {
+  background-color: #545e73;
+}
+
 .tx-p-light {
   color: #363c49;
 }
@@ -27,4 +34,7 @@
 
 .bt-dark {
   background-color: #afcee9;
+}
+
+.nav-light {
 }
